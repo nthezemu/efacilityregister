@@ -1,0 +1,2 @@
+class FacilityPartner < ApplicationRecord
+end
