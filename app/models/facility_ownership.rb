@@ -1,0 +1,2 @@
+class FacilityOwnership < ApplicationRecord
+end
