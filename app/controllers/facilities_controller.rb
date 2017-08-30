@@ -1,4 +1,12 @@
 class FacilitiesController < ApplicationController
+  
+  def list
+    @facility=facility.all
+    end
+
+  def delete
+  end
+
   def index
   end
 
@@ -12,11 +20,15 @@ class FacilitiesController < ApplicationController
   end
 
   def edit
+    
   end
 
   def create
   end
+   
 
   def show
   end
+
+  
 end
