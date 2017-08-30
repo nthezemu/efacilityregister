@@ -1,2 +1,155 @@
-<h1>Facilities#show</h1>
-<p>Find me in app/views/facilities/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    
+    <div class="col col-md-offset-2 col-md-10"></div>
+    <br/><br/><br/>
+    <fieldset>
+  <legend>
+    Facility details
+  </legend>
+
+  <fieldset style="border: 1px solid #eee;">
+  <table style="margin: auto;" cellpadding="10" cellspacing="5">
+    <tr>
+      <td colspan="3">
+        <p id="notice"><%= notice %></p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <strong>Facility Id:</strong>
+      </td>
+      <td>
+        :
+      </td>
+      <td>
+        <%= @facility.facility_id %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <strong> Name:</strong>
+      </td>
+      <td>
+        :
+      </td>
+      <td>
+       <%= @facility.name %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <strong>Description:</strong>
+      </td>
+      <td>
+        :
+      </td>
+      <td>
+       <%= @facility.description %>
+      </td>
+    </tr>
+
+
+    <tr>
+      <td>
+        <strong>Cell Location:</strong>
+      </td>
+      <td>
+        :
+      </td>
+      <td>
+        <%= @facility.cell_location %>
+      </td>
+    </tr>
+
+
+    <tr>
+      <td>
+        <strong>Opening date:</strong>
+      </td>
+      <td>
+        :
+      </td>
+      <td>
+        <%= @facility.opening_date %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <strong>Closing date:</strong>
+      </td>
+      <td>
+        :
+      </td>
+      <td>
+        <%= @facility.closing_date %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Referral facility:</strong>
+      </td>
+      <td>
+        :
+      </td>
+      <td>
+        <%= @facility.parent_facility %>
+      </td>
+    </tr><tr>
+      <td>
+        <strong>Email address:</strong>
+      </td>
+      <td>
+        :
+      </td>
+      <td>
+        <%= @facility.email_address %>
+      </td>
+    </tr><tr>
+      <td>
+        <strong>Phone Number:</strong>
+      </td>
+      <td>
+        :
+      </td>
+      <td>
+        <%= @facility.phone_number %>
+      </td>
+    </tr><tr>
+      <td>
+        <strong>Ownership:</strong>
+      </td>
+      <td>
+        :
+      </td>
+      <td>
+        <%= @facility.type_code %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Status:</strong>
+      </td>
+      <td>
+        :
+      </td>
+      <td>
+        <%= @facility.status %>
+      </td>
+    </tr>
+     <tr><td><%= link_to 'Ok', {:action => 'list'} %></td></tr>
+  </table>
+
+
+  </fieldset>
+
+  <fieldset style="border: 1px solid #eee;"></fieldset>
+
+</fieldset>
+  </div>
+</div>
+
