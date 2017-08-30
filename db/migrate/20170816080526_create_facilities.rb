@@ -1,7 +1,7 @@
 class CreateFacilities < ActiveRecord::Migration[5.0]
   def self.up
-    create_table :facilities, id: false do |t|
-      t.column :facility_id, :string, primary_key: true
+    create_table :facilities do |t|
+      t.column :facility_id, :string
       t.column :name, :string
       t.column :description, :string
       t.column :cell_location, :string
