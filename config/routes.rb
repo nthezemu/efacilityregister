@@ -2,16 +2,22 @@ Rails.application.routes.draw do
   get 'facilities/index'
 
   get 'facilities/login'
+  get 'facilities/list'
 
   get 'facilities/new'
 
-  get 'facilities/update'
+  patch 'facilities/update'
 
   get 'facilities/edit'
 
-  get 'facilities/create'
+  post 'facilities/create'
 
   get 'facilities/show'
+
+  get 'facilities/edit'
+
+  get 'facilities/delete'
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

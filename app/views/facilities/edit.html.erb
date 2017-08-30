@@ -1,2 +1,125 @@
-<h1>Facilities#edit</h1>
-<p>Find me in app/views/facilities/edit.html.erb</p>
+
+<div class="container">
+ <div class="row">
+ <br/><br/><br/><br/>
+   <div class="col col-md-offset-2 col-md-10">
+
+     <h3 class="col-md-offset-4">Edit facility</h3>
+ 
+    <div class="form-horizontal">
+      <%= form_for @facility, :url =>{:action => 'update', :facility_id =>@facility} do |f| %>
+    <div class="row"> <br/>
+       <div class="col col-md-2">
+         <label for = "facility_id">Facility Id:</label>
+       </div>
+       <div class="col col-md-4 ">
+         <%= f.text_field 'facility_id', class: 'form-control round-input'%>
+       </div>      
+    </div>
+    <div class="row"> <br/>
+      <div class="col col-md-2">
+         <label for = "name">Facility Name:</label>
+       </div>
+       <div class="col col-md-4 ">
+        <%= f.text_field 'name', class: 'form-control round-input' %>
+       </div>
+    </div>
+    <div class="row"> <br/>
+       <div class="col col-md-2">
+         <label for = "description">Description:</label>
+       </div>
+       <div class="col col-md-4 ">
+       <%= f.text_field 'description', class: 'form-control round-input' %>        
+       </div>
+      
+    </div>
+    <div class="row"> <br/>
+       <div class="col col-md-2">
+         <label for = "cell_location">Cell location:</label>
+       </div>
+       <div class="col col-md-4 ">
+       <%= f.text_field 'cell_location', class: 'form-control round-input' %>        
+       </div>
+    </div>
+    <div class="row"> <br/>
+      <div class="col col-md-2">
+         <label for = "closing_date">Closing date:</label>
+       </div>
+       <div class="col col-md-4 ">
+       <%= f.text_field 'closing_date', class: 'form-control round-input' %>        
+       </div>
+    </div>
+    <div class="row"> <br/>
+      <div class="col col-md-2">
+         <label for = "opening_date">Opening date:</label>
+       </div>
+       <div class="col col-md-4 ">
+       <%= f.text_field 'opening_date', class: 'form-control round-input' %>        
+       </div>
+    </div>
+    <div class="row"> <br/>
+      <div class="col col-md-2">
+         <label for = "parent_facility">Referral Facility:</label>
+       </div>
+       <div class="col col-md-4 ">
+       <%= f.text_field 'parent_facility', class: 'form-control round-input' %>
+              
+       </div>
+      
+    </div>
+    <div class="row"> <br/>
+    <div class="col col-md-2">
+         <label for = "email_address">Email address:</label>
+       </div>
+       <div class="col col-md-4 ">
+       <%= f.text_field 'email_address', class: 'form-control round-input' %>
+              
+       </div>
+    </div>
+    <div class="row"> <br/>
+       <div class="col col-md-2">
+         <label for = "phone_number">Phone Number:</label>
+       </div>
+       <div class="col col-md-4 ">
+       <%= f.text_field 'phone_number', class: 'form-control round-input' %>
+              
+       </div>
+      
+    </div>
+    <div class="row"> <br/>
+      <div class="col col-md-2">
+         <label for = "type_code">Ownership:</label>
+       </div>
+       <div class="col col-md-4 ">
+       <%= f.text_field 'type_code', class: 'form-control round-input' %>
+              
+       </div>
+    </div>
+    <div class="row"> <br/>
+      <div class="col col-md-2">
+         <label for = "status">Status:</label>
+       </div>
+       <div class="col col-md-4 ">
+       <%= f.text_field 'status', class: 'form-control round-input' %>
+              
+       </div>
+    </div>
+    <div class="row"> <br/>
+      <div class="col col-md-2">
+         
+       </div>
+       <div class="col col-md-4">
+      <%= submit_tag 'Update', class: 'btn btn-primary' %>
+              
+       </div>
+       <div class="col col-md-1 btn btn-warning">
+      <a href="/facilities/list">Cancel</a>
+              
+       </div>
+    </div>      
+      <% end %>
+    </div>
+   </div>
+ </div>
+  
+</div>
