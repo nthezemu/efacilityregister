@@ -39,23 +39,23 @@
     <div class="container">
          <div class="row">
              <div class="col col-md-4 col-md-offset-4">
-               <%= form_tag :action => 'authenticate' do %>
+               <%= form_for(:personel :action => 'authenticate') do |f| %>
        
         <div class="login-wrap">
             <p class="login-img col col-md-offset-4"><i class="icon_lock_alt"></i></p>
             <div class="input-group">
               <span class="input-group-addon"><i class="icon_profile"></i></span>              
-              <%= text_field 'personel', 'username', class: 'form-control round-input'%>
+              <%= f.text_field :username, class: 'form-control round-input'%>
             </div>
             <div class="input-group">
                 <span class="input-group-addon"><i class="icon_key_alt"></i></span>
-                <%= password_field 'personel', 'password', class: 'form-control round-input'%>
+                <%= f.password_field  :password, class: 'form-control round-input'%>
             </div>
             <label class="checkbox">
                 <input type="checkbox" value="remember-me"> Remember me
                 <span class="pull-right"> <a href="#"> Forgot Password?</a></span>
             </label>
-            <%= submit_tag 'Login', class: 'btn btn-primary' %>
+            <%= f.submit 'Login', class: 'btn btn-primary' %>
             <button class="btn btn-info btn-lg btn-block" type="submit">Signup</button>
         </div>
       <% end %>

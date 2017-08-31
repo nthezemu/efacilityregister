@@ -1,5 +1,5 @@
 class LoginsController < ApplicationController
-  skip_before_filter :perform_basic_auth, :only => :logout
+  #skip_before_filter :perform_basic_auth, :only => :logout
   
   def login
     
@@ -10,16 +10,15 @@ class LoginsController < ApplicationController
      
       #username = parameters['username'
      # password = parameters['password']
-    username = params[:personel][:username]
-    password = params[:personel][:password]
+   # username = params[:personel][:username]
+    #password = params[:personel][:password]
 
-    personel = Personel.where(username: username).first
+    personel = Personel.find_by(username:  params[:personel][:username]).first
     
 
   # if username.present? and password.present?
-    if personel and personel.password_matches?(password)
-     
-      redirect_to :action => 'index'
+if personel && personel.authenticate(params[:personel][:password])     
+      redirect_to :action => 'facilities#index'
 
       
     elsif 
