@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   get 'facilities/index'
 
-  get 'facilities/login'
+  get 'logins/login'
+
+  post 'logins/authenticate'
+
   get 'facilities/list'
 
   get 'facilities/new'
