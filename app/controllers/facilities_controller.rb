@@ -1,11 +1,4 @@
 class FacilitiesController < ApplicationController
-  
-  def list
-    @facility=facility.all
-    end
-
-  def delete
-  end
 
   def index
   end
@@ -28,21 +21,6 @@ class FacilitiesController < ApplicationController
         phone_number: params[:facility][:phone_number],
         type_code: params[:facility][:type_code],
         status: params[:facility][:status])
-
-<<<<<<< HEAD
-  def edit
-    
-  end
-
-  def create
-  end
-   
-
-  def show
-  end
-
-  
-=======
 
       if @facility.save
          flash[:notice] = "facilicity has been created successfully"
@@ -93,5 +71,5 @@ class FacilitiesController < ApplicationController
      
    end
 
->>>>>>> 764cb15db2dc7fc15ca33bd163ba81d6c24ec07f
+
 end
