@@ -10,18 +10,28 @@ class LoginsController < ApplicationController
      
       #username = parameters['username'
      # password = parameters['password']
+<<<<<<< HEAD
     username = params[:personel][:username]
     password1 = params[:personel][:password]
+=======
+   # username = params[:personel][:username]
+    #password = params[:personel][:password]
+>>>>>>> 78721210968be9a66d1a63e6e91778ca4f76904b
 
-    personel = Personel.where(username: username).first
+    personel = Personel.find_by(username:  params[:personel][:username]).first
     
 
   # if username.present? and password.present?
+<<<<<<< HEAD
     #raise personel.inspect
     #raise password.inspect
     if personel.password.password_matches(password1)
      
       redirect_to :action => 'login'
+=======
+if personel && personel.authenticate(params[:personel][:password])     
+      redirect_to :action => 'facilities#index'
+>>>>>>> 78721210968be9a66d1a63e6e91778ca4f76904b
 
       
     elsif 
