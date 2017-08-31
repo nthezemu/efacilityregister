@@ -33,30 +33,37 @@
     <!--[endif]-->
     <script type="text/javascript" src="/assets/jquery-1.8.3.min.js"></script>
 </head>
-
+   <br/><br/><br/><br/>
   <body class="login-img3-body">
 
     <div class="container">
-
-      <form class="login-form" action="index.html">        
+         <div class="row">
+             <div class="col col-md-4 col-md-offset-4">
+               <%= form_tag :action => 'authenticate' do %>
+       
         <div class="login-wrap">
-            <p class="login-img"><i class="icon_lock_alt"></i></p>
+            <p class="login-img col col-md-offset-4"><i class="icon_lock_alt"></i></p>
             <div class="input-group">
-              <span class="input-group-addon"><i class="icon_profile"></i></span>
-              <input type="text" class="form-control" placeholder="Username" autofocus>
+              <span class="input-group-addon"><i class="icon_profile"></i></span>              
+              <%= text_field 'personel', 'username', class: 'form-control round-input'%>
             </div>
             <div class="input-group">
                 <span class="input-group-addon"><i class="icon_key_alt"></i></span>
-                <input type="password" class="form-control" placeholder="Password">
+                <%= password_field 'personel', 'password', class: 'form-control round-input'%>
             </div>
             <label class="checkbox">
                 <input type="checkbox" value="remember-me"> Remember me
                 <span class="pull-right"> <a href="#"> Forgot Password?</a></span>
             </label>
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+            <%= submit_tag 'Login', class: 'btn btn-primary' %>
             <button class="btn btn-info btn-lg btn-block" type="submit">Signup</button>
         </div>
-      </form>
+      <% end %>
+                 
+             </div>
+         </div>
+
+      
 
     </div>
 
