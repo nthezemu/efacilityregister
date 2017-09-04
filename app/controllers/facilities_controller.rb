@@ -25,11 +25,18 @@ class FacilitiesController < ApplicationController
       if @facility.save
          flash[:notice] = "facilicity has been created successfully"
          #raise @facility.inspect
+         params[:utilities].each do |u|
+         @facility_utility = FacilityUtility.new(
+         facility_id: params[:facility][:facility_id], 
+         utility_id: u )
+         @facility_utility.save
+         end
          redirect_to :action => 'show', :facility_id => @facility.facility_id
       else
          #@subjects = Subject.all 
          render :action => 'create'
       end
+      
    end
    def show
     @facility = Facility.find_by_facility_id(params[:facility_id])
