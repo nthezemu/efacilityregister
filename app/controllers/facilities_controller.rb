@@ -1,4 +1,5 @@
 class FacilitiesController < ApplicationController
+
   def index
   end
   
@@ -20,7 +21,6 @@ class FacilitiesController < ApplicationController
         phone_number: params[:facility][:phone_number],
         type_code: params[:facility][:type_code],
         status: params[:facility][:status])
-
 
       if @facility.save
          flash[:notice] = "facilicity has been created successfully"
@@ -70,5 +70,6 @@ class FacilitiesController < ApplicationController
     end
      
    end
+
 
 end
