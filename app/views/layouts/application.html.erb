@@ -57,8 +57,28 @@
                 <ul class="nav top-menu">                    
                     <li>
                         <form class="navbar-form">
-                            <input class="form-control" placeholder="Search" type="text">
+                            <input class="form-control" placeholder="Search" type="text" onkeydown="showMenu('quicksearch')" onchange="hideMenu('quicksearch')">
                         </form>
+                        <!-- general search table -->
+                         <!-- check if at all there are facilities in the database -->
+                         <% if @allfacilities.blank? %>
+
+                         <% else %>
+                        <table class="striped highlight bordered responsive-table" style="color: #000;display: none;border:3px;" id="quicksearch">
+                            <th>click on facility to view details</th>
+                            <%  @allfacilities.each do |f| %>
+                            <tr>
+                                <td> <%= link_to f.name, {:action => 'show', :facility_id => f.facility_id} %></td>
+                            </tr>
+                             <% end %>
+                            
+                        </table>
+                        <% end %>
+                    </div>
+                    <div class="col s12 m12"></div>
+                  </div> 
+
+                        <!-- end of general search table -->
                     </li>                    
                 </ul>
                 <!--  search form end -->                
@@ -484,5 +504,27 @@
 
 
   </script>
+  <script language="javascript">  
+        function showMenu(elmnt)
+        {
+            document.getElementById(elmnt).style.visibility="visible";
+            document.getElementById(elmnt).style.display = 'block';
+            //list the table based onthe seaech
+            var searchkey = document.getElementById("mainsearch").value;
+            var $rows = $('#quicksearch tr');
+            var val = $.trim(searchkey).replace(/ +/g, ' ').toLowerCase();
+            $rows.show().filter(function() {
+               var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+                return !~text.indexOf(val);
+            }).hide();
+        }
+        function hideMenu(elmnt)
+        {
+            document.getElementById(elmnt).style.visibility="hidden";
+            document.getElementById(elmnt).style.display = 'none';
+        }   
+
+
+    </script> 
   </body>
 </html>
