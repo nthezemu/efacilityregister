@@ -8,40 +8,29 @@
  
     <div class="form-horizontal">
       <%= form_tag :action => 'create' do %>
+      
     <div class="row"> <br/>
        <div class="col col-md-2">
          <label for = "facility_id">Facility Id:</label>
        </div>
        <div class="col col-md-4 ">
          <%= text_field 'facility', 'facility_id', class: 'form-control round-input'%>
-       </div>
-        <div class="col col-md-2">Electricity: </div>
-         <div class="col col-md-1">checkbox</div>
-         <div class="col col-md-1">label 1</div>
-         <div class="col col-md-1">checkbox</div>
-         <div class="col col-md-1">label 2</div>
-             
-          
-
-    </div>
-    <div class="row"> <br/>
-      <div class="col col-md-2">
+       </div>           
+          <div class="col col-md-2">
          <label for = "name">Facility Name:</label>
        </div>
        <div class="col col-md-4 ">
         <%= text_field 'facility', 'name', class: 'form-control round-input' %>
        </div>
+
     </div>
     <div class="row"> <br/>
-       <div class="col col-md-2">
+        <div class="col col-md-2">
          <label for = "description">Description:</label>
        </div>
        <div class="col col-md-4 ">
        <%= text_field 'facility', 'description', class: 'form-control round-input' %>        
        </div>
-      
-    </div>
-    <div class="row"> <br/>
        <div class="col col-md-2">
          <label for = "cell_location">Cell location:</label>
        </div>
@@ -50,19 +39,33 @@
        </div>
     </div>
     <div class="row"> <br/>
-      <div class="col col-md-2">
+        <div class="col col-md-2">
          <label for = "closing_date">Closing date:</label>
        </div>
        <div class="col col-md-4 ">
        <%= text_field 'facility', 'closing_date', class: 'form-control round-input' %>        
        </div>
-    </div>
-    <div class="row"> <br/>
-      <div class="col col-md-2">
+       <div class="col col-md-2">
          <label for = "opening_date">Opening date:</label>
        </div>
        <div class="col col-md-4 ">
        <%= text_field 'facility', 'opening_date', class: 'form-control round-input' %>        
+       </div>
+    </div>
+    <div class="row"> <br/>
+          <div class="col col-md-2">
+         <label for = "parent_facility">Referral Facility:</label>
+       </div>
+       <div class="col col-md-4 ">
+       <%= text_field 'facility', 'parent_facility', class: 'form-control round-input' %>
+              
+       </div>
+       <div class="col col-md-2">
+         <label for = "status">Status:</label>
+       </div>
+       <div class="col col-md-4 ">
+       <%= text_field 'facility', 'status', class: 'form-control round-input' %>
+              
        </div>
     </div>
     <div class="row"> <br/>
@@ -73,10 +76,7 @@
        <%= text_field 'facility', 'parent_facility', class: 'form-control round-input' %>
               
        </div>
-      
-    </div>
-    <div class="row"> <br/>
-    <div class="col col-md-2">
+        <div class="col col-md-2">
          <label for = "email_address">Email address:</label>
        </div>
        <div class="col col-md-4 ">
@@ -85,17 +85,14 @@
        </div>
     </div>
     <div class="row"> <br/>
-       <div class="col col-md-2">
+         <div class="col col-md-2">
          <label for = "phone_number">Phone Number:</label>
        </div>
        <div class="col col-md-4 ">
        <%= text_field 'facility', 'phone_number', class: 'form-control round-input' %>
               
        </div>
-      
-    </div>
-    <div class="row"> <br/>
-      <div class="col col-md-2">
+       <div class="col col-md-2">
          <label for = "type_code">Ownership:</label>
        </div>
        <div class="col col-md-4 ">
@@ -103,15 +100,24 @@
               
        </div>
     </div>
-    <div class="row"> <br/>
-      <div class="col col-md-2">
-         <label for = "status">Status:</label>
-       </div>
-       <div class="col col-md-4 ">
-       <%= text_field 'facility', 'status', class: 'form-control round-input' %>
-              
-       </div>
-    </div>
+    
+    <div class="row">
+        <h3>Select utilities</h3>
+        <div class="col col-md-1"><%= check_box_tag 'utility', 'electricity_escom'%></div>
+        <div class="col col-md-1">Escom Electricity</div>
+
+         <div class="col col-md-1"><%= check_box_tag 'utility', 'electricity_escom'%></div>
+         <div class="col col-md-1">Solar power</div>
+         <div class="col col-md-1"><%= check_box_tag 'utility', 'electricity_escom'%></div>
+         <div class="col col-md-1">Wind Mill</div>
+         <div class="col col-md-1"><%= check_box_tag 'utility', 'electricity_escom'%></div>
+        <div class="col col-md-1">Escom Electricity</div>
+
+         <div class="col col-md-1"><%= check_box_tag 'utility', 'electricity_escom'%></div>
+         <div class="col col-md-1">Solar power</div>
+         <div class="col col-md-1"><%= check_box_tag 'utility', 'electricity_escom'%></div>
+         <div class="col col-md-1">Wind Mill</div>
+      </div>
     <div class="row"> <br/>
       <div class="col col-md-2">
          
