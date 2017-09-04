@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'logins/login'
 
-  get 'logins/authenticate'
+  post 'logins/authenticate'
 
   get 'facilities/list'
 

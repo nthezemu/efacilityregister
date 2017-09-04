@@ -37,9 +37,11 @@
   <body class="login-img3-body">
 
     <div class="container">
+
          <div class="row">
              <div class="col col-md-4 col-md-offset-4">
-               <%= form_for(:personel :action => 'authenticate') do |f| %>
+
+               <%= form_for :personel, :url => {:action => 'authenticate'} do |f| %>
        
         <div class="login-wrap">
             <p class="login-img col col-md-offset-4"><i class="icon_lock_alt"></i></p>

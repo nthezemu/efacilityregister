@@ -10,19 +10,20 @@ class LoginsController < ApplicationController
      
       #username = parameters['username'
      # password = parameters['password']
-   # username = params[:personel][:username]
-    #password = params[:personel][:password]
 
-    personel = Personel.find_by(username:  params[:personel][:username]).first
-    
+    personel = Personel.find_by(username:  params[:personel][:username])
+    #raise personel.password.inspect
 
   # if username.present? and password.present?
-if personel && personel.authenticate(params[:personel][:password])     
-      redirect_to :action => 'facilities#index'
 
+      if personel.password == params[:personel][:password]
+      # && personel.authenticate(params[:personel][:password])     
+       
+         redirect_to '/facilities/index'
       
-    elsif 
+    else
         flash[:error] = 'The username or password is incorrect. Please contact your Administrator.'
+        
         redirect_to :action => 'login'
     end
 
