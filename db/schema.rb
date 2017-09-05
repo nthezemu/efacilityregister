@@ -12,11 +12,8 @@
 
 ActiveRecord::Schema.define(version: 20170829064312) do
 
-
-
   create_table "facilities", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "facility_id"
-
     t.string "name"
     t.string "description"
     t.string "cell_location"

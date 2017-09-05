@@ -20,3 +20,8 @@ Utility.create(name: 'internet', provider: 'Globle internet')
 Utility.create(name: 'internet', provider: 'MTL')
 Utility.create(name: 'internet', provider: 'TNM')
 Utility.create(name: 'internet', provider: 'Airtel')
+
+Service.create(name: 'Surgery')
+Service.create(name: 'family planning')
+Service.create(name: 'Maternity')
+Service.create(name: 'Dental')

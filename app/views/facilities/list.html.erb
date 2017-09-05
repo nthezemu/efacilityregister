@@ -14,17 +14,16 @@
 		<th>cell location </th>
 		<th colspan="3"><i class="icon_cogs"></i>Action</th>
 		
-
 	<% @facilities.each do |f| %>
 	
 		<tr>
-		<td><%= f.facility_id %></td>
-		<td><%= f.name %></td>
-		<td><%= f.description %></td>
-		<td><%= f.cell_location %></td>
-		<td><%= link_to 'View', {:action => 'show', :facility_id => f.facility_id} %></td>
-		<td><%= link_to 'Edit', {:action => 'edit', :facility_id => f.facility_id} %></td>
-		<td><%= link_to 'Delete', {:action => 'delete', :facility_id => f.facility_id}, data: {confirm: "Are you sure you want to delete this facility"} %></td>
+		<td><%= f['facility_id'] %></td>
+		<td><%= f['name'] %></td>
+		<td><%= f['description'] %></td>
+		<td><%= f['cell_location'] %></td>
+		<td><%= link_to 'View', {:action => 'show', :facility_id => f['facility_id']} %></td>
+		<td><%= link_to 'Edit', {:action => 'edit', :facility_id => f['facility_id']} %></td>
+		<td><%= link_to 'Delete', {:action => 'delete', :facility_id => f['facility_id']}, data: {confirm: "Are you sure you want to delete this facility"} %></td>
 		</tr>
 
 	

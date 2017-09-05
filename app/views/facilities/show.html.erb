@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
     
-    <div class="col col-md-offset-2 col-md-10"></div>
-    <br/><br/><br/>
+    <div class="col col-md-offset-0 col-md-5">
+    <br/><br/><br/><br/>
     <fieldset>
   <legend>
     Facility details
@@ -134,22 +134,73 @@
       <td>
         <strong>Status:</strong>
       </td>
-      <td>
-        :
+       <td>
+      :
       </td>
       <td>
         <%= @facility.status %>
       </td>
+     
+      </tr>
+      <td>
+      <th><h3>Utilities</h3></th>
+    <% @utility.each do |u| %>
+      </td>
+      <tr>
+      <td><strong><%= u.name %></strong></td>
+      <td>
+        :
+      </td>
+      <td>
+        <strong><%= u.provider %></strong>
+      </td>
+      <td>
+        
+      </td>
     </tr>
+
+    <% end %>
+
      <tr><td><%= link_to 'Ok', {:action => 'list'} %></td></tr>
   </table>
 
 
   </fieldset>
 
-  <fieldset style="border: 1px solid #eee;"></fieldset>
+  
+</div>
 
-</fieldset>
+<br/><br/><br/><br/>
+    
+  <legend>
+    Facility details
+  </legend>
+
+<div class="col col-md-offset-2 col-md-4">
+  <form id="form1" >
+  
+     <div id="map1" style="width: 500px; height: 500px"></div>
+     <script type="text/javascript">
+         
+function myMap() {
+  var myCenter = new google.maps.LatLng(-13.6,33.2);
+  var mapCanvas = document.getElementById("map1");
+  var mapOptions = {center: myCenter, zoom: 8};
+  var map2 = new google.maps.Map(mapCanvas, mapOptions);
+  var marker = new google.maps.Marker({position:myCenter});
+  marker.setMap(map2);
+
+  var infowindow = new google.maps.InfoWindow({
+    content: "Hello World!"
+  });
+  infowindow.open(map2,marker);
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-MrJ0WnBYzAA1A2SwzyCX4UTnDi-fjw8&callback=myMap"></script>
+<!--
+
+    </form>
+</div>
   </div>
 </div>
 
