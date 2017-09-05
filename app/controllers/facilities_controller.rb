@@ -49,11 +49,23 @@ class FacilitiesController < ApplicationController
    end
 
    def list
+<<<<<<< HEAD
     @facilities = Facility.all
   
    end
 
 
+=======
+    facilities1 = session[:facilities_queried]
+    if facilities1.blank?
+       @facilities = Facility.all
+       else
+        @facilities = facilities1
+        session.delete(:facilities_queried)
+      end  
+   end
+   
+>>>>>>> 4352edd637c06fa03558d13961ce2eeae6584d0e
    def delete
     @facility = Facility.find_by_facility_id(params[:facility_id])
     
@@ -85,6 +97,37 @@ class FacilitiesController < ApplicationController
     end
      
    end
+   
+   def searchbydistrictquery
+      district_name = params[:districts][:districtname]
+      facilities_queried = Facility.find_by_sql("select * from locations l left join facility_locations fl on l.id = fl.location_id left join facilities f on fl.facility_id = f.facility_id  where l.district = '#{district_name}'")
+   
+    session[:facilities_queried] = facilities_queried
+    redirect_to :action => 'list'
+   end
+  def searchbydistrict
 
+  end
 
+  def search_by_zone_query
+      zone_name = params[:zones][:zonename]
+      facilities_queried = Facility.find_by_sql("select * from locations l left join facility_locations fl on l.id = fl.location_id left join facilities f on fl.facility_id = f.facility_id  where l.zone = '#{zone_name}'")
+   
+    session[:facilities_queried] = facilities_queried
+    redirect_to :action => 'list'
+   end
+   def search_by_zone
+
+   end 
+
+   def search_by_partner_query
+      partner_name = params[:partners][:partnername]
+      facilities_queried = Facility.find_by_sql("select * from partners p left join facility_partners fp on p.id = fp.partner_id left join facilities f on fp.facility_id = f.facility_id  where p.name = '#{partner_name}'")
+   
+    session[:facilities_queried] = facilities_queried
+    redirect_to :action => 'list'
+   end
+   def search_by_partner
+
+   end 
 end

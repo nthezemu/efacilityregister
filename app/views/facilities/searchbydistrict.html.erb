@@ -1,0 +1,43 @@
+
+<div class="container">
+ <div class="row">
+ <br/><br/><br/><br/>
+   <div class="col col-md-offset-2 col-md-10">
+
+     <h3 class="col-md-offset-4">Select district from drop down</h3>
+ 
+    <div class="form-horizontal">
+      <%= form_tag :action => 'searchbydistrictquery' do %>
+      
+    <div class="row"> <br/>
+       <div class="col col-md-6">
+         <label for = "facility_id">District name:</label>
+       </div>
+                 
+       <div class="col col-md-6 ">
+        <%= select "districts", "districtname", [[ "Chitipa", "chitipa"],["Karonga", "karonga"],["Nkhata Bay","nkhata bay"],["Mzimba","mzimba"]]%>
+       </div>
+
+    </div>
+    
+
+
+    <div class="row"> <br/>
+      <div class="col col-md-2">
+         
+       </div>
+       <div class="col col-md-4">
+      <%= submit_tag 'Search', class: 'btn btn-primary' %>
+              
+       </div>
+       <div class="col col-md-1 btn btn-warning">
+      <a href="">Cancel</a>
+              
+       </div>
+    </div>      
+      <% end %>
+    </div>
+   </div>
+ </div>
+  
+</div>

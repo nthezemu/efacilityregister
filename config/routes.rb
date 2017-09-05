@@ -15,6 +15,18 @@ Rails.application.routes.draw do
 
   post 'facilities/create'
 
+  post 'facilities/searchbydistrictquery'
+
+  get 'facilities/searchbydistrict'
+
+  post 'facilities/search_by_zone_query'
+
+  get 'facilities/search_by_zone'
+
+  post 'facilities/search_by_partner_query'
+
+  get 'facilities/search_by_partner'
+
   get 'facilities/show'
 
   get 'facilities/edit'
