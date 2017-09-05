@@ -134,13 +134,33 @@
       <td>
         <strong>Status:</strong>
       </td>
-      <td>
-        :
+       <td>
+      :
       </td>
       <td>
         <%= @facility.status %>
       </td>
+     
+      </tr>
+      <td>
+      <th><h3>Utilities</h3></th>
+    <% @utility.each do |u| %>
+      </td>
+      <tr>
+      <td><strong><%= u.name %></strong></td>
+      <td>
+        :
+      </td>
+      <td>
+        <strong><%= u.provider %></strong>
+      </td>
+      <td>
+        
+      </td>
     </tr>
+
+    <% end %>
+
      <tr><td><%= link_to 'Ok', {:action => 'list'} %></td></tr>
   </table>
 
