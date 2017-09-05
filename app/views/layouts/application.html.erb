@@ -57,18 +57,19 @@
                 <ul class="nav top-menu">                    
                     <li>
                         <form class="navbar-form">
-                            <input class="form-control" placeholder="Search" type="text" onkeydown="showMenu('quicksearch')" onchange="hideMenu('quicksearch')">
+                            <input id="mainsearch" class="form-control" placeholder="Search" type="text" onkeydown="showMenu('quicksearch')" onchange="hideMenu('quicksearch')">
                         </form>
                         <!-- general search table -->
                          <!-- check if at all there are facilities in the database -->
-                         <% if @allfacilities.blank? %>
 
-                         <% else %>
+                         <% if @allfacilities.blank? %>
+                               <%= raise "hello".inspect %>
+                          <% else %>
                         <table class="striped highlight bordered responsive-table" style="color: #000;display: none;border:3px;" id="quicksearch">
                             <th>click on facility to view details</th>
                             <%  @allfacilities.each do |f| %>
                             <tr>
-                                <td> <%= link_to f.name, {:action => 'show', :facility_id => f.facility_id} %></td>
+                                <td> <%= link_to f.name, {:controller => 'facilities', :action => 'show', :facility_id => f.facility_id} %></td>
                             </tr>
                              <% end %>
                             

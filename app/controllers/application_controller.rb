@@ -1,10 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  # get all facilities 
-  
-  
-  def getallfacilities
-  	@allfacilities = Facility.all
-  	raise @allfacilities.inspect
+  before_action :get_all_facilities
+  # get all facilities  
+  def get_all_facilities
+  	  @allfacilities = Facility.all 
+  	  
   end
 end
