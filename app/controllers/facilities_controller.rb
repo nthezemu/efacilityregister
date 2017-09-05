@@ -38,6 +38,7 @@ class FacilitiesController < ApplicationController
       end
       
    end
+
    def show
     @facility = Facility.find_by_facility_id(params[:facility_id])
     facility_id = params[:facility_id]
@@ -49,15 +50,15 @@ class FacilitiesController < ApplicationController
    end
 
    def list
-<<<<<<< HEAD
+
     @facilities = Facility.all
   
    end
 
 
-=======
-    facilities1 = session[:facilities_queried]
-    if facilities1.blank?
+  def show
+     facilities1 = session[:facilities_queried]
+     if facilities1.blank?
        @facilities = Facility.all
        else
         @facilities = facilities1
@@ -65,7 +66,7 @@ class FacilitiesController < ApplicationController
       end  
    end
    
->>>>>>> 4352edd637c06fa03558d13961ce2eeae6584d0e
+
    def delete
     @facility = Facility.find_by_facility_id(params[:facility_id])
     
@@ -127,6 +128,7 @@ class FacilitiesController < ApplicationController
     session[:facilities_queried] = facilities_queried
     redirect_to :action => 'list'
    end
+
    def search_by_partner
 
    end 
