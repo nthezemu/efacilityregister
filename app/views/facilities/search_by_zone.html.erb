@@ -1,0 +1,43 @@
+
+<div class="container">
+ <div class="row">
+ <br/><br/><br/><br/>
+   <div class="col col-md-offset-2 col-md-10">
+
+     <h3 class="col-md-offset-4">Select zone from drop down</h3>
+ 
+    <div class="form-horizontal">
+      <%= form_tag :action => 'search_by_zone_query' do %>
+      
+    <div class="row"> <br/>
+       <div class="col col-md-6">
+         <label for = "zone_name">Zone name:</label>
+       </div>
+                 
+       <div class="col col-md-6 ">
+        <%= select "zones", "zonename", [[ "Northern", "nothern"],["Central East", "central east"],["Central West","central west"],["Mkondezi zone","mkondezi zone"]]%>
+       </div>
+
+    </div>
+    
+
+
+    <div class="row"> <br/>
+      <div class="col col-md-2">
+         
+       </div>
+       <div class="col col-md-4">
+      <%= submit_tag 'Search', class: 'btn btn-primary' %>
+              
+       </div>
+       <div class="col col-md-1 btn btn-warning">
+      <a href="">Cancel</a>
+              
+       </div>
+    </div>      
+      <% end %>
+    </div>
+   </div>
+ </div>
+  
+</div>
