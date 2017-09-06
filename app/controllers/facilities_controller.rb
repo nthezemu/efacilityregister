@@ -44,29 +44,34 @@ class FacilitiesController < ApplicationController
    def show
     @facility = Facility.find_by_facility_id(params[:facility_id])
     facility_id = params[:facility_id]
-    raise facility_id.inspect
+    #raise facility_id.inspect
     @utility = Utility.find_by_sql("select u.name, u.provider from utilities u left join facility_utilities
        fu on u.id=fu.utility_id left join facilities f on fu.facility_id =f.facility_id where f.facility_id= '#{facility_id}'")
    #raise @utility.inspect
-     
+
+    @service = Service.find_by_sql("select s.name from services s left join facility_services
+       fs on s.id=fs.service_id left join facilities f on fs.facility_id =f.facility_id where f.facility_id= '#{facility_id}'")
+   
+    @resource = Resource.find_by_sql("select r.name from resources r left join facility_resources
+       fr on r.id=fr.resource_id left join facilities f on fr.facility_id =f.facility_id where f.facility_id= '#{facility_id}'")
+    if @resource.blank?
+         flash[:notice] = "There are no resources"
+
+    end 
+
+    @location = Location.find_by_sql("select * from locations l left join facility_locations
+       fl on l.id=fl.location_id left join facilities f on fl.facility_id =f.facility_id where f.facility_id= '#{facility_id}'")
+    if @location.blank?
+         flash[:notice] = "There are no resources"
+
+    end 
    end
 
-   def list
-<<<<<<< HEAD
-
-    @facilities = Facility.all
   
-   end
 
-
-  def show
+  def list
      
-=======
-<<<<<<< HEAD
 
-=======
->>>>>>> eea1ad4f24431438c281b28a48bf0baa71a5070e
->>>>>>> 436cb0d85c80d3b7b74074b226d0c54407659ec0
     facilities1 = session[:facilities_queried]
     if facilities1.blank?
 
@@ -77,14 +82,6 @@ class FacilitiesController < ApplicationController
       end  
    end
    
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> eea1ad4f24431438c281b28a48bf0baa71a5070e
->>>>>>> 436cb0d85c80d3b7b74074b226d0c54407659ec0
    def delete
     @facility = Facility.find_by_facility_id(params[:facility_id])
     
