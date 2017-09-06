@@ -51,7 +51,10 @@ class FacilitiesController < ApplicationController
    end
 
    def list
+<<<<<<< HEAD
 
+=======
+>>>>>>> eea1ad4f24431438c281b28a48bf0baa71a5070e
     facilities1 = session[:facilities_queried]
     if facilities1.blank?
        @facilities = Facility.all
@@ -61,7 +64,10 @@ class FacilitiesController < ApplicationController
       end  
    end
    
+<<<<<<< HEAD
 
+=======
+>>>>>>> eea1ad4f24431438c281b28a48bf0baa71a5070e
    def delete
     @facility = Facility.find_by_facility_id(params[:facility_id])
     
