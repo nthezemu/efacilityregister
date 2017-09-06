@@ -12,6 +12,8 @@ class CreateFacilities < ActiveRecord::Migration[5.0]
       t.column :phone_number, :string
       t.column :type_code, :string
       t.column :status, :string
+      t.column :latitude, :string
+      t.column :longitude, :string
       t.column :service_id, :string
       t.column :created_by, :string
       t.column :approved_by, :string

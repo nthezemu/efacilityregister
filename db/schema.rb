@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20170829064312) do
     t.string "phone_number"
     t.string "type_code"
     t.string "status"
+    t.string "latitude"
+    t.string "longitude"
     t.string "service_id"
     t.string "created_by"
     t.string "approved_by"
