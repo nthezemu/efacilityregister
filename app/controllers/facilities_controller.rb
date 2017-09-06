@@ -19,6 +19,8 @@ class FacilitiesController < ApplicationController
         parent_facility: params[:facility][:parent_facility],
         email_address: params[:facility][:email_address],
         phone_number: params[:facility][:phone_number],
+        latitude: params[:facility][:latitude],
+        longitude: params[:facility][:longitude],
         type_code: params[:facility][:type_code],
         status: params[:facility][:status])
 
@@ -49,13 +51,7 @@ class FacilitiesController < ApplicationController
    end
 
    def list
-<<<<<<< HEAD
-    @facilities = Facility.all
-  
-   end
 
-
-=======
     facilities1 = session[:facilities_queried]
     if facilities1.blank?
        @facilities = Facility.all
@@ -65,7 +61,7 @@ class FacilitiesController < ApplicationController
       end  
    end
    
->>>>>>> 4352edd637c06fa03558d13961ce2eeae6584d0e
+
    def delete
     @facility = Facility.find_by_facility_id(params[:facility_id])
     
