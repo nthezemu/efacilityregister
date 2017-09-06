@@ -25,3 +25,134 @@ Service.create(name: 'Surgery')
 Service.create(name: 'family planning')
 Service.create(name: 'Maternity')
 Service.create(name: 'Dental')
+
+Facility.create(facility_id: 'll01001', name: 'bwaila', description: 'This is in Lilongwe', cell_location: 'Lilongwe', closing_date: '2070-10-10', opening_date: '2017
+	-10-10', parent_facility: 'Kamuzu Central Hospital', email_address: 'bwaila@gmail.com', phone_number: '+26512345612', type_code: 'hospital', latitude: '35.295788', longitude: '-15.428804', status: 'Functional', service_id: '1', created_by: 'Blessings', approved_by: 'Lyton',created_at:  '2017-10-10', updated_at: '2017-10-10');
+
+Facility.create(facility_id: 'll01002', name: 'Area 25 Health centre', description: 'This is in area 25', cell_location: 'Lilongwe', closing_date: '2070-10-10', opening_date: '2017
+	-10-10', parent_facility: 'Kamuzu Central Hospital', email_address: 'area25@gmail.com', phone_number: '+265123534512', type_code: 'health centre', latitude: '33.3492', longitude: '-14.3455', status: 'Functional', service_id: '1', created_by: 'Blessings', approved_by: 'Lyton',created_at:  '2017-10-10', updated_at: '2017-10-10');
+Facility.create(facility_id: 'DA04001', name: 'chankhungu', description: 'This is in dowa', cell_location: 'dowa', closing_date: '2070-10-10', opening_date: '2017
+	-10-10', parent_facility: 'Dowa district hospital', email_address: 'chamkhungua@gmail.com', phone_number: '+26512345612', type_code: 'dispensary', latitude: '33.7359', longitude: '-9.5818', status: 'Functional', service_id: '1', created_by: 'Blessings', approved_by: 'Lyton',created_at:  '2017-10-10', updated_at: '2017-10-10');
+Facility.create(facility_id: 'MZ02003', name: 'Mzimba district hospital', description: 'This is in Mzimba', cell_location: 'Mzimba', closing_date: '2070-10-10', opening_date: '2017
+	-10-10', parent_facility: 'Mzuzu Central Hospital', email_address: 'mzdh@gmail.com', phone_number: '+26512345612', type_code: 'hospital', latitude: '35.4897', longitude: '-15.2255', status: 'Functional', service_id: '1', created_by: 'Blessings', approved_by: 'Lyton',created_at:  '2017-10-10', updated_at: '2017-10-10');
+
+FacilityUtility.create(facility_id: 'll01002', utility_id: '2', utility_description: 'This is in use', utility_status: 'operational',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityUtility.create(facility_id: 'll01002', utility_id: '3', utility_description: 'This is in use', utility_status: 'operational',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityUtility.create(facility_id: 'll01002', utility_id: '9', utility_description: 'This is in use', utility_status: 'operational',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityUtility.create(facility_id: 'll01001', utility_id: '8', utility_description: 'This is in use', utility_status: 'operational',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityUtility.create(facility_id: 'll01002', utility_id: '1', utility_description: 'This is in use', utility_status: 'operational',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityUtility.create(facility_id: 'll01002', utility_id: '11', utility_description: 'This is in use', utility_status: 'operational',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityUtility.create(facility_id: 'll01002', utility_id: '7', utility_description: 'This is in use', utility_status: 'operational',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityUtility.create(facility_id: 'll01002', utility_id: '8', utility_description: 'This is in use', utility_status: 'operational',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityUtility.create(facility_id: 'DA04001', utility_id: '2', utility_description: 'This is in use', utility_status: 'operational',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityUtility.create(facility_id: 'DA04001', utility_id: '3', utility_description: 'This is in use', utility_status: 'operational',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityUtility.create(facility_id: 'DA04001', utility_id: '9', utility_description: 'This is in use', utility_status: 'operational',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityUtility.create(facility_id: 'll01001', utility_id: '8', utility_description: 'This is in use', utility_status: 'operational',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityUtility.create(facility_id: 'DA04001', utility_id: '1', utility_description: 'This is in use', utility_status: 'operational',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityUtility.create(facility_id: 'DA04001', utility_id: '11', utility_description: 'This is in use', utility_status: 'operational',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityUtility.create(facility_id: 'DA04001', utility_id: '7', utility_description: 'This is in use', utility_status: 'operational',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityUtility.create(facility_id: 'DA04001', utility_id: '8', utility_description: 'This is in use', utility_status: 'operational',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityUtility.create(facility_id: 'MZ02003', utility_id: '2', utility_description: 'This is in use', utility_status: 'operational',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityUtility.create(facility_id: 'MZ02003', utility_id: '3', utility_description: 'This is in use', utility_status: 'operational',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityUtility.create(facility_id: 'MZ02003', utility_id: '9', utility_description: 'This is in use', utility_status: 'operational',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityUtility.create(facility_id: 'll01001', utility_id: '8', utility_description: 'This is in use', utility_status: 'operational',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityUtility.create(facility_id: 'MZ02003', utility_id: '1', utility_description: 'This is in use', utility_status: 'operational',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityUtility.create(facility_id: 'MZ02003', utility_id: '11', utility_description: 'This is in use', utility_status: 'operational',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityUtility.create(facility_id: 'MZ02003', utility_id: '7', utility_description: 'This is in use', utility_status: 'operational',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityUtility.create(facility_id: 'MZ02003', utility_id: '8', utility_description: 'This is in use', utility_status: 'operational',created_at: '2017-10-10', updated_at: '2017-10-10')
+
+Personel.create(facility_id: 'MZ02003',username:'kuunika', password:'kuunika', block: '', block_reason: '', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+FacilityService.create(facility_id:'MZ02003', service_id: '1',service_description: 'The service is being provided', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+FacilityService.create(facility_id:'MZ02003', service_id: '2',service_description: 'The service is being provided', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+FacilityService.create(facility_id:'MZ02003', service_id: '4',service_description: 'The service is being provided', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+FacilityService.create(facility_id:'MZ02003', service_id: '5',service_description: 'The service is being provided', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+FacilityService.create(facility_id:'DA04001', service_id: '1',service_description: 'The service is being provided', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+FacilityService.create(facility_id:'DA04001', service_id: '2',service_description: 'The service is being provided', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+FacilityService.create(facility_id:'DA04001', service_id: '4',service_description: 'The service is being provided', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+FacilityService.create(facility_id:'DA04001', service_id: '5',service_description: 'The service is being provided', created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityService.create(facility_id:'ll01002', service_id: '1',service_description: 'The service is being provided', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+FacilityService.create(facility_id:'ll01002', service_id: '2',service_description: 'The service is being provided', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+FacilityService.create(facility_id:'ll01002', service_id: '4',service_description: 'The service is being provided', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+FacilityService.create(facility_id:'ll01002', service_id: '5',service_description: 'The service is being provided', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+FacilityService.create(facility_id:'ll01001', service_id: '1',service_description: 'The service is being provided', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+FacilityService.create(facility_id:'ll01001', service_id: '2',service_description: 'The service is being provided', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+FacilityService.create(facility_id:'ll01001', service_id: '4',service_description: 'The service is being provided', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+FacilityService.create(facility_id:'ll01001', service_id: '5',service_description: 'The service is being provided', created_at: '2017-10-10', updated_at: '2017-10-10')
+Location.create(zone: 'Central West', district: 'Lilongwe',area: '10000', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+Location.create(zone: 'Central West', district: 'Dedza',area: '10000', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+Location.create(zone: 'Central West', district: 'Mchinji',area: '10000', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+Location.create(zone: 'Central West', district: 'Ntcheu',area: '10000', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+Location.create(zone: 'Central East', district: 'Dowa',area: '10000', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+Location.create(zone: 'Central East', district: 'Kasungu',area: '10000', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+Location.create(zone: 'Central East', district: 'Ntchisi',area: '10000', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+Location.create(zone: 'Central East', district: 'salima
+	',area: '10000', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+FacilityLocation.create(facility_id: 'll01001',location_id: '1', population: '10000',created_at: '2017-10-10', updated_at: '2017-10-10')
+
+FacilityLocation.create(facility_id: 'll01002',location_id: '1', population: '10000',created_at: '2017-10-10', updated_at: '2017-10-10')
+
+FacilityLocation.create(facility_id: 'DA04001',location_id: '1', population: '10000',created_at: '2017-10-10', updated_at: '2017-10-10')
+
+FacilityLocation.create(facility_id: 'MZ02003',location_id: '1', population: '10000',created_at: '2017-10-10', updated_at: '2017-10-10')
+Partner.create(name: 'CDC', origin: 'America', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+Partner.create(name: 'USAID', origin: 'America', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+Partner.create(name: 'EGPAF', origin: 'United Kingdom', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+Partner.create(name: 'BHT', origin: 'America', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+FacilityPartner.create(facility_id: 'll01001', partner_id: '1')
+
+FacilityPartner.create(facility_id: 'll01002', partner_id: '2')
+
+FacilityPartner.create(facility_id: 'DA04001', partner_id: '3')
+
+FacilityPartner.create(facility_id: 'MZ02003', partner_id: '4')
+
+Ownership.create(name: 'Government',created_at: '2017-10-10', updated_at: '2017-10-10')
+
+Ownership.create(name: 'Private',created_at: '2017-10-10', updated_at: '2017-10-10')
+
+Ownership.create(name: 'Company',created_at: '2017-10-10', updated_at: '2017-10-10')
+
+FacilityOwnership.create(facility_id: 'll01001',ownership_id: '1', ownership_type: 'parastatal',created_at: '2017-10-10', updated_at: '2017-10-10')
+
+FacilityOwnership.create(facility_id: 'll01002',ownership_id: '1', ownership_type: 'parastatal',created_at: '2017-10-10', updated_at: '2017-10-10')
+
+FacilityOwnership.create(facility_id: 'DA04001',ownership_id: '1', ownership_type: 'parastatal',created_at: '2017-10-10', updated_at: '2017-10-10')
+
+FacilityOwnership.create(facility_id: 'MZ02003',ownership_id: '1', ownership_type: 'parastatal',created_at: '2017-10-10', updated_at: '2017-10-10')
+
+Role.create(role_name: 'Administrator', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+Role.create(role_name: 'Super user', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+Role.create(role_name: 'Data Manager', created_at: '2017-10-10', updated_at: '2017-10-10')
+
+
+PersonelRole.create(person_id: '1',role_id: '1',created_at: '2017-10-10', updated_at: '2017-10-10')
+
