@@ -42,7 +42,7 @@ class FacilitiesController < ApplicationController
    def show
     @facility = Facility.find_by_facility_id(params[:facility_id])
     facility_id = params[:facility_id]
-    #raise facility_id.inspect
+    raise facility_id.inspect
     @utility = Utility.find_by_sql("select u.name, u.provider from utilities u left join facility_utilities
        fu on u.id=fu.utility_id left join facilities f on fu.facility_id =f.facility_id where f.facility_id= '#{facility_id}'")
    #raise @utility.inspect
