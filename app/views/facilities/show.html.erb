@@ -161,7 +161,9 @@
 
     <% end %>
 
-     <tr><td><%= link_to 'Ok', {:action => 'list'} %></td></tr>
+     <tr><td> <%= link_to 'Ok', {:action => 'list'} %></td></tr>
+     
+
   </table>
 
 
@@ -170,9 +172,10 @@
   
 </div>
 
+
 <br/><br/><br/><br/>
   <legend>
-    Facility details
+    Facility details 
   </legend>   
   
 <div class="col col-md-offset-4 col-md-3">
@@ -180,9 +183,13 @@
   
      <div id="map1" style="width: 500px; height: 500px"></div>
      <script type="text/javascript">
+     var latitude = <%= @facility.latitude %>
+     var longitude = <%= @facility.longitude %>
+     var facility_name = "<%= @facility.name %>"
+
          
 function myMap() {
-  var myCenter = new google.maps.LatLng(-13.6,33.2);
+  var myCenter = new google.maps.LatLng(longitude,latitude);
   var mapCanvas = document.getElementById("map1");
   var mapOptions = {center: myCenter, zoom: 8};
   var map2 = new google.maps.Map(mapCanvas, mapOptions);
@@ -190,16 +197,16 @@ function myMap() {
   marker.setMap(map2);
 
   var infowindow = new google.maps.InfoWindow({
-    content: "Hello World!"
+    content: facility_name
   });
   infowindow.open(map2,marker);
 }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-MrJ0WnBYzAA1A2SwzyCX4UTnDi-fjw8&callback=myMap"></script>
-<!--
 
-    </form>
-</div>
+
+     </form>
+    </div>
   </div>
 </div>
 
