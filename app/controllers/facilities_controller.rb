@@ -66,6 +66,7 @@ class FacilitiesController < ApplicationController
 
     end 
    end
+<<<<<<< HEAD
 
 
   
@@ -76,14 +77,26 @@ class FacilitiesController < ApplicationController
   
    def list
     
+=======
+  
+   def list
+    if params[:name].present?
+      particular_value = params[:name]
+      @specific_name = params[:name]
+       @facilities = Facility.find_by_sql("select f.name,f.facility_id,f.description,f.cell_location from facilities f left join facility_services
+       fs on f.facility_id=fs.facility_id left join services s on fs.service_id =s.id where s.name = '#{particular_value}'")
+
+    else
+>>>>>>> 76717ffdd0044e01f835fa41cf55878483e1ce79
     facilities1 = session[:facilities_queried]
     if facilities1.blank?
 
        @facilities = Facility.all
-       else
+    else
         @facilities = facilities1
         session.delete(:facilities_queried)
-      end  
+    end  
+   end
    end
    def delete
     @facility = Facility.find_by_facility_id(params[:facility_id])

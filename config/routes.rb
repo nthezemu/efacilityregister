@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'facilities/index'
 
   get 'logins/login'
+  get 'logins/logout'
 
   post 'logins/authenticate'
 
