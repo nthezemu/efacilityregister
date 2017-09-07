@@ -53,7 +53,7 @@
             </div>
 
             <!--logo start-->
-            <a href="facilities/index" class="logo"> Malawi <span class="lite">Health Facility Register - MHFR</span></a>
+            <a href="/facilities/index" class="logo"> Malawi <span class="lite">Health Facility Register - MHFR</span></a>
             <!--logo end-->
 
             <div class="nav search-row" id="top_menu">
@@ -91,10 +91,13 @@
             <div class="top-nav notification-row">                
                 <!-- notificatoin dropdown start-->
                 <ul class="nav pull-right top-menu">
-                   <% if session[:logged_in] == 'not logged in' %>
+                  
+                   <% if session[:login_status] == 'not logged in' %>                        
+                            <%= @login_status %>
                     <li>
                         <button class="btn btn-sucess btn-lg"> <a href="/logins/login">Sign in</a></button>
                     </li>
+                      <% #raise @login_status.inspect %>
                     <% else %>
                     <!-- user login dropdown start-->
                     <li class="dropdown">
@@ -102,7 +105,14 @@
                             <span class="profile-ava">
                                 <img alt="" src="/assets/avatar1_small.jpg">
                             </span>
-                            <span class="username">all@baobabhealth.org</span>
+                            <span class="username">
+                                
+                                <% if session[:username].blank? %>
+
+                                <% else %>
+                                <%= session[:username] %>
+                                <% end %>
+                            </span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
@@ -117,7 +127,7 @@
                                 <a href="#"><i class="icon_key_alt"></i> Documentation</a>
                             </li>
                             <li>
-                                <a href=""><i class="icon_key_alt"></i> Log Out</a>
+                                <a href="/logins/logout"><i class="icon_key_alt"></i> Log Out</a>
                             </li>
                             
                         </ul>
@@ -150,8 +160,11 @@
                       <ul class="sub">
                           <li><a class="" href="/facilities/new">Register facility</a></li>                          
                           <li><a class="" href="/facilities/list">List facilities</a></li>
+                          <% if session[:login_status] == 'logged in' %> 
                           <li><a class="" href="/facilities/list">Edit facility</a></li>                          
                           <li><a class="" href="/facilities/list">Delete</a></li>
+                         <% else %>
+                         <% end %>
                       </ul> <br/>
                   </li>
                   <li class="sub-menu">

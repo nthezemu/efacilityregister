@@ -4,6 +4,12 @@ class LoginsController < ApplicationController
   def login
        
   end
+  def logout
+      session.delete(:login_status)
+      session.delete(:username)
+      redirect_to action: 'index', controller: 'facilities'
+
+  end
   
   def authenticate
     # parameters = params.require(:personel).permit(:username, :password)
@@ -18,11 +24,20 @@ class LoginsController < ApplicationController
 
       if personel.password == params[:personel][:password]
       # && personel.authenticate(params[:personel][:password])    
-         session[:logged_in] = "logged_in"
-         redirect_to '/facilities/index'
+         #session[:logged_in] = "logged_in"
+         #session[:logged_in] = 'logged_in'
+        #raise @login_status.inspect
+        #@username = personel.username
+        #raise @username.inspect
+          #session[:login_status].delete
+          session[:login_status] = 'logged in'
+          session[:username] = personel.username
+          #raise session[:login_status].inspect
+          #@login_status = session[:login_status]
+         redirect_to action: 'index', controller: 'facilities'
       
     else
-        flash[:notice] = 'The username or password is incorrect. Please contact your Administrator.'
+        flash[:notice] = 'Username or password is incorrect. Please try again.'
         
         redirect_to :action => 'login'
     end

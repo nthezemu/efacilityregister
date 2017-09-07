@@ -4,8 +4,18 @@ class ApplicationController < ActionController::Base
   # get all facilities  
   def get_all_facilities
   	  @allfacilities = Facility.all
-  	  login_status = 'not logged in' 
-  	  session[:logged_in]= login_status
+  	  if session[:login_status] == 'logged in' 
+  	  	#raise session[:username].inspect
+  	  else 
+  	  session[:login_status] = 'not logged in'
+  	  end
+  	  if session[:username].blank?
+  	  else
+  	  	#raise session[:username].inspect
+  	  end
+
+  	  #raise session[:login_status].inspect
+
   	  
   end
 end
