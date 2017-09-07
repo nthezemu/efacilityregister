@@ -161,7 +161,9 @@
 
     <% end %>
 
-     <tr><td> <%= link_to 'Ok', {:action => 'list'} %></td></tr>
+     <tr><td><%= link_to 'Back', {:action => 'list'} %></td>
+              
+       </div> </td></tr>
      
 
   </table>
@@ -301,6 +303,7 @@ function myMap() {
   
 </div>
 
+<<<<<<< HEAD
 
 
 <br/><br/><br/><br/>
@@ -309,32 +312,21 @@ function myMap() {
   </legend>   
 <div class="col col-md-offset-3 col-md-4">
   <form id="form1" >
+=======
+</div>
+
+<br/><br/><br/><br/>
+
+<br/><br/><br/><br/>
+>>>>>>> 42e80880dac1a51018cf46cc32ecc8f879dde875
   
-     <div id="map1" style="width: 500px; height: 500px"></div>
-     <script type="text/javascript">
-     var latitude = <%= @facility.latitude %>
-     var longitude = <%= @facility.longitude %>
-     var facility_name = "<%= @facility.name %>"
-
-         
-function myMap() {
-  var myCenter = new google.maps.LatLng(longitude,latitude);
-  var mapCanvas = document.getElementById("map1");
-  var mapOptions = {center: myCenter, zoom: 8};
-  var map2 = new google.maps.Map(mapCanvas, mapOptions);
-  var marker = new google.maps.Marker({position:myCenter});
-  marker.setMap(map2);
-
-  var infowindow = new google.maps.InfoWindow({
-    content: facility_name
-  });
-  infowindow.open(map2,marker);
-}
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-MrJ0WnBYzAA1A2SwzyCX4UTnDi-fjw8&callback=myMap"></script>
 
 
+
+<<<<<<< HEAD
      </form>
     </div>
   </div>
+=======
+>>>>>>> 42e80880dac1a51018cf46cc32ecc8f879dde875
 

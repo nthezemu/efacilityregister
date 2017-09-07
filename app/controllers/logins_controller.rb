@@ -2,7 +2,7 @@ class LoginsController < ApplicationController
   #skip_before_filter :perform_basic_auth, :only => :logout
   
   def login
-    
+       
   end
   
   def authenticate
@@ -17,12 +17,12 @@ class LoginsController < ApplicationController
   # if username.present? and password.present?
 
       if personel.password == params[:personel][:password]
-      # && personel.authenticate(params[:personel][:password])     
-       
+      # && personel.authenticate(params[:personel][:password])    
+         session[:logged_in] = "logged_in"
          redirect_to '/facilities/index'
       
     else
-        flash[:error] = 'The username or password is incorrect. Please contact your Administrator.'
+        flash[:notice] = 'The username or password is incorrect. Please contact your Administrator.'
         
         redirect_to :action => 'login'
     end

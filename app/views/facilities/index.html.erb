@@ -129,16 +129,17 @@
                     <button class="btn btn-info btn-lg">Advanced Search</button>       
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                    <button class="btn blue-bg btn-lg"> <%= link_to 'By partner organisation', {:action => 'search_by_partner'} %></button>
                     
-                    <%= link_to 'By partner organisation', {:action => 'search_by_partner'} %>     
+                         
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                    
-                    <%= link_to 'Search by zone', {:action => 'search_by_zone'} %>         
+                    <button class="btn btn-success btn-lg"><%= link_to 'Search by zone', {:action => 'search_by_zone'} %></button>
+                             
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                    
-                    <%= link_to 'Search by district', {:action => 'searchbydistrict'} %>       
+                    <button class="btn brown-bg btn-lg"><%= link_to 'Search by district', {:action => 'searchbydistrict'} %> </button>
+                          
                 </div>             
                       
             </div>		  

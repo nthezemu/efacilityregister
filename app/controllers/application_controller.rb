@@ -3,7 +3,9 @@ class ApplicationController < ActionController::Base
   before_action :get_all_facilities
   # get all facilities  
   def get_all_facilities
-  	  @allfacilities = Facility.all 
+  	  @allfacilities = Facility.all
+  	  login_status = 'not logged in' 
+  	  session[:logged_in]= login_status
   	  
   end
 end
