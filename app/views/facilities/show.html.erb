@@ -161,7 +161,7 @@
 
     <% end %>
 
-     <tr><td> <%= link_to 'Ok', {:action => 'list'} %></td></tr>
+     <tr><td> <%= link_to 'Back', {:action => 'list'} %></td></tr>
      
 
   </table>
@@ -293,7 +293,7 @@ function myMap() {
   var infowindow = new google.maps.InfoWindow({
     content: "Hello World!"
   });
-  infowindow.open(map2,marker);
+  infowindow.open(map2,marker);s
 }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-MrJ0WnBYzAA1A2SwzyCX4UTnDi-fjw8&callback=myMap"></script>
@@ -301,56 +301,13 @@ function myMap() {
   
 </div>
 
-<<<<<<< HEAD
-</div>s
+</div>
 
 <br/><br/><br/><br/>
-=======
 
 <br/><br/><br/><br/>
-  <legend>
-    Facility details 
-  </legend>   
->>>>>>> bfc910dc445d60e65bbd2467447aaf0d75ee0ed5
   
 
 
-<div class="col col-md-offset-3 col-md-4">
-  <form id="form1" >
-  
-     <div id="map1" style="width: 500px; height: 500px"></div>
-     <script type="text/javascript">
-     var latitude = <%= @facility.latitude %>
-     var longitude = <%= @facility.longitude %>
-     var facility_name = "<%= @facility.name %>"
-
-         
-function myMap() {
-  var myCenter = new google.maps.LatLng(longitude,latitude);
-  var mapCanvas = document.getElementById("map1");
-  var mapOptions = {center: myCenter, zoom: 8};
-  var map2 = new google.maps.Map(mapCanvas, mapOptions);
-  var marker = new google.maps.Marker({position:myCenter});
-  marker.setMap(map2);
-
-  var infowindow = new google.maps.InfoWindow({
-    content: facility_name
-  });
-  infowindow.open(map2,marker);
-}
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-MrJ0WnBYzAA1A2SwzyCX4UTnDi-fjw8&callback=myMap"></script>
-
-<<<<<<< HEAD
-    </form>
-</div>
-  </div>s
-=======
-
-     </form>
-    </div>
-  </div>
->>>>>>> bfc910dc445d60e65bbd2467447aaf0d75ee0ed5
-</div>
--->
+s
 
