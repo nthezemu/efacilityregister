@@ -66,19 +66,9 @@ class FacilitiesController < ApplicationController
 
     end 
    end
-<<<<<<< HEAD
 
-
-  
-
-
-  
    def list
 
-=======
-  
-   def list
-<<<<<<< HEAD
     if params[:name].present?
       particular_value = params[:name]
       @specific_name = params[:name]
@@ -86,9 +76,6 @@ class FacilitiesController < ApplicationController
        fs on f.facility_id=fs.facility_id left join services s on fs.service_id =s.id where s.name = '#{particular_value}'")
 
     else
-=======
->>>>>>> 092f774be052af17ebaf15354a27b54b42468c9d
->>>>>>> d9916ef986a641eec3a5c8007d27732743007ad0
     facilities1 = session[:facilities_queried]
     if facilities1.blank?
 
