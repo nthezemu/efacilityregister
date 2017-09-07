@@ -1,12 +1,14 @@
 <div class="container">
   <div class="row">
     
-    <div class="col col-md-offset-0 col-md-4">
+    <div class="col col-md-offset-0 col-md-12">
     <br/><br/><br/><br/>
     <fieldset>
   <legend>
     Facility details
   </legend>
+
+<div class="col col-md-offset-0 col-md-4">
 
   <fieldset style="border: 1px solid #eee;">
   <table style="margin: auto;" cellpadding="10" cellspacing="5">
@@ -64,8 +66,6 @@
         <%= @facility.cell_location %>
       </td>
     </tr>
-
-
     <tr>
       <td>
         <strong>Opening date:</strong>
@@ -161,21 +161,124 @@
 
     <% end %>
 
-     <tr><td><%= link_to 'Ok', {:action => 'list'} %></td></tr>
+     <tr><td><%= link_to 'Back', {:action => 'list'} %></td>
+              
+       </div> </td></tr>
+     
+
   </table>
 
 
   </fieldset>
-
-  
 </div>
 
-<br/><br/><br/><br/>
-  <legend>
-    Facility details
-  </legend>   
-  
-<div class="col col-md-offset-4 col-md-3">
+<div class="col col-md-offset-2s col-md-4">
+
+<div class="row">
+<table style="margin: auto;" cellpadding="10" cellspacing="5">
+
+    <tr>
+      <td colspan="3">
+    <p id="notice"><%= notice %></p>
+    </td>
+    </tr>
+    <th><h3>Services</h3></th>
+     <% @service.each do |s| %>
+    <tr>
+    <td>
+    <strong>Service name</strong>
+    </td>
+    <td>:</td>
+    <td>
+    <strong><%= s.name %></strong>
+    s</td>
+    </tr>
+    <% end -%>
+    </tr>
+    <th><h3>Resources</h3></th>
+    <% if @resource.blank? %>
+    <tr>
+    <td colspan="3">
+    <strong><%=  notice %></strong>
+    </td>
+    </tr>
+      <% else %>
+     <% @resource.each do |r| %>
+    <tr>
+    <td>
+    <strong>Resource name</strong>
+    </td>
+    <td>:</td>
+      <td>
+        <strong><%= r.name %></strong>
+      </td>
+    </tr>
+    <% end -%>
+    <% end %>
+    </tr>
+
+<th><h3>Location</h3></th>
+    <% if @location.blank? %>
+    <tr>
+    <td colspan="3">
+    <strong><%=  notice %></strong>
+    </td>
+    </tr>
+      <% else %>
+     <% @location.each do |l| %>
+    <tr>
+    <td>
+    <strong>Zone</strong>
+    </td>
+    <td>:</td>
+      <td>
+        <strong><%= l.zone %></strong>
+      </td>
+      <tr>
+      <td>
+      <strong>District</strong>
+      </td>
+      <td>
+      :
+      </td>
+      <td>
+      <strong><%= l.district %></strong>
+      </td>
+      </tr>
+      <tr>
+      <td>
+      <strong>Area</strong>
+      </td>
+      <td>
+      :
+      </td>
+      <td>
+      <strong><%= l.area %></strong>
+      </td>
+      </tr>
+       <tr>
+      <td>
+      <strong>Population</strong>
+      </td>
+      <td>
+      :
+      </td>
+      <td>
+      <strong><%= l.population %></strong>
+      </td>
+      </tr>
+    </tr>
+    <% end -%>
+    <% end %>
+    </tr>
+
+    </table>
+</div>
+</div>
+
+
+
+<div class="col col-md-offset- col-md-4">
   <form id="form1" >
   
      <div id="map1" style="width: 500px; height: 500px"></div>
@@ -196,10 +299,17 @@ function myMap() {
 }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-MrJ0WnBYzAA1A2SwzyCX4UTnDi-fjw8&callback=myMap"></script>
-<!--
 
-    </form>
+  
 </div>
-  </div>
+
 </div>
+
+<br/><br/><br/><br/>
+
+<br/><br/><br/><br/>
+  
+
+
+
 
