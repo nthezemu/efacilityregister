@@ -161,7 +161,9 @@
 
     <% end %>
 
-     <tr><td> <%= link_to 'Back', {:action => 'list'} %></td></tr>
+     <tr><td><%= link_to 'Back', {:action => 'list'} %></td>
+              
+       </div> </td></tr>
      
 
   </table>
@@ -293,7 +295,7 @@ function myMap() {
   var infowindow = new google.maps.InfoWindow({
     content: "Hello World!"
   });
-  infowindow.open(map2,marker);s
+  infowindow.open(map2,marker);
 }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-MrJ0WnBYzAA1A2SwzyCX4UTnDi-fjw8&callback=myMap"></script>
@@ -309,5 +311,5 @@ function myMap() {
   
 
 
-s
+
 
