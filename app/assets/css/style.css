@@ -63,7 +63,7 @@ table tr th { color: #688a7e;}
     padding-bottom: 10px;
     padding-top: 10px;
 }
-.lite{
+.lite{s
     color: #00a0df !important;
 }
 
@@ -262,6 +262,7 @@ table tr th { color: #688a7e;}
     height: 100%;
     position: fixed;
     background: #394a59;
+
 }
 
 .nav-collapse.collapse {
