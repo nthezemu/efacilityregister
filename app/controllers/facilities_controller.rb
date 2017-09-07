@@ -66,6 +66,7 @@ class FacilitiesController < ApplicationController
 
     end 
    end
+<<<<<<< HEAD
 
 
   
@@ -74,6 +75,10 @@ class FacilitiesController < ApplicationController
   
    def list
 
+=======
+  
+   def list
+>>>>>>> 092f774be052af17ebaf15354a27b54b42468c9d
     facilities1 = session[:facilities_queried]
     if facilities1.blank?
 
@@ -141,8 +146,8 @@ class FacilitiesController < ApplicationController
       partner_name = params[:partners][:partnername]
       facilities_queried = Facility.find_by_sql("select * from partners p left join facility_partners fp on p.id = fp.partner_id left join facilities f on fp.facility_id = f.facility_id  where p.name = '#{partner_name}'")
    
-    session[:facilities_queried] = facilities_queried
-    redirect_to :action => 'list'
+      session[:facilities_queried] = facilities_queried
+      redirect_to :action => 'list'
    end
 
    def search_by_partner

@@ -283,9 +283,12 @@ s
   
      <div id="map1" style="width: 500px; height: 500px"></div>
      <script type="text/javascript">
+     var latitude = <%= @facility.longitude %>
+     var longitude = <%= @facility.latitude %>
+     var facility_name = "<%= @facility.name %>"
          
 function myMap() {
-  var myCenter = new google.maps.LatLng(-13.6,33.2);
+  var myCenter = new google.maps.LatLng(latitude,longitude);
   var mapCanvas = document.getElementById("map1");
   var mapOptions = {center: myCenter, zoom: 8};
   var map2 = new google.maps.Map(mapCanvas, mapOptions);
@@ -293,7 +296,7 @@ function myMap() {
   marker.setMap(map2);
 
   var infowindow = new google.maps.InfoWindow({
-    content: "Hello World!"
+    content: facility_name
   });
   infowindow.open(map2,marker);
 }
@@ -303,30 +306,9 @@ function myMap() {
   
 </div>
 
-<<<<<<< HEAD
-
-
-<br/><br/><br/><br/>
-  <legend>
-    Facility details 
-  </legend>   
-<div class="col col-md-offset-3 col-md-4">
-  <form id="form1" >
-=======
 </div>
 
-<br/><br/><br/><br/>
-
-<br/><br/><br/><br/>
->>>>>>> 42e80880dac1a51018cf46cc32ecc8f879dde875
-  
-
-
-
-<<<<<<< HEAD
-     </form>
-    </div>
+    </form>
+   </div>
   </div>
-=======
->>>>>>> 42e80880dac1a51018cf46cc32ecc8f879dde875
 
