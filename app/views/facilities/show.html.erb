@@ -17,7 +17,12 @@
       </td>
     </tr>
 
-    <tr>
+<tr style="background-color: #aabbcc;"><td colspan="3" >
+    <h5 style="float: left; height:4px;"><strong>Facility details</strong></h5>
+    </td>
+    </tr>
+
+    <tr style="background-color: #ffffff;">
       <td>
         <strong>Facility Id:</strong>
       </td>
@@ -29,7 +34,7 @@
       </td>
     </tr>
 
-    <tr>
+    <tr style="background-color: #ffffff;">
       <td>
         <strong> Name:</strong>
       </td>
@@ -41,7 +46,7 @@
       </td>
     </tr>
 
-    <tr>
+    <tr style="background-color: #ffffff;">
       <td>
         <strong>Description:</strong>
       </td>
@@ -54,7 +59,7 @@
     </tr>
 
 
-    <tr>
+    <tr style="background-color: #ffffff;">
       <td>
         <strong>Cell Location:</strong>
       </td>
@@ -65,7 +70,7 @@
         <%= @facility.cell_location %>
       </td>
     </tr>
-    <tr>
+    <tr style="background-color: #ffffff;">
       <td>
         <strong>Opening date:</strong>
       </td>
@@ -77,7 +82,7 @@
       </td>
     </tr>
 
-    <tr>
+    <tr style="background-color: #ffffff;">
       <td>
         <strong>Closing date:</strong>
       </td>
@@ -88,7 +93,7 @@
         <%= @facility.closing_date %>
       </td>
     </tr>
-    <tr>
+    <tr style="background-color: #ffffff;">
       <td>
         <strong>Referral facility:</strong>
       </td>
@@ -98,7 +103,8 @@
       <td>
         <%= @facility.parent_facility %>
       </td>
-    </tr><tr>
+    </tr>
+    <tr style="background-color: #ffffff;">
       <td>
         <strong>Email address:</strong>
       </td>
@@ -108,7 +114,8 @@
       <td>
         <%= @facility.email_address %>
       </td>
-    </tr><tr>
+    </tr>
+    <tr style="background-color: #ffffff;">
       <td>
         <strong>Phone Number:</strong>
       </td>
@@ -118,7 +125,8 @@
       <td>
         <%= @facility.phone_number %>
       </td>
-    </tr><tr>
+    </tr>
+    <tr style="background-color: #ffffff;">
       <td>
         <strong>Ownership:</strong>
       </td>
@@ -129,7 +137,7 @@
         <%= @facility.type_code %>
       </td>
     </tr>
-    <tr>
+    <tr style="background-color: #ffffff;">
       <td>
         <strong>Status:</strong>
       </td>
@@ -141,11 +149,18 @@
       </td>
      
       </tr>
-      <td>
-      <th><h3>Utilities</h3></th>
+      <tr> <br/></tr>
+      </table>
+      <br/>
+<table style="margin: auto;" cellpadding="10" cellspacing="5">
+
+<tr style="background-color: #aabbcc;"><td colspan="3" >
+    <h5 style="float: left; height:4px;">Utilities</h5>
+    </td>
+    </tr>
+
     <% @utility.each do |u| %>
-      </td>
-      <tr>
+      <tr style="background-color: #ffffff;">
       <td><strong><%= u.name %></strong></td>
       <td>
         :
@@ -153,16 +168,13 @@
       <td>
         <strong><%= u.provider %></strong>
       </td>
-      <td>
-        
-      </td>
     </tr>
 
     <% end %>
-s
+
      <tr><td><%= link_to 'Back', {:action => 'list'} %></td>
               
-       </div> </td></tr>
+       </div></tr>
      
 
   </table>
@@ -181,29 +193,35 @@ s
     <p id="notice"><%= notice %></p>
     </td>
     </tr>
-    <th><h3>Services</h3></th>
+    <tr style="background-color: #aabbcc;"><td colspan="3" >
+    <h5 style="float: left; height:4px;">Services</h5>
+    </td>
+    </tr>
      <% @service.each do |s| %>
-    <tr>
+    <tr style="background-color: #ffffff;">
     <td>
     <strong>Service name</strong>
     </td>
     <td>:</td>
     <td>
     <strong><%= s.name %></strong>
-    s</td>
+    </td>
     </tr>
     <% end -%>
     </tr>
-    <th><h3>Resources</h3></th>
+    <tr style="background-color: #aabbcc;"><td colspan="3" >
+    <h5 style="float: left; height:4px;">Resources</h5>
+    </td>
+    </tr>
     <% if @resource.blank? %>
-    <tr>
+    <tr style="background-color: #ffffff;">
     <td colspan="3">
     <strong><%=  notice %></strong>
     </td>
     </tr>
       <% else %>
      <% @resource.each do |r| %>
-    <tr>
+    <tr style="background-color: #ffffff;">
     <td>
     <strong>Resource name</strong>
     </td>
@@ -216,16 +234,20 @@ s
     <% end %>
     </tr>
 
-<th><h3>Location</h3></th>
+    <tr style="background-color: #aabbcc;"><td colspan="3" >
+    <h5 style="float: left; height:4px;">Location</h5>
+    </td>
+    </tr>
+
     <% if @location.blank? %>
-    <tr>
+    <tr style="background-color: #ffffff;">
     <td colspan="3">
     <strong><%=  notice %></strong>
     </td>
     </tr>
       <% else %>
      <% @location.each do |l| %>
-    <tr>
+    <tr style="background-color: #ffffff;">
     <td>
     <strong>Zone</strong>
     </td>
@@ -233,7 +255,7 @@ s
       <td>
         <strong><%= l.zone %></strong>
       </td>
-      <tr>
+      <tr style="background-color: #ffffff;">
       <td>
       <strong>District</strong>
       </td>
@@ -244,7 +266,7 @@ s
       <strong><%= l.district %></strong>
       </td>
       </tr>
-      <tr>
+      <tr style="background-color: #ffffff;">
       <td>
       <strong>Area</strong>
       </td>
@@ -255,7 +277,7 @@ s
       <strong><%= l.area %></strong>
       </td>
       </tr>
-       <tr>
+       <tr style="background-color: #ffffff;">
       <td>
       <strong>Population</strong>
       </td>
