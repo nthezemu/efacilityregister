@@ -70,8 +70,13 @@ class FacilitiesController < ApplicationController
 
   
 
+<<<<<<< HEAD
+  def list
+  
+=======
   
    def list
+>>>>>>> 42e80880dac1a51018cf46cc32ecc8f879dde875
     facilities1 = session[:facilities_queried]
     if facilities1.blank?
 
