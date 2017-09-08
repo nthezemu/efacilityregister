@@ -186,20 +186,23 @@
       </div>
 
         <div class="row">
-        <h3><strong>location</strong></h3>
-        <div class="col col-md-1"><%= check_box_tag 'location[]', '1'%></div>
-        <div class="col col-md-1">Northern</div>
-         <div class="col col-md-1"><%= check_box_tag 'location[]', '2'%></div>
-         <div class="col col-md-1">Central West</div>
-         <div class="col col-md-1"><%= check_box_tag 'location[]', '3'%></div>
-         <div class="col col-md-1">Central East</div>
-         <div class="col col-md-1"><%= check_box_tag 'location[]', '4'%></div>
-         <div class="col col-md-1">South West</div>
-         <div class="col col-md-1"><%= check_box_tag 'location[]', '5'%></div>
-         <div class="col col-md-1">South West</div>
-         <div class="col col-md-1"><%= check_box_tag 'location[]', '6'%></div>
-
-
+        <h3><strong>Location</strong></h3>
+        <div class="col col-md-1">Zone:</div>
+        <div class="col col-md-2"><%= select "facility_location", "zonename", [[ "Northern", "1"],["Central East", "2"],["Central West","3"],["South East","4"],["South West","5"]]%></div>
+        <div class="col col-md-1">District:</div>
+         <div class="col col-md-2 ">
+        <%= select "districts", "districtname", [[ "Chitipa", "chitipa"],["Karonga", "karonga"],["Nkhata Bay","nkhata bay"],["Mzimba","mzimba"],["Kasungu","kasungu"],["Lilongwe","lilongwe"],["Mchinji","mchinji"],["Dedza","dedza"],["Ntcheu","ntcheu"]]%>
+       </div>
+       <div class="col col-md-1">Area:</div>
+       <div class="col col-md-2 ">
+       <%= text_field 'location', 'area', class: 'form-control round-input' %>
+              
+       </div>
+       <div class="col col-md-1">Population:</div>
+       <div class="col col-md-2 ">
+       <%= text_field 'facility_location', 'population', class: 'form-control round-input' %>
+              
+       </div>
       </div>
 
 

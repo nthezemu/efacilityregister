@@ -19,8 +19,8 @@ class FacilitiesController < ApplicationController
         parent_facility: params[:facility][:parent_facility],
         email_address: params[:facility][:email_address],
         phone_number: params[:facility][:phone_number],
-        latitude: params[:facility][:latitude],
-        longitude: params[:facility][:longitude],
+        latitude: params[:facility][:longitude],
+        longitude: params[:facility][:latitude],
         type_code: params[:facility][:type_code],
         status: params[:facility][:status])
 
@@ -31,8 +31,20 @@ class FacilitiesController < ApplicationController
          @facility_utility = FacilityUtility.new(
          facility_id: params[:facility][:facility_id], 
          utility_id: u )
-         @facility_utility.save
+          @facility_utility.save
          end
+         params[:services].each do |s|
+         @facility_service = FacilityService.new(
+         facility_id: params[:facility][:facility_id], 
+         service_id: s )
+         @facility_service.save
+         end
+         # save the location of the facility
+         @facility_location = FacilityLocation.new(
+         facility_id: params[:facility][:facility_id], 
+         location_id: params[:facility_location][:zonename],
+         population: params[:facility_location][:population])
+         @facility_location.save
          redirect_to :action => 'show', :facility_id => @facility.facility_id
       else
          #@subjects = Subject.all 
@@ -66,8 +78,6 @@ class FacilitiesController < ApplicationController
 
     end 
    end
-
-
    def list
     if params[:name].present?
       particular_value = params[:name]
