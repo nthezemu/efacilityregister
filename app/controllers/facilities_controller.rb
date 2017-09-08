@@ -72,6 +72,11 @@ class FacilitiesController < ApplicationController
 
     end 
    end
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 5736e7b8cd4087ff5a18de0cc4447234b02091b6
    def list
     if params[:name].present?
       particular_value = params[:name]
