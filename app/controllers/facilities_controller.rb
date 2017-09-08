@@ -77,7 +77,22 @@ class FacilitiesController < ApplicationController
          flash[:notice] = "There are no resources"
 
     end 
+<<<<<<< HEAD
+   end  
+=======
    end
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+
+  
+  
+  
+>>>>>>> 3750701bc0b02ef72f6425123a3ca9ce4c34b70a
+>>>>>>> 8c3e212c00b763d3a7abe4ee41ea5cbec8a8e082
+=======
+>>>>>>> aca9675447369ca0b47c44843128677cadfc7367
    def list
     if params[:name].present?
       particular_value = params[:name]
@@ -86,7 +101,17 @@ class FacilitiesController < ApplicationController
        fs on f.facility_id=fs.facility_id left join services s on fs.service_id =s.id where s.name = '#{particular_value}'")
 
     else
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
     zonevalue = session[:zone_name]
+=======
+>>>>>>> 3750701bc0b02ef72f6425123a3ca9ce4c34b70a
+>>>>>>> 8c3e212c00b763d3a7abe4ee41ea5cbec8a8e082
+=======
+    zonevalue = session[:zone_name]
+>>>>>>> aca9675447369ca0b47c44843128677cadfc7367
     facilities1 = session[:facilities_queried]
     if (facilities1.blank?) && (zonevalue.blank?)
 
