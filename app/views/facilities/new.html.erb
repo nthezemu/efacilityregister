@@ -4,8 +4,8 @@
  <br/><br/><br/><br/>
    <div class="col col-md-offset-2 col-md-10">
 
-     <h3 class="col-md-offset-4">Enter the details to create new facilities</h3>
- 
+     <h3 class="col-md-offset-4"><strong>Enter Facility Details</strong></h3>
+
     <div class="form-horizontal">
       <%= form_tag :action => 'create' do %>
       
@@ -121,7 +121,7 @@
     </div>
     
     <div class="row">
-        <h3>Electricity</h3>
+        <h3><strong>Electricity</strong></h3>
         <div class="col col-md-1"><%= check_box_tag 'utilities[]', '1'%></div>
         <div class="col col-md-3">Escom Electricity</div>
 
@@ -133,7 +133,7 @@
       </div>
 
  <div class="row">
-        <h3>Internet</h3>
+        <h3><strong>Internet</strong></h3>
         <div class="col col-md-1"><%= check_box_tag 'utilities[]', '10'%></div>
         <div class="col col-md-1">Accesss</div>
          <div class="col col-md-1"><%= check_box_tag 'utilities[]', '11'%></div>
@@ -149,8 +149,8 @@
          
       </div>
 
-<div class="row">
-        <h3>Water</h3>
+  <div class="row">
+        <h3><strong>Water</strong></h3>
         <div class="col col-md-1"><%= check_box_tag 'utilities[]', '4'%></div>
         <div class="col col-md-1">Blantyre Waterboard</div>
          <div class="col col-md-1"><%= check_box_tag 'utilities[]', '5'%></div>
@@ -164,12 +164,11 @@
          <div class="col col-md-1"><%= check_box_tag 'utilities[]', '9'%></div>
          <div class="col col-md-1">Other</div>
 
-
       </div>
 
 
       <div class="row">
-        <h3>Services</h3>
+        <h3><strong>Services</strong></h3>
         <div class="col col-md-1"><%= check_box_tag 'services[]', '1'%></div>
         <div class="col col-md-1">Surgery</div>
          <div class="col col-md-1"><%= check_box_tag 'services[', '2'%></div>
@@ -185,6 +184,47 @@
 
 
       </div>
+
+        <div class="row">
+        <h3><strong>Location</strong></h3>
+        <div class="col col-md-1">Zone:</div>
+        <div class="col col-md-2"><%= select "facility_location", "zonename", [[ "Northern", "1"],["Central East", "2"],["Central West","3"],["South East","4"],["South West","5"]]%></div>
+        <div class="col col-md-1">District:</div>
+         <div class="col col-md-2 ">
+        <%= select "districts", "districtname", [[ "Chitipa", "chitipa"],["Karonga", "karonga"],["Nkhata Bay","nkhata bay"],["Mzimba","mzimba"],["Kasungu","kasungu"],["Lilongwe","lilongwe"],["Mchinji","mchinji"],["Dedza","dedza"],["Ntcheu","ntcheu"]]%>
+       </div>
+       <div class="col col-md-1">Area:</div>
+       <div class="col col-md-2 ">
+       <%= text_field 'location', 'area', class: 'form-control round-input' %>
+              
+       </div>
+       <div class="col col-md-1">Population:</div>
+       <div class="col col-md-2 ">
+       <%= text_field 'facility_location', 'population', class: 'form-control round-input' %>
+              
+       </div>
+      </div>
+
+
+
+
+        <div class="row">
+        <h3><strong>Resources</strong></h3>
+        <div class="col col-md-1"><%= check_box_tag 'location[]', '1'%></div>
+        <div class="col col-md-1">Patient beds</div>
+         <div class="col col-md-1"><%= check_box_tag 'location[]', '2'%></div>
+         <div class="col col-md-1">Central West</div>
+         <div class="col col-md-1"><%= check_box_tag 'location[]', '3'%></div>
+         <div class="col col-md-1">Central East</div>
+         <div class="col col-md-1"><%= check_box_tag 'location[]', '4'%></div>s
+         <div class="col col-md-1">South West</div>
+         <div class="col col-md-1"><%= check_box_tag 'location[]', '5'%></div>
+         <div class="col col-md-1">South West</div>
+         <div class="col col-md-1"><%= check_box_tag 'location[]', '6'%></div>
+
+
+      </div>
+
 
 
     <div class="row"> <br/>
