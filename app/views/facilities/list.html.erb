@@ -32,6 +32,10 @@
 	<p>This is the list of current facilities in the system</p>
 	<% else %>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3750701bc0b02ef72f6425123a3ca9ce4c34b70a
 	<p>This is the list of current facilities in the system which offer <%= @specific_name %> services</p>
 	<% end %>
 	
@@ -100,10 +104,11 @@
     	</div>
     </div>
 	
-	<div class="col col-md-1 btn btn-warning">
-      <a href="">back</a>
-              
-       </div>
+	 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                    <button class="btn btn-info btn-lg"><%= link_to 'Back', {:action => 'index'} %> </button>
+
+                          
+                </div>             
 </div>
 </div>
 </section>
