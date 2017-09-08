@@ -89,12 +89,14 @@ class FacilitiesController < ApplicationController
     end  
    end
    end
+
+
    def delete
     @facility = Facility.find_by_facility_id(params[:facility_id])
     
     @facility.destroy
-    flash[:notice] = "facility has been deleted successfully
-    "
+    flash[:notice] = "facility has been deleted successfully"
+    
     redirect_to :action => 'list'
    end
    def edit
