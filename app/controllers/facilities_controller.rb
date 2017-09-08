@@ -66,11 +66,14 @@ class FacilitiesController < ApplicationController
 
     end 
    end
+<<<<<<< HEAD
+=======
 
 
   
   
   
+>>>>>>> 3750701bc0b02ef72f6425123a3ca9ce4c34b70a
    def list
     if params[:name].present?
       particular_value = params[:name]
@@ -79,13 +82,18 @@ class FacilitiesController < ApplicationController
        fs on f.facility_id=fs.facility_id left join services s on fs.service_id =s.id where s.name = '#{particular_value}'")
 
     else
+<<<<<<< HEAD
+    zonevalue = session[:zone_name]
+=======
+>>>>>>> 3750701bc0b02ef72f6425123a3ca9ce4c34b70a
     facilities1 = session[:facilities_queried]
-    if facilities1.blank?
+    if (facilities1.blank?) && (zonevalue.blank?)
 
        @facilities = Facility.all
     else
         @facilities = facilities1
         session.delete(:facilities_queried)
+        session.delete(:zone_name)
     end  
    end
    end
@@ -125,7 +133,9 @@ class FacilitiesController < ApplicationController
    
    def searchbydistrictquery
       district_name = params[:districts][:districtname]
-      facilities_queried = Facility.find_by_sql("select * from locations l left join facility_locations fl on l.id = fl.location_id left join facilities f on fl.facility_id = f.facility_id  where l.district = '#{district_name}'")
+      session[:zone_name] =district_name
+      facilities_queried = Facility.find_by_sql("select f.name,f.facility_id,f.description,f.cell_location from facilities f left join facility_locations
+       fl on f.facility_id=fl.facility_id left join locations l on fl.location_id =l.id where l.district = '#{district_name}'")
    
     session[:facilities_queried] = facilities_queried
     redirect_to :action => 'list'
@@ -136,7 +146,9 @@ class FacilitiesController < ApplicationController
 
   def search_by_zone_query
       zone_name = params[:zones][:zonename]
-      facilities_queried = Facility.find_by_sql("select * from locations l left join facility_locations fl on l.id = fl.location_id left join facilities f on fl.facility_id = f.facility_id  where l.zone = '#{zone_name}'")
+      session[:zone_name] = zone_name
+      facilities_queried = Facility.find_by_sql("select f.name,f.facility_id,f.description,f.cell_location from facilities f left join facility_locations
+       fl on f.facility_id=fl.facility_id left join locations l on fl.location_id =l.id where l.zone = '#{zone_name}'")
    
     session[:facilities_queried] = facilities_queried
     redirect_to :action => 'list'
@@ -147,7 +159,9 @@ class FacilitiesController < ApplicationController
 
    def search_by_partner_query
       partner_name = params[:partners][:partnername]
-      facilities_queried = Facility.find_by_sql("select * from partners p left join facility_partners fp on p.id = fp.partner_id left join facilities f on fp.facility_id = f.facility_id  where p.name = '#{partner_name}'")
+      session[:zone_name] = partner_name
+      facilities_queried = Facility.find_by_sql("select f.name,f.facility_id,f.description,f.cell_location from facilities f left join facility_partners
+       fp on f.facility_id=fp.facility_id left join partners p on fp.partner_id =p.id where p.name = '#{partner_name}'")
    
       session[:facilities_queried] = facilities_queried
       redirect_to :action => 'list'
