@@ -19,8 +19,8 @@ class FacilitiesController < ApplicationController
         parent_facility: params[:facility][:parent_facility],
         email_address: params[:facility][:email_address],
         phone_number: params[:facility][:phone_number],
-        latitude: params[:facility][:latitude],
-        longitude: params[:facility][:longitude],
+        latitude: params[:facility][:longitude],
+        longitude: params[:facility][:latitude],
         type_code: params[:facility][:type_code],
         status: params[:facility][:status])
 
@@ -31,7 +31,13 @@ class FacilitiesController < ApplicationController
          @facility_utility = FacilityUtility.new(
          facility_id: params[:facility][:facility_id], 
          utility_id: u )
-         @facility_utility.save
+          @facility_utility.save
+         end
+         params[:services].each do |s|
+         @facility_service = FacilityService.new(
+         facility_id: params[:facility][:facility_id], 
+         service_id: s )
+         @facility_service.save
          end
          redirect_to :action => 'show', :facility_id => @facility.facility_id
       else
@@ -66,14 +72,6 @@ class FacilitiesController < ApplicationController
 
     end 
    end
-<<<<<<< HEAD
-=======
-
-
-  
-  
-  
->>>>>>> 3750701bc0b02ef72f6425123a3ca9ce4c34b70a
    def list
     if params[:name].present?
       particular_value = params[:name]
@@ -82,10 +80,7 @@ class FacilitiesController < ApplicationController
        fs on f.facility_id=fs.facility_id left join services s on fs.service_id =s.id where s.name = '#{particular_value}'")
 
     else
-<<<<<<< HEAD
     zonevalue = session[:zone_name]
-=======
->>>>>>> 3750701bc0b02ef72f6425123a3ca9ce4c34b70a
     facilities1 = session[:facilities_queried]
     if (facilities1.blank?) && (zonevalue.blank?)
 
