@@ -62,7 +62,7 @@
                 
             </div><!--/.row-->
 		
-			
+			ss
            <div class="row">
 		    <div class="col-lg-3 col-md-3">
 					
@@ -76,9 +76,8 @@
 							</div>	
 						</div>
 						<div class="panel-body-map">
-							<%= image_tag('malawi.jpg', :size => "365x370")	%>
-						</div>
-	
+							<%= image_tag('malawi.jpg', :size => "370x370")	%>
+						</div>70
 					</div>
 				</div>
                 <div class="col col-lg-3 col-md-3">
@@ -86,7 +85,7 @@
                            <%= form_tag :action => 'create' do %>
     <div class="row"> <br/>
        <div class="col col-md-2">
-         <label for = "facility_id">Facility type:</label>
+         <label for = "facility_id">Central Hospitals:</label>
        </div>
        <div class="col col-md-4 ">
          <%= text_field 'facility', 'facility_id', class: 'form-control round-input'%>
@@ -94,7 +93,7 @@
     </div>
     <div class="row"> <br/>
       <div class="col col-md-2">
-         <label for = "name">Facility ownership:</label>
+         <label for = "name">District Hospitalss:</label>
        </div>
        <div class="col col-md-4 ">
         <%= text_field 'facility', 'name', class: 'form-control round-input' %>
@@ -102,7 +101,7 @@
     </div>
     <div class="row"> <br/>
        <div class="col col-md-2">
-         <label for = "description">Description:</label>
+         <label for = "description">Hospitals:</label>
        </div>
        <div class="col col-md-4 ">
        <%= text_field 'facility', 'description', class: 'form-control round-input' %>        
