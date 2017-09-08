@@ -19,8 +19,6 @@
     <div class="row">
     	<div class="col col-md-10">
     	
-    <h4><strong><i class="fa fa-hospital-o">Health facilities in Malawi</i></strong></h4>
-
 	<p id="notice"><%= notice %></p>
 	<% if @facilities.blank? %>
 	 <%	if @specific_name.blank? %>
@@ -34,9 +32,19 @@
 	<p>This is the list of current facilities in the system</p>
 	<% else %>
 
+<<<<<<< HEAD
 	<p>This is the list of current facilities in the system which offer <%= @specific_name %> services</p>
 	<% end %>
 
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3750701bc0b02ef72f6425123a3ca9ce4c34b70a
+	<p>This is the list of current facilities in the system which offer <%= @specific_name %> services</p>
+	<% end %>
+	
+>>>>>>> 8c3e212c00b763d3a7abe4ee41ea5cbec8a8e082
 	<table class="table table-striped table-advance table-hover">
 		<th>facility id </th>
 		<th>facility name </th>
@@ -201,10 +209,18 @@
     	</div>
     </div>
 	
+<<<<<<< HEAD
 	<div class="col col-md-1 btn btn-warning">
       <a href="/facilities/index">back</a>
               
        </div>
+=======
+	 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                    <button class="btn btn-info btn-lg"><%= link_to 'Back', {:action => 'index'} %> </button>
+
+                          
+                </div>             
+>>>>>>> 8c3e212c00b763d3a7abe4ee41ea5cbec8a8e082
 </div>
 </div>
 </section>
