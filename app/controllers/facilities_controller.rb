@@ -39,6 +39,12 @@ class FacilitiesController < ApplicationController
          service_id: s )
          @facility_service.save
          end
+         # save the location of the facility
+         @facility_location = FacilityLocation.new(
+         facility_id: params[:facility][:facility_id], 
+         location_id: params[:facility_location][:zonename],
+         population: params[:facility_location][:population])
+         @facility_location.save
          redirect_to :action => 'show', :facility_id => @facility.facility_id
       else
          #@subjects = Subject.all 
@@ -72,11 +78,6 @@ class FacilitiesController < ApplicationController
 
     end 
    end
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 5736e7b8cd4087ff5a18de0cc4447234b02091b6
    def list
     if params[:name].present?
       particular_value = params[:name]
