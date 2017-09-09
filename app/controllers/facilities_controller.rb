@@ -88,6 +88,7 @@ class FacilitiesController < ApplicationController
 
     else
 
+
     zonevalue = session[:zone_name]
 
     zonevalue = session[:zone_name]
