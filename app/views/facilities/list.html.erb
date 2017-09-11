@@ -32,24 +32,11 @@
 	<p>This is the list of current facilities in the system</p>
 	<% else %>
 
-<<<<<<< HEAD
-
 
 	<p>This is the list of current facilities in the system which offer <%= @specific_name %> services</p>
 	<% end %>
-=======
-	<p>This is the list of current facilities in the system which offer <%= @specific_name %> services</p>
-	<% end %>
-
-
-
-
-
-
-	<p>This is the list of current facilities in the system which offer <%= @specific_name %> services</p>
 	<% end %>
 	
->>>>>>> bfff2088c8c184b92a4ee699fdc1f94bed9984c7
 	<table class="table table-striped table-advance table-hover">
 		<th>facility id </th>
 		<th>facility name </th>
@@ -68,114 +55,6 @@
 		<% if session[:login_status] == 'logged in' %>
 		<td><i class="fa fa-edit"> &nbsp;<%= link_to 'Edit', {:action => 'edit', :facility_id => f['facility_id']} %></i></td>
 		<td><i class="fa fa-trash-o"> &nbsp;<%= link_to 'Delete', {:action => 'delete', :facility_id => f['facility_id']}, data: {confirm: "Are you sure you want to delete this facility"} %></i></td>
-		</tr>
-
-		<% else %>
-		  </tr>
-		<% end %>
-			
-	<% end %>
-	<% @facilities.each do |f| %>
-	
-		<tr>
-		<td><%= f['facility_id'] %></td>
-		<td><%= f['name'] %></td>
-		<td><%= f['description'] %></td>
-		<td><%= f['cell_location'] %></td>
-		<td><i class="fa fa-eye"> &nbsp;<%= link_to 'View', {:action => 'show', :facility_id => f['facility_id']} %></td>
-		<% if session[:login_status] == 'logged in' %>
-		<td><i class="fa fa-edit"> &nbsp;<%= link_to 'Edit', {:action => 'edit', :facility_id => f['facility_id']} %></td>
-		<td><i class="fa fa-trash-o">&nbsp;<%= link_to 'Delete', {:action => 'delete', :facility_id => f['facility_id']}, data: {confirm: "Are you sure you want to delete this facility"} %></td>
-		</tr>
-
-		<% else %>
-		  </tr>
-		<% end %>
-			
-	<% end %>
-	<% @facilities.each do |f| %>
-	
-		<tr>
-		<td><%= f['facility_id'] %></td>
-		<td><%= f['name'] %></td>
-		<td><%= f['description'] %></td>
-		<td><%= f['cell_location'] %></td>
-		<td><%= link_to 'View', {:action => 'show', :facility_id => f['facility_id']} %></td>
-		<% if session[:login_status] == 'logged in' %>
-		<td><%= link_to 'Edit', {:action => 'edit', :facility_id => f['facility_id']} %></td>
-		<td><%= link_to 'Delete', {:action => 'delete', :facility_id => f['facility_id']}, data: {confirm: "Are you sure you want to delete this facility"} %></td>
-		</tr>
-
-		<% else %>
-		  </tr>
-		<% end %>
-			
-	<% end %>
-	<% @facilities.each do |f| %>
-	
-		<tr>
-		<td><%= f['facility_id'] %></td>
-		<td><%= f['name'] %></td>
-		<td><%= f['description'] %></td>
-		<td><%= f['cell_location'] %></td>
-		<td><%= link_to 'View', {:action => 'show', :facility_id => f['facility_id']} %></td>
-		<% if session[:login_status] == 'logged in' %>
-		<td><%= link_to 'Edit', {:action => 'edit', :facility_id => f['facility_id']} %></td>
-		<td><%= link_to 'Delete', {:action => 'delete', :facility_id => f['facility_id']}, data: {confirm: "Are you sure you want to delete this facility"} %></td>
-		</tr>
-
-		<% else %>
-		  </tr>
-		<% end %>
-			
-	<% end %>
-	<% @facilities.each do |f| %>
-	
-		<tr>
-		<td><%= f['facility_id'] %></td>
-		<td><%= f['name'] %></td>
-		<td><%= f['description'] %></td>
-		<td><%= f['cell_location'] %></td>
-		<td><%= link_to 'View', {:action => 'show', :facility_id => f['facility_id']} %></td>
-		<% if session[:login_status] == 'logged in' %>
-		<td><%= link_to 'Edit', {:action => 'edit', :facility_id => f['facility_id']} %></td>
-		<td><%= link_to 'Delete', {:action => 'delete', :facility_id => f['facility_id']}, data: {confirm: "Are you sure you want to delete this facility"} %></td>
-		</tr>
-
-		<% else %>
-		  </tr>
-		<% end %>
-			
-	<% end %>
-	<% @facilities.each do |f| %>
-	
-		<tr>
-		<td><%= f['facility_id'] %></td>
-		<td><%= f['name'] %></td>
-		<td><%= f['description'] %></td>
-		<td><%= f['cell_location'] %></td>
-		<td><%= link_to 'View', {:action => 'show', :facility_id => f['facility_id']} %></td>
-		<% if session[:login_status] == 'logged in' %>
-		<td><%= link_to 'Edit', {:action => 'edit', :facility_id => f['facility_id']} %></td>
-		<td><%= link_to 'Delete', {:action => 'delete', :facility_id => f['facility_id']}, data: {confirm: "Are you sure you want to delete this facility"} %></td>
-		</tr>
-
-		<% else %>
-		  </tr>
-		<% end %>
-			
-	<% end %>
-	<% @facilities.each do |f| %>
-	
-		<tr>
-		<td><%= f['facility_id'] %></td>
-		<td><%= f['name'] %></td>
-		<td><%= f['description'] %></td>
-		<td><%= f['cell_location'] %></td>
-		<td><%= link_to 'View', {:action => 'show', :facility_id => f['facility_id']} %></td>
-		<% if session[:login_status] == 'logged in' %>
-		<td><%= link_to 'Edit', {:action => 'edit', :facility_id => f['facility_id']} %></td>
-		<td><%= link_to 'Delete', {:action => 'delete', :facility_id => f['facility_id']}, data: {confirm: "Are you sure you want to delete this facility"} %></td>
 		</tr>
 
 		<% else %>
@@ -214,22 +93,10 @@
     	</div>
     </div>
 	
-
-<<<<<<< HEAD
-	 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                    <button class="btn btn-info btn-lg"><%= link_to 'Back', {:action => 'index'} %> </button>
-
-                          
-                </div>             
-=======
 	<div class="col col-md-1 btn btn-warning">
       <a href="/facilities/index">back</a>
               
        </div>
-
-	 
-
->>>>>>> bfff2088c8c184b92a4ee699fdc1f94bed9984c7
 </div>
 </div>
 </section>
