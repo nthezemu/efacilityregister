@@ -39,6 +39,21 @@ class FacilitiesController < ApplicationController
          service_id: s )
          @facility_service.save
          end
+         #get the arrays
+         resources = params[:resource]
+         quantities = params[:quantity]
+         #raise resources.zip(quantities).inspect
+         resources.zip(quantities).each do |r,q|
+         #params[:resource].each do |r|
+          #resource = params[:quantity]
+          #raise resource.inspect
+         @facility_resource = FacilityResource.new(
+         facility_id: params[:facility][:facility_id], 
+         resource_id: r,
+         resource_quantity: q
+         )
+         @facility_resource.save
+         end
          # save the location of the facility
          @facility_location = FacilityLocation.new(
          facility_id: params[:facility][:facility_id], 

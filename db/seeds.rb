@@ -156,3 +156,27 @@ Role.create(role_name: 'Data Manager', created_at: '2017-10-10', updated_at: '20
 
 PersonelRole.create(person_id: '1',role_id: '1',created_at: '2017-10-10', updated_at: '2017-10-10')
 
+Resource.create(name: 'Patient beds',created_at: '2017-10-10', updated_at: '2017-10-10')
+Resource.create(name: 'Ambulances',created_at: '2017-10-10', updated_at: '2017-10-10')
+Resource.create(name: 'Freezers',created_at: '2017-10-10', updated_at: '2017-10-10')
+Resource.create(name: 'Computers',created_at: '2017-10-10', updated_at: '2017-10-10')
+
+FacilityResource.create(facility_id: 'll01001',resource_id: '1',resource_quantity: '5',resource_description: 'This is functional',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityResource.create(facility_id: 'll01001',resource_id: '2',resource_quantity: '5',resource_description: 'This is functional',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityResource.create(facility_id: 'll01001',resource_id: '3',resource_quantity: '5',resource_description: 'This is functional',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityResource.create(facility_id: 'll01001',resource_id: '4',resource_quantity: '5',resource_description: 'This is functional',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityResource.create(facility_id: 'll01002',resource_id: '2',resource_quantity: '5',resource_description: 'This is functional',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityResource.create(facility_id: 'll01002',resource_id: '1',resource_quantity: '5',resource_description: 'This is functional',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityResource.create(facility_id: 'll01002',resource_id: '2',resource_quantity: '5',resource_description: 'This is functional',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityResource.create(facility_id: 'll01002',resource_id: '3',resource_quantity: '5',resource_description: 'This is functional',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityResource.create(facility_id: 'll01002',resource_id: '4',resource_quantity: '5',resource_description: 'This is functional',created_at: '2017-10-10', updated_at: '2017-10-10')
+
+FacilityResource.create(facility_id: 'DA04001',resource_id: '1',resource_quantity: '5',resource_description: 'This is functional',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityResource.create(facility_id: 'DA04001',resource_id: '2',resource_quantity: '5',resource_description: 'This is functional',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityResource.create(facility_id: 'DA04001',resource_id: '3',resource_quantity: '5',resource_description: 'This is functional',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityResource.create(facility_id: 'DA04001',resource_id: '4',resource_quantity: '5',resource_description: 'This is functional',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityResource.create(facility_id: 'MZ02003',resource_id: '2',resource_quantity: '5',resource_description: 'This is functional',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityResource.create(facility_id: 'MZ02003',resource_id: '1',resource_quantity: '5',resource_description: 'This is functional',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityResource.create(facility_id: 'MZ02003',resource_id: '2',resource_quantity: '5',resource_description: 'This is functional',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityResource.create(facility_id: 'MZ02003',resource_id: '3',resource_quantity: '5',resource_description: 'This is functional',created_at: '2017-10-10', updated_at: '2017-10-10')
+FacilityResource.create(facility_id: 'MZ02003',resource_id: '4',resource_quantity: '5',resource_description: 'This is functional',created_at: '2017-10-10', updated_at: '2017-10-10')

@@ -70,11 +70,11 @@
                          <% if @allfacilities.blank? %>
                           <% else %>
                         <table class="striped highlight bordered responsive-table" style="color: #000;display: none;border:3px;" id="quicksearch">
-                            <th>click on facility to view details</th>
+                            <th style="color:#FFF;">click on facility to view details</th>
                             <%  @allfacilities.each do |f| %>
                             <tr>
                                 <td> 
-                                    <a href="/facilities/show?facility_id=<%= f.facility_id %>">
+                                    <a href="/facilities/show?facility_id=<%= f.facility_id %>" style="color:#FFF;">
                                         <%= f.name %>
                                     </a>
                                 </td>
