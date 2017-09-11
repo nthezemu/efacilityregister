@@ -39,6 +39,14 @@ class FacilitiesController < ApplicationController
          service_id: s )
          @facility_service.save
          end
+         params[:resource].each do |r|
+         @facility_resource = FacilityResource.new(
+         facility_id: params[:facility][:facility_id], 
+         resource_id: r
+         #resource_quantity: params[:facility_resource][:quantity]
+         )
+         @facility_resource.save
+         end
          # save the location of the facility
          @facility_location = FacilityLocation.new(
          facility_id: params[:facility][:facility_id], 

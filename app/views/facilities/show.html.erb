@@ -304,10 +304,15 @@
   
      <div id="map1" style="width: 500px; height: 500px"></div>
      <script type="text/javascript">
+
      var latitude = <%= @facility.longitude %>
      var longitude = <%= @facility.latitude %>
+     if( latitude == "" && longitude == ""){
+      var latitude = "-13.6"
+      var longitude = "33.634576"
+     }else{
      var facility_name = "<%= @facility.name %>"
-         
+        } 
 function myMap() {
   var myCenter = new google.maps.LatLng(latitude,longitude);
   var mapCanvas = document.getElementById("map1");
