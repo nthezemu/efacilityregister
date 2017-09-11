@@ -62,51 +62,102 @@
                 
             </div><!--/.row-->
 		
-           <div class="row">
+    <div class="row">
 		    <div class="col-lg-3 col-md-3">
 					
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h2><i class="fa fa-map-marker red"></i><strong>Malawi</strong></h2>
-							<div class="panel-actions">
-								<a href="index.html#" class="btn-setting"><i class="fa fa-rotate-right"></i></a>
-								<a href="index.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
-								<a href="index.html#" class="btn-close"><i class="fa fa-times"></i></a>
-							</div>	
-						</div>
-						<div class="panel-body-map">
-							<%= image_tag('malawi.jpg', :size => "370x370")	%>
-						</div>
-					</div>
+					  <form id="form1" >
+  
+     <div id="map1" style="width: 400px; height: 400px"></div>
+     <script type="text/javascript">
+     var latitude = 33.77561
+     var longitude = -13.99164
+     var facility_name = "Bwaila Hospital"
+         
+function myMap() {
+  var myCenter = new google.maps.LatLng(latitude,longitude);
+  var mapCanvas = document.getElementById("map1");
+  var mapOptions = {center: myCenter, zoom: 8};
+  var map2 = new google.maps.Map(mapCanvas, mapOptions);
+  var marker = new google.maps.Marker({position:myCenter});
+  marker.setMap(map2);
+
+  var infowindow = new google.maps.InfoWindow({
+    content: facility_name
+  });
+  infowindow.open(map2,marker);
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-MrJ0WnBYzAA1A2SwzyCX4UTnDi-fjw8&callback=myMap"></script>
+						
 				</div>
-                <div class="col col-lg-3 col-md-3">
-                    filter and update the map
-                           <%= form_tag :action => 'create' do %>
-    <div class="row"> <br/>
-       <div class="col col-md-2">
-         <label for = "facility_id">Central Hospitals:</label>
-       </div>
-       <div class="col col-md-4 ">
-         <%= text_field 'facility', 'facility_id', class: 'form-control round-input'%>
-       </div>      
-    </div>
-    <div class="row"> <br/>
-      <div class="col col-md-2">
-         <label for = "name">District Hospitals:</label>
-       </div>
-       <div class="col col-md-4 ">
-        <%= text_field 'facility', 'name', class: 'form-control round-input' %>
-       </div>
-    </div>
-    <div class="row"> <br/>
-       <div class="col col-md-2">
-         <label for = "description">Hospitals:</label>
-       </div>
-       <div class="col col-md-4 ">
-       <%= text_field 'facility', 'description', class: 'form-control round-input' %>        
-       </div>
-       <% end %>
-    </div>  
+                <div class="col col-lg-3 col-md-3" style="background-color: #ffffff;">
+                    <h4> <strong>Click a facility on the map to show the details</strong> </h4> 
+                           
+                  <div class="row"> <br/>
+                     <div class="col col-md-4">
+                       <label for = "facility_id">Facility Name:</label>
+                     </div>
+                     <div class="col col-md-8 ">
+                       Bwaila Hospital
+                     </div>      
+                  </div>
+                  <div class="row"> <br/>
+                     <div class="col col-md-4">
+                       <label for = "facility_id">Facility Id:</label>
+                     </div>
+                     <div class="col col-md-8 ">
+                       LL01001
+                     </div>      
+                  </div>
+                  <div class="row"> <br/>
+                     <div class="col col-md-4">
+                       <label for = "facility_id">Refferal Facility:</label>
+                     </div>
+                     <div class="col col-md-8 ">
+                       LL01001
+                     </div>      
+                  </div>
+                  <div class="row"> <br/>
+                     <div class="col col-md-4">
+                       <label for = "facility_id">District:</label>
+                     </div>
+                     <div class="col col-md-8 ">
+                       Lilongwe
+                     </div>      
+                  </div>
+                  <div class="row"> <br/>
+                     <div class="col col-md-4">
+                       <label for = "facility_id">Population:</label>
+                     </div>
+                     <div class="col col-md-8 ">
+                       350 000
+                     </div>      
+                  </div>
+                  <div class="row"> <br/>
+                     <div class="col col-md-4">
+                       <label for = "facility_id">Services:</label>
+                     </div>
+                     <div class="col col-md-8 ">
+                       Family Planning, Maternity, OPD
+                     </div>      
+                  </div>
+                  <div class="row"> <br/>
+                     <div class="col col-md-4">
+                       <label for = "facility_id">Electricity:</label>
+                     </div>
+                     <div class="col col-md-8 ">
+                          Escom & Generator
+                     </div>      
+                  </div>
+                  <div class="row"> <br/>
+                     <div class="col col-md-4">
+                       <label for = "facility_id">Water:</label>
+                     </div>
+                     <div class="col col-md-8 ">
+                       Tap water (Lilongwe Water Board)
+                     </div>      
+                  </div>
+                   
                 </div>
               <div class="col-md-3">
                  <h4>Number of people accessing services</h4>
@@ -119,7 +170,7 @@
               </div>
               
 			 
-           </div> 
+  </div> 
            <br/><br/>
            <div class="row">
                 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
