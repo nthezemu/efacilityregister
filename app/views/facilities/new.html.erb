@@ -39,17 +39,17 @@
        </div>
     </div>
     <div class="row"> <br/>
-        <div class="col col-md-2">
-         <label for = "closing_date">Closing date:</label>
-       </div>
-       <div class="col col-md-4 ">
-       <%= text_field 'facility', 'closing_date', class: 'form-control round-input' %>        
-       </div>
        <div class="col col-md-2">
          <label for = "opening_date">Opening date:</label>
        </div>
        <div class="col col-md-4 ">
        <%= text_field 'facility', 'opening_date', class: 'form-control round-input' %>        
+       </div>
+       <div class="col col-md-2">
+         <label for = "closing_date">Closing date:</label>
+       </div>
+       <div class="col col-md-4 ">
+       <%= text_field 'facility', 'closing_date', class: 'form-control round-input' %>        
        </div>
     </div>
     <div class="row"> <br/>
@@ -88,11 +88,11 @@
 
 
     <div class="row"> <br/>
-      <div class="col col-md-2">
-         <label for = "parent_facility">Referral Facility:</label>
+        <div class="col col-md-2">
+         <label for = "type_code">Ownership:</label>
        </div>
        <div class="col col-md-4 ">
-       <%= text_field 'facility', 'parent_facility', class: 'form-control round-input' %>
+       <%= text_field 'facility', 'type_code', class: 'form-control round-input' %>
               
        </div>
         <div class="col col-md-2">
@@ -109,13 +109,6 @@
        </div>
        <div class="col col-md-4 ">
        <%= text_field 'facility', 'phone_number', class: 'form-control round-input' %>
-              
-       </div>
-       <div class="col col-md-2">
-         <label for = "type_code">Ownership:</label>
-       </div>
-       <div class="col col-md-4 ">
-       <%= text_field 'facility', 'type_code', class: 'form-control round-input' %>
               
        </div>
     </div>
