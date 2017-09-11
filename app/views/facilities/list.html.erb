@@ -48,7 +48,7 @@
 		<th>facility name </th>
 		<th>description </th>
 		<th>cell location </th>
-		<th colspan="3"><i class="icon_cogs"></i>Action</th>
+		<th colspan="3"><i class="fa fa-cogs"></i> &nbsp;Action</th>
 		
 	<% @facilities.each do |f| %>
 	
@@ -57,10 +57,10 @@
 		<td><%= f['name'] %></td>
 		<td><%= f['description'] %></td>
 		<td><%= f['cell_location'] %></td>
-		<td><%= link_to 'View', {:action => 'show', :facility_id => f['facility_id']} %></td>
+		<td><i class="fa fa-eye"> &nbsp;<%= link_to 'View', {:action => 'show', :facility_id => f['facility_id']} %></i></td>
 		<% if session[:login_status] == 'logged in' %>
-		<td><%= link_to 'Edit', {:action => 'edit', :facility_id => f['facility_id']} %></td>
-		<td><%= link_to 'Delete', {:action => 'delete', :facility_id => f['facility_id']}, data: {confirm: "Are you sure you want to delete this facility"} %></td>
+		<td><i class="fa fa-edit"> &nbsp;<%= link_to 'Edit', {:action => 'edit', :facility_id => f['facility_id']} %></i></td>
+		<td><i class="fa fa-trash-o"> &nbsp;<%= link_to 'Delete', {:action => 'delete', :facility_id => f['facility_id']}, data: {confirm: "Are you sure you want to delete this facility"} %></i></td>
 		</tr>
 
 		<% else %>
@@ -75,10 +75,10 @@
 		<td><%= f['name'] %></td>
 		<td><%= f['description'] %></td>
 		<td><%= f['cell_location'] %></td>
-		<td><%= link_to 'View', {:action => 'show', :facility_id => f['facility_id']} %></td>
+		<td><i class="fa fa-eye"> &nbsp;<%= link_to 'View', {:action => 'show', :facility_id => f['facility_id']} %></td>
 		<% if session[:login_status] == 'logged in' %>
-		<td><%= link_to 'Edit', {:action => 'edit', :facility_id => f['facility_id']} %></td>
-		<td><%= link_to 'Delete', {:action => 'delete', :facility_id => f['facility_id']}, data: {confirm: "Are you sure you want to delete this facility"} %></td>
+		<td><i class="fa fa-edit"> &nbsp;<%= link_to 'Edit', {:action => 'edit', :facility_id => f['facility_id']} %></td>
+		<td><i class="fa fa-trash-o">&nbsp;<%= link_to 'Delete', {:action => 'delete', :facility_id => f['facility_id']}, data: {confirm: "Are you sure you want to delete this facility"} %></td>
 		</tr>
 
 		<% else %>
@@ -203,7 +203,7 @@
                 </div>             
 
 
-   <% end %>
+   
     	</div>
     </div>
 	
@@ -213,11 +213,7 @@
               
        </div>
 
-	 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                    <button class="btn btn-info btn-lg"><%= link_to 'Back', {:action => 'index'} %> </button>
-
-                          
-                </div>             
+	 
 
 </div>
 </div>
