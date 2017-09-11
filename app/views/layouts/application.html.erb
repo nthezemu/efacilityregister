@@ -62,6 +62,10 @@
                     <li>
                         <form class="navbar-form">
                             <input id="mainsearch" class="form-control" placeholder="Search by facility name" type="text" onkeydown="showMenu('quicksearch')">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4fb2b422182ac34dee32cd5692dcce7a58c017be
                         </form>
                         <!-- general search table -->
                          <!-- check if at all there are facilities in the database -->
@@ -69,11 +73,11 @@
                          <% if @allfacilities.blank? %>
                           <% else %>
                         <table class="striped highlight bordered responsive-table" style="color: #000;display: none;border:3px;" id="quicksearch">
-                            <th>click on facility to view details</th>
+                            <th style="color:#FFF;">click on facility to view details</th>
                             <%  @allfacilities.each do |f| %>
                             <tr>
                                 <td> 
-                                    <a href="/facilities/show?facility_id=<%= f.facility_id %>">
+                                    <a href="/facilities/show?facility_id=<%= f.facility_id %>" style="color:#FFF;">
                                         <%= f.name %>
                                     </a>
                                 </td>
@@ -107,7 +111,7 @@
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="profile-ava">
-                                <img alt="" src="/assets/avatar1_small.jpg">
+                                <i class="fa fa-user"></i>
                             </span>
                             <span class="username">
                                 
