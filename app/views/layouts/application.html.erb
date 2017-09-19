@@ -47,13 +47,17 @@
   <section id="container" class="">
      
       
+
       <header class="header dark-bg" style="color: #000000;">
+
+      <header class="header header-bg">
+
             <div class="toggle-nav">
-                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="fa fa-bars"></i></div>
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><span class="white-color"><i class="fa fa-bars"></i></span></div>
             </div>
 
             <!--logo start-->
-            <a href="/facilities/index" class="logo"> Malawi <span class="lite">Health Facility Register - MHFR</span></a>
+            <a href="/facilities/index" class="logo"> <strong>Malawi Health Facility Register - MHFR</strong></a>
             <!--logo end-->
 
             <div class="nav search-row" id="top_menu">
@@ -99,7 +103,7 @@
                    <% if session[:login_status] == 'not logged in' %>                        
                             <%= @login_status %>
                     <li>
-                        <button class="btn btn-sucess btn-lg"> <a href="/logins/login">Sign in</a></button>
+                        <button class="btn btn-sucess btn-lg green-color"> <a href="/logins/login"><span style="color:#fff;">Sign in</span></a></button>
                     </li>
                       <% #raise @login_status.inspect %>
                     <% else %>
@@ -146,7 +150,7 @@
 
       <!--sidebar start-->
       <aside>
-          <div id="sidebar"  class="nav-collapse ">
+          <div id="sidebar"  class="nav-collapse logo ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu">                
                   <li class="active">
