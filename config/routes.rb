@@ -34,6 +34,12 @@ Rails.application.routes.draw do
 
   get 'facilities/delete'
 
+  get 'services/resources'
+
+  get 'services/utilities'
+
+  get 'services/new'
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

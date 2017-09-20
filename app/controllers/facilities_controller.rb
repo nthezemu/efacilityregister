@@ -13,6 +13,7 @@ class FacilitiesController < ApplicationController
       #@subjects = Subject.all
    end
 
+
    def create
       @facility = Facility.new(
         facility_id: params[:facility][:facility_id], 
@@ -72,6 +73,15 @@ class FacilitiesController < ApplicationController
       end
       
    end
+
+   def create
+      @utility=Utility.new
+
+        if @facility.save
+        flash[:notice] = "facilicity has been created successfully"
+       end 
+    end
+
 
    def show
     @facility = Facility.find_by_facility_id(params[:facility_id])
