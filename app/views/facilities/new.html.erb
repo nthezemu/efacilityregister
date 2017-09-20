@@ -113,73 +113,80 @@
        </div>
     </div>
     
-    <div class="row">
-        <h3><strong>Electricity</strong></h3>
-        <div class="col col-md-1"><%= check_box_tag 'utilities[]', '1'%></div>
-        <div class="col col-md-3">Escom Electricity</div>
+    <% if @utility_name.blank? %>
 
-         <div class="col col-md-1"><%= check_box_tag 'utilities[]', '2'%></div>
-         <div class="col col-md-3">Solar power</div>
-         <div class="col col-md-1"><%= check_box_tag 'utilities[]', '3'%></div>
-         <div class="col col-md-3">Wind Mill</div>
-         
+    <% else %>
+     <% @utility_name.each do |un| %>
+     <div class="row">
+       <div class="col-md-3">
+          <h3><strong><%= un.name %></strong></h3>
+       </div>
+       
       </div>
-
- <div class="row">
-        <h3><strong>Internet</strong></h3>
-        <div class="col col-md-1"><%= check_box_tag 'utilities[]', '10'%></div>
-        <div class="col col-md-1">Accesss</div>
-         <div class="col col-md-1"><%= check_box_tag 'utilities[]', '11'%></div>
-         <div class="col col-md-1">Broadband</div>
-         <div class="col col-md-1"><%= check_box_tag 'utilities[]', '12'%></div>
-         <div class="col col-md-1">Globe Internet</div>
-         <div class="col col-md-1"><%= check_box_tag 'utilities[]', '13'%></div>
-        <div class="col col-md-1">MTL</div>
-         <div class="col col-md-1"><%= check_box_tag 'utilities[]', '14'%></div>
-         <div class="col col-md-1">TNM</div>
-          <div class="col col-md-1"><%= check_box_tag 'utilities[]', '15'%></div>
-         <div class="col col-md-1">Airtel</div>
-         
-      </div>
-
-  <div class="row">
-        <h3><strong>Water</strong></h3>
-        <div class="col col-md-1"><%= check_box_tag 'utilities[]', '4'%></div>
-        <div class="col col-md-1">Blantyre Waterboard</div>
-         <div class="col col-md-1"><%= check_box_tag 'utilities[]', '5'%></div>
-         <div class="col col-md-1">Lilongwe Waterboard</div>
-         <div class="col col-md-1"><%= check_box_tag 'utilities[]', '6'%></div>
-         <div class="col col-md-1">Northern region Waterboard</div>
-         <div class="col col-md-1"><%= check_box_tag 'utilities[]', '7'%></div>
-         <div class="col col-md-1">Central region Waterboard</div>
-         <div class="col col-md-1"><%= check_box_tag 'utilities[]', '8'%></div>
-         <div class="col col-md-1">Southern region Waterboard</div>
-         <div class="col col-md-1"><%= check_box_tag 'utilities[]', '9'%></div>
-         <div class="col col-md-1">Other</div>
-
-      </div>
-
-
       <div class="row">
-        <h3><strong>Services</strong></h3>
-        <div class="col col-md-1"><%= check_box_tag 'services[]', '1'%></div>
-        <div class="col col-md-1">Surgery</div>
-         <div class="col col-md-1"><%= check_box_tag 'services[', '2'%></div>
-         <div class="col col-md-1">Family planning</div>
-         <div class="col col-md-1"><%= check_box_tag 'services[]', '3'%></div>
-         <div class="col col-md-1">Maternity</div>
-         <div class="col col-md-1"><%= check_box_tag 'services[]', '4'%></div>
-         <div class="col col-md-1">Dental</div>
-         <div class="col col-md-1"><%= check_box_tag 'Services[]', '5'%></div>
-         <div class="col col-md-1">Other Services</div>
-         <div class="col col-md-1"><%= check_box_tag 'services[]', '6'%></div>
-         <div class="col col-md-1">Other</div>
+        <% numinrow = 0 %>
+        <% flag = 0 %>
+        <% @utilities.each do |u| %>
+          
+        <% if un.name == u.name %>
+          <% if (flag == 0 || (numinrow%3)!=0) %>
+          <div class="col col-md-1"><%= check_box_tag 'utilities[]', u.id %></div>
+          <div class="col col-md-3"><%= u.provider %></div>
+          <% else %>
+        </div><div class="row"><br/>
+          
+          <div class="col col-md-1"><%= check_box_tag 'utilities[]', u.id %></div>
+          <div class="col col-md-3"><%= u.provider %></div>
 
+        <% end %>
+        <% else %>
+          </div><div class="row">
+        <% end %>
+        <% numinrow += 1 %>
+        <% flag = 1 %>
+      <% end %>
+     <% end %>
+     </div>
+     <% end %>
 
+    
+    <% if @services.blank? %>
+
+    <% else %>
+     
+     <div class="row">
+       <div class="col-md-3">
+          <h3><strong>Services</strong></h3>
+       </div>
+       
       </div>
+      <div class="row">
+        <% numinrow = 0 %>
+        <% flag = 0 %>
+        <% @services.each do |s| %>
+          <% if (flag == 0 || (numinrow%3)!=0) %>
+          <div class="col col-md-1"><%= check_box_tag 'services[]', s.id %></div>
+          <div class="col col-md-3"><%= s.name %></div>
+          <% else %>
+        </div><div class="row"><br/>
+          
+          <div class="col col-md-1"><%= check_box_tag 'services[]', s.id %></div>
+          <div class="col col-md-3"><%= s.name %></div>
 
-        <div class="row">
+        <% end %>
+        <% numinrow += 1 %>
+        <% flag = 1 %>
+      <% end %>
+    
+     </div>
+     <% end %>
+
+     <div class="row">
+      <div class="col-md-3">
         <h3><strong>Location</strong></h3>
+      </div>
+     </div>
+     <div class="row">
         <div class="col col-md-1">Zone:</div>
         <div class="col col-md-2"><%= select "facility_location", "zonename", [[ "Northern", "1"],["Central East", "2"],["Central West","3"],["South East","4"],["South West","5"]]%></div>
         <div class="col col-md-1">District:</div>
@@ -194,36 +201,47 @@
        <div class="col col-md-1">Population:</div>
        <div class="col col-md-2 ">
        <%= text_field 'facility_location', 'population', class: 'form-control round-input' %>
-              
-       </div>
-      </div>
-
-
-
-
-        <div class="row">
-        <h3><strong>Resources</strong></h3>
-        <div class="col col-md-1"><%= check_box_tag 'resource[]', '1'%></div>
-        <div class="col col-md-1">Patient beds:</div>
-        <div class="col col-md-1 ">
-        <%= text_field_tag 'quantity[]',nil, class: 'form-control round-input'  %>     
         </div>
-        <div class="col col-md-1"><%= check_box_tag 'resource[]', '2'%></div>
-        <div class="col col-md-1">Ambulances:</div>
-        <div class="col col-md-1 ">
-        <%= text_field_tag 'quantity[]',nil, class: 'form-control round-input'  %>          
-       </div>
-       <div class="col col-md-1"><%= check_box_tag 'resource[]', '3'%></div>
-        <div class="col col-md-1">Freezers:</div>
-        <div class="col col-md-1 ">
-        <%= text_field_tag 'quantity[]',nil, class: 'form-control round-input'  %>          
-       </div>
-       <div class="col col-md-1"><%= check_box_tag 'resource[]', '4'%></div>
-        <div class="col col-md-1">Computers:</div>
-        <div class="col col-md-1 ">
-        <%= text_field_tag 'quantity[]',nil, class: 'form-control round-input'  %>          
-       </div>
       </div>
+    
+      <% if @resources.blank? %>
+
+    <% else %>
+     
+     <div class="row">
+       <div class="col-md-3">
+          <h3><strong>Resources</strong></h3>
+       </div>
+       
+      </div>
+      <div class="row">
+        <% numinrow = 0 %>
+        <% flag = 0 %>
+        <% @resources.each do |r| %>
+          <% if (flag == 0 || (numinrow%3)!=0) %>
+          <div class="col col-md-1"><%= check_box_tag 'resource[]', r.id%>
+          </div>
+          <div class="col col-md-1"><%= r.name %>:</div>
+          <div class="col col-md-1 ">
+          <%= text_field_tag 'quantity[]',nil, class: 'form-control round-input'  %>     
+          </div>
+
+          <% else %>
+        </div><div class="row"><br/>
+          <div class="col col-md-1"><%= check_box_tag 'resource[]', r.id%>
+          </div>
+          <div class="col col-md-1"><%= r.name %>:</div>
+          <div class="col col-md-1 ">
+          <%= text_field_tag 'quantity[]',nil, class: 'form-control round-input'  %>     
+          </div>
+
+        <% end %>
+        <% numinrow += 1 %>
+        <% flag = 1 %>
+      <% end %>
+    
+     </div>
+     <% end %>
 
 
 

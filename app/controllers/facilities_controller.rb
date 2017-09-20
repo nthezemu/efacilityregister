@@ -5,6 +5,11 @@ class FacilitiesController < ApplicationController
   
    def new
       @facility = Facility.new
+      @utilities = Utility.all
+      @utility_name = Utility.find_by_sql("select distinct name from utilities")
+      @services = Service.all
+      @resources = Resource.all
+      #raise @utilities.inspect
       #@subjects = Subject.all
    end
 
@@ -102,14 +107,9 @@ class FacilitiesController < ApplicationController
        fs on f.facility_id=fs.facility_id left join services s on fs.service_id =s.id where s.name = '#{particular_value}'")
 
     else
-
-
-    zonevalue = session[:zone_name]
-
     zonevalue = session[:zone_name]
     facilities1 = session[:facilities_queried]
     if (facilities1.blank?) && (zonevalue.blank?)
-
        @facilities = Facility.all
     else
         @facilities = facilities1
@@ -130,7 +130,12 @@ class FacilitiesController < ApplicationController
    end
    def edit
     @facility = Facility.find_by_facility_id(params[:facility_id])
-     
+    fac_id = params[:facility_id]
+    @facility_utilities = FacilityUtility.find_by_sql("select facility_id,utility_id from facility_utilities where facility_id = '#{fac_id}'")
+    #raise @facility_utilities.inspect
+    @utilities = Utility.all
+    @utility_name = Utility.find_by_sql("select distinct name from utilities")
+
    end
    def facility_param
      params.require(:facility).permit(:facility_id, :name,
