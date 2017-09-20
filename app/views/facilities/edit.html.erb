@@ -14,39 +14,27 @@
        </div>
        <div class="col col-md-4 ">
          <%= f.text_field 'facility_id', class: 'form-control round-input'%>
-       </div>      
-    </div>
-    <div class="row"> <br/>
-      <div class="col col-md-2">
+       </div>
+       <div class="col col-md-2">
          <label for = "name">Facility Name:</label>
        </div>
        <div class="col col-md-4 ">
         <%= f.text_field 'name', class: 'form-control round-input' %>
-       </div>
-    </div>
-    <div class="row"> <br/>
-       <div class="col col-md-2">
-         <label for = "description">Description:</label>
-       </div>
-       <div class="col col-md-4 ">
-       <%= f.text_field 'description', class: 'form-control round-input' %>        
-       </div>
-      
-    </div>
-    <div class="row"> <br/>
-       <div class="col col-md-2">
-         <label for = "cell_location">Cell location:</label>
-       </div>
-       <div class="col col-md-4 ">
-       <%= f.text_field 'cell_location', class: 'form-control round-input' %>        
-       </div>
+       </div>      
     </div>
     <div class="row"> <br/>
       <div class="col col-md-2">
-         <label for = "closing_date">Closing date:</label>
+        <label for = "description">Description:</label>
        </div>
        <div class="col col-md-4 ">
-       <%= f.text_field 'closing_date', class: 'form-control round-input' %>        
+       <%= f.text_field 'description', class: 'form-control round-input' %>      
+       </div>
+
+       <div class="col col-md-2">
+        <label for = "cell_location">Cell location:</label>
+       </div>
+       <div class="col col-md-4 ">
+       <%= f.text_field 'cell_location', class: 'form-control round-input' %>        
        </div>
     </div>
     <div class="row"> <br/>
@@ -56,35 +44,46 @@
        <div class="col col-md-4 ">
        <%= f.text_field 'opening_date', class: 'form-control round-input' %>        
        </div>
+       <div class="col col-md-2">
+         <label for = "closing_date">Closing date:</label>
+       </div>
+       <div class="col col-md-4 ">
+       <%= f.text_field 'closing_date', class: 'form-control round-input' %>        
+       </div>
+      
     </div>
     <div class="row"> <br/>
-      <div class="col col-md-2">
+     <div class="col col-md-2">
          <label for = "parent_facility">Referral Facility:</label>
        </div>
        <div class="col col-md-4 ">
        <%= f.text_field 'parent_facility', class: 'form-control round-input' %>
               
        </div>
-      
-    </div>
-    <div class="row"> <br/>
-    <div class="col col-md-2">
-         <label for = "email_address">Email address:</label>
-       </div>
-       <div class="col col-md-4 ">
-       <%= f.text_field 'email_address', class: 'form-control round-input' %>
-              
-       </div>
-    </div>
-    <div class="row"> <br/>
        <div class="col col-md-2">
-         <label for = "phone_number">Phone Number:</label>
+         <label for = "status">Status:</label>
        </div>
        <div class="col col-md-4 ">
-       <%= f.text_field 'phone_number', class: 'form-control round-input' %>
+       <%= f.text_field 'status', class: 'form-control round-input' %>
               
        </div>
-      
+
+    </div>
+    <div class="row"> <br/>
+      <div class="col col-md-2">
+         <label for = "status">Latitude:</label>
+       </div>
+       <div class="col col-md-4 ">
+       <%= f.text_field 'latitude', class: 'form-control round-input' %>
+              
+       </div>
+       <div class="col col-md-2">
+         <label for = "status">Longitude:</label>
+       </div>
+       <div class="col col-md-4 ">
+       <%= f.text_field 'longitude', class: 'form-control round-input' %>
+              
+       </div>
     </div>
     <div class="row"> <br/>
       <div class="col col-md-2">
@@ -94,15 +93,110 @@
        <%= f.text_field 'type_code', class: 'form-control round-input' %>
               
        </div>
+       <div class="col col-md-2">
+         <label for = "email_address">Email address:</label>
+       </div>
+       <div class="col col-md-4 ">
+       <%= f.text_field 'email_address', class: 'form-control round-input' %>
+              
+       </div>
+
     </div>
     <div class="row"> <br/>
       <div class="col col-md-2">
-         <label for = "status">Status:</label>
+         <label for = "phone_number">Phone Number:</label>
        </div>
        <div class="col col-md-4 ">
-       <%= f.text_field 'status', class: 'form-control round-input' %>
+       <%= f.text_field 'phone_number', class: 'form-control round-input' %>
               
        </div>
+    </div>
+    
+     <% if @utility_name.blank? %>
+
+    <% else %>
+     <% @utility_name.each do |un| %>
+     <div class="row">
+       <div class="col-md-3">
+          <h3><strong><%= un.name %></strong></h3>
+       </div>
+       
+      </div>
+      <div class="row">
+        <% numinrow = 0 %>
+        <% flag = 0 %>
+        <% @utilities.each do |u| %>
+          
+        <% if un.name == u.name %>
+          <% if (flag == 0 || (numinrow%3)!=0) %>
+          <div class="col col-md-1"> 
+        <%  @facility_utilities.each do |fu|
+
+          if(u.id == fu.utility_id) %>
+          <%= check_box_tag 'utilities[]', u.id, {:checked => "checked"} %> 
+         <% else %>
+          <%= check_box_tag 'utilities[]', u.id %> 
+          <% end %>
+         <% end %>
+                   </div>
+          <div class="col col-md-3"><%= u.provider %></div>
+          <% else %>
+        </div><div class="row"><br/>
+          
+          <div class="col col-md-1"><%= check_box_tag 'utilities[]', u.id,
+           @facility_utilities.each do |fu|
+
+          if(fu.utility_id == u.id)
+          {:checked => "checked"} 
+          else
+          end
+         end 
+
+           %></div>
+          <div class="col col-md-3"><%= u.provider %></div>
+
+        <% end %>
+        <% else %>
+          </div><div class="row">
+        <% end %>
+        <% numinrow += 1 %>
+        <% flag = 1 %>
+      <% end %>
+     <% end %>
+     </div>
+     <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="row"> <br/>
+       
+      
+    </div>
+    <div class="row"> <br/>
+      
+    </div>
+    <div class="row"> <br/>
+      
     </div>
     <div class="row"> <br/>
       <div class="col col-md-2">

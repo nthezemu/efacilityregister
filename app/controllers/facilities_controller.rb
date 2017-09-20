@@ -5,6 +5,11 @@ class FacilitiesController < ApplicationController
   
    def new
       @facility = Facility.new
+      @utilities = Utility.all
+      @utility_name = Utility.find_by_sql("select distinct name from utilities")
+      @services = Service.all
+      @resources = Resource.all
+      #raise @utilities.inspect
       #@subjects = Subject.all
    end
 
@@ -125,7 +130,12 @@ class FacilitiesController < ApplicationController
    end
    def edit
     @facility = Facility.find_by_facility_id(params[:facility_id])
-     
+    fac_id = params[:facility_id]
+    @facility_utilities = FacilityUtility.find_by_sql("select facility_id,utility_id from facility_utilities where facility_id = '#{fac_id}'")
+    #raise @facility_utilities.inspect
+    @utilities = Utility.all
+    @utility_name = Utility.find_by_sql("select distinct name from utilities")
+
    end
    def facility_param
      params.require(:facility).permit(:facility_id, :name,
