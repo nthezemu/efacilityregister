@@ -1,94 +1,63 @@
-
-
-
-
-
- <!--main content start-->            
-              <!--overview start-->
-        
 <div class="container">
-<div class="row">
-        <div class="col-lg-12">
-          <h3 class="page-header"><i class="fa fa-hospital-o"></i>DISTRICT NAMES</h3>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <br/><br/><br/>
+            <h3><i class="fa fa-globe">Search by District</i></h3>
+            <div class="form-horizontal">
+                                <%= form_tag :action => 'search_by_zone_query' do %>
+                              
+                               <div class="row"> <br/>
+                               <div class="col col-md-3">
+                                 <label for = "partner_name"><h4>District<i class="fa fa-globe"> </i> :</h4>
+                                 </label>
+                               </div>
+                                         
+                                <div class="col col-md-6 ">
+                                
+                                <%= select "districts", "districtname", [[ "Chitipa", "chitipa"],["Karonga", "karonga"],["Nkhata Bay","nkhata bay"],["Mzimba","mzimba"],["Kasungu","kasungu"],["Lilongwe","lilongwe"],["Mchinji","mchinji"],["Dedza","dedza"],["Ntcheu","ntcheu"]]%>
+                               </div>
+
+                                 </div>
+                            
+                                 <div class="row"> <br/>
+                                 <div class="col col-md-3">
+                              
+                                 </div>
+                                <div class="col col-md-3">
+
+                                <%= submit_tag 'Search', class: 'btn btn-primary' %>
+                                   
+                                 </div>
+                               <div class="col col-md-2 btn btn-success">
+                              <a href="/facilities/index"><i class="fa fa-arrow-left">Back</i></a>
+                               </div>
+                             </div>      
+                              <% end %>
+                            </div>
+                            <br/>
+                            <div class="row">
+                                <div class="col-md-4">
+                                
+
+                                </div>
+                                <div class="col-md-4">
+                                    
+
+                                </div>
+                                <div class="col-md-4">
+                                
+
+                                </div>
+                            </div>
+                            <br/><br/><br/>
+                            
+                             <div class="panel-body">
+                              <button type="button" class="btn btn-primary btn-lg btn-block">Partner Organization</button>
+                              <button type="button" class="btn btn-danger btn-block">Search by District</button>
+                              <button type="button" class="btn btn-success btn-block"><a href="/facilities/search_by_zone">Search by Zone</a></button>
+                          </div>
         </div>
-      </div>
- <div class="row">
-   <div class="col col-md-10">
-  <h3><i class="fa fa-globe"></i>DISTRICT NAMES</h3>
-
-   <h3>Select a district below </h3>
- 
-    <div class="form-horizontal">
-      <%= form_tag :action => 'searchbydistrictquery' do %>
-        
-      
-    <div class="row"> <br/>
-       <div class="col col-md-3">
-         <label for = "partner_name"><h4>District name:</h4>
-         </label>
-       </div>
-        
-
-       <div class="col col-md-6 ">
-        <%= select "districts", "districtname", [[ "Chitipa", "chitipa"],["Karonga", "karonga"],["Nkhata Bay","nkhata bay"],["Mzimba","mzimba"],["Kasungu","kasungu"],["Lilongwe","lilongwe"],["Mchinji","mchinji"],["Dedza","dedza"],["Ntcheu","ntcheu"]]%>
-
-       </div>
-
+        <div class="col-md-3"></div>
     </div>
-    
-    <div class="row"> <br/>
-    <div class="col col-md-3">
-      
-    </div>
-       <div class="col col-md-3">
-      <%= submit_tag 'Search', class: 'btn btn-primary' %>
-              
-       </div>
-       <div class="col col-md-1 btn btn-warning">
-      <a href="/facilities/index">Back</a>
-              
-       </div>
-    </div>      
-      <% end %>
-    </div>
-   </div>
- </div>
-
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-
-<br/>
-<br/>
-<br/>
-<br/>
-
-<div class="row">
-                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                    
-                    <button class="btn btn-info btn-lg">Advanced Search</button>       
-                </div>
-                <div class="col-lg-2 col-md-4
-                col-sm-12 col-info">
-                    <button class="btn btn-info btn-lg"> <%= link_to ' partner organisation', {:action => 'search_by_partner'} %></button>
-                    
-                         
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                    <button class="btn btn-success btn-lg"><%= link_to 'Search by zone', {:action => 'search_by_zone'} %></button>
-                             
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                    <button class="btn btn-info btn-lg"><%= link_to 'Search by district', {:action => 'searchbydistrict'} %> </button>
-
-                
-                </div>             
-                      
-   </div> 
-
-
-</div>      
-      <!--main content end-->
+</div>
