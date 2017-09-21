@@ -131,10 +131,19 @@ class FacilitiesController < ApplicationController
    def edit
     @facility = Facility.find_by_facility_id(params[:facility_id])
     fac_id = params[:facility_id]
-    @facility_utilities = FacilityUtility.find_by_sql("select facility_id,utility_id from facility_utilities where facility_id = '#{fac_id}'")
-    #raise @facility_utilities.inspect
-    @utilities = Utility.all
+
     @utility_name = Utility.find_by_sql("select distinct name from utilities")
+    @facility_utilities = FacilityUtility.find_by_sql("select facility_id,utility_id from facility_utilities where facility_id = '#{fac_id}'")
+      @utilities = Utility.all
+
+    @facility_services = FacilityService.find_by_sql("select facility_id,service_id from facility_services where facility_id = '#{fac_id}'")
+      @services = Service.all
+
+    @facility_resources = FacilityResource.find_by_sql("select facility_id,resource_id,resource_quantity from facility_resources where facility_id = '#{fac_id}'")
+      @resources = Resource.all
+
+    @facility_locations = FacilityLocation.find_by_sql("select facility_id,location_id,population from facility_locations where facility_id = '#{fac_id}'")
+      @locations = Location.all
 
    end
    def facility_param

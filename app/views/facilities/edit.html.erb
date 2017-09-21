@@ -126,78 +126,222 @@
         <% numinrow = 0 %>
         <% flag = 0 %>
         <% @utilities.each do |u| %>
-          
-        <% if un.name == u.name %>
+         <% utility_checked = 0 %>
+         <% if un.name == u.name %>
           <% if (flag == 0 || (numinrow%3)!=0) %>
           <div class="col col-md-1"> 
-        <%  @facility_utilities.each do |fu|
+         <%  @facility_utilities.each do |fu|
+          #check if the facility utility is checked
+          if(fu.utility_id == u.id) %>
+             <% utility_checked = 1 %>
+          <% end %>
+        <% end %>
+        <% if (utility_checked == 1) %>
 
-          if(u.id == fu.utility_id) %>
           <%= check_box_tag 'utilities[]', u.id, {:checked => "checked"} %> 
          <% else %>
           <%= check_box_tag 'utilities[]', u.id %> 
           <% end %>
-         <% end %>
-                   </div>
+        </div>
           <div class="col col-md-3"><%= u.provider %></div>
           <% else %>
         </div><div class="row"><br/>
           
-          <div class="col col-md-1"><%= check_box_tag 'utilities[]', u.id,
-           @facility_utilities.each do |fu|
+          <div class="col col-md-1">
+          <% if (utility_checked == 1) %>
 
-          if(fu.utility_id == u.id)
-          {:checked => "checked"} 
-          else
-          end
-         end 
+          <%= check_box_tag 'utilities[]', u.id, {:checked => "checked"} %> 
+         <% else %>
+          <%= check_box_tag 'utilities[]', u.id %> 
+          <% end %>
+        </div>
+          <div class="col col-md-3"><%= u.provider %></div> 
+          
+        <% end %>
+         <% end %>
+         <!-- increment the number of items in a row and the flag-->
+         <% numinrow += 1 %>
+         <% flag = 1 %>
+        <% end %> <!-- utilities loop ends here -->
+        </div>
+      <% end %> <!-- utility name loop ends here -->
+     
 
-           %></div>
-          <div class="col col-md-3"><%= u.provider %></div>
+    <% end %> <!-- if blank  ends here -->
+     
+    <% if @services.blank? %>
+
+    <% else %>
+     
+     <div class="row">
+       <div class="col-md-3">
+          <h3><strong>Services</strong></h3>
+       </div>
+       
+      </div>
+      <div class="row">
+        <% numinrow = 0 %>
+        <% flag = 0 %>
+        <% @services.each do |s| %>
+        <% service_checked = 0 %>
+          <% if (flag == 0 || (numinrow%3)!=0) %>
+          <div class="col col-md-1">
+
+        <%  @facility_services.each do |fs|
+          #check if the facility services is checked
+          if(fs.service_id == s.id) %>
+             <% service_checked = 1 %>
+          <% end %>
+        <% end %>
+        <% if (service_checked == 1) %>
+
+          <%= check_box_tag 'services[]', s.id, {:checked => "checked"} %> 
+         <% else %>
+          <%= check_box_tag 'services[]', s.id %> 
+          <% end %>              
+
+           </div>
+          <div class="col col-md-3"><%= s.name %></div>
+          <% else %>
+        </div><div class="row"><br/>
+          
+          <div class="col col-md-1">
+          <%  @facility_services.each do |fs|
+          #check if the facility services is checked
+          if(fs.service_id == s.id) %>
+             <% service_checked = 1 %>
+          <% end %>
+        <% end %>
+        <% if (service_checked == 1) %>
+
+          <%= check_box_tag 'services[]', s.id, {:checked => "checked"} %> 
+         <% else %>
+          <%= check_box_tag 'services[]', s.id %> 
+          <% end %>              
+            </div>
+          <div class="col col-md-3"><%= s.name %></div>
 
         <% end %>
-        <% else %>
-          </div><div class="row">
-        <% end %>
+        <!-- increment the number of items in a row and the flag-->
         <% numinrow += 1 %>
         <% flag = 1 %>
-      <% end %>
-     <% end %>
+      <% end %> <!-- services loop ends here -->
+    
      </div>
-     <% end %>
+     <% end %> <!-- if services blank ends here -->
 
+    <% if @locations.blank? %>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="row"> <br/>
+    <% else %>
+      <div class="row">
+        <% population = "" %>
+        <% area = "" %>
+       <% @facility_locations.each do |fl| %>
+        <% @locations.each do |l| %>
+         <% if(fl.location_id == l.id) %>
+            <% population = fl.population %>
+            <% area = l.area %>
+         <% end %>
+         <% end %>
+       <% end %>
        
+      <div class="col-md-3">
+        <h3><strong>Location</strong></h3>
+      </div>
+     </div>
+     <div class="row">
+        <div class="col col-md-1">Zone:</div>
+        <div class="col col-md-2"><%= select "facility_location", "zonename", [[ "Northern", "1"],["Central East", "2"],["Central West","3"],["South East","4"],["South West","5"]]%></div>
+        <div class="col col-md-1">District:</div>
+         <div class="col col-md-2 ">
+        <%= select "districts", "districtname", [[ "Chitipa", "chitipa"],["Karonga", "karonga"],["Nkhata Bay","nkhata bay"],["Mzimba","mzimba"],["Kasungu","kasungu"],["Lilongwe","lilongwe"],["Mchinji","mchinji"],["Dedza","dedza"],["Ntcheu","ntcheu"]]%>
+       </div>
+       <div class="col col-md-1">Area:</div>
+       <div class="col col-md-2 ">
+       <%= text_field_tag 'area',area, class: 'form-control round-input' %>
+              
+       </div>
+       <div class="col col-md-1">Population:</div>
+       <div class="col col-md-2 ">
+       <%= text_field_tag 'population', population , class: 'form-control round-input' %>
+        </div>
+      </div>
+    <% end %>
+
+
+
+
+
       
-    </div>
-    <div class="row"> <br/>
-      
-    </div>
-    <div class="row"> <br/>
-      
-    </div>
+     <% if @resources.blank? %>
+
+    <% else %>
+     
+     <div class="row">
+       <div class="col-md-3">
+          <h3><strong>Resources</strong></h3>
+       </div>
+       
+      </div>
+      <div class="row">
+        <% numinrow = 0 %>
+        <% flag = 0 %>
+        <% @resources.each do |r| %>
+          <% resource_checked = 0 %>
+          <% resource_amount = 0 %>
+          <% if (flag == 0 || (numinrow%3)!=0) %>
+          <div class="col col-md-1">
+          <%  @facility_resources.each do |fr|
+          #check if the facility resources is checked
+          if(fr.resource_id == r.id) %>
+             <% resource_checked = 1 %>
+             <% resource_amount = fr.resource_quantity %>
+          <% end %>
+        <% end %>          
+          <% if (resource_checked == 1) %>
+
+          <%= check_box_tag 'resources[]', r.id, {:checked => "checked"} %> 
+         <% else %>
+          <%= check_box_tag 'resources[]', r.id %> 
+          <% end %>
+          </div>
+          <div class="col col-md-1"><%= r.name %>:</div>
+          <div class="col col-md-1 ">
+          <%= text_field_tag 'quantity[]',resource_amount ,class: 'form-control round-input'  %>     
+          </div>
+
+          <% else %>
+        </div><div class="row"><br/>
+          <div class="col col-md-1">
+        <%  @facility_resources.each do |fr|
+          #check if the facility resources is checked
+          if(fr.resource_id == r.id) %>
+             <% resource_checked = 1 %>
+             <% resource_amount = fr.resource_quantity %>
+          <% end %>
+        <% end %>
+          <% if (resource_checked == 1) %>
+          <%= check_box_tag 'resources[]', r.id, {:checked => "checked"} %> 
+         <% else %>
+          <%= check_box_tag 'resources[]', r.id %> 
+          <% end %>
+
+          </div>
+          <div class="col col-md-1"><%= r.name %>:</div>
+          <div class="col col-md-1 ">
+          <%= text_field_tag 'quantity[]',resource_amount, class: 'form-control round-input'  %>     
+          </div>
+
+        <% end %>
+          <!-- increment the number of items in a row and the flag-->
+        <% numinrow += 1 %>
+        <% flag = 1 %>
+      <% end %><!-- resources loop ends here -->
+    
+     </div>
+     <% end %> <!-- if resources blank ends here -->
+   
+
     <div class="row"> <br/>
       <div class="col col-md-2">
          
@@ -211,7 +355,7 @@
               
        </div>
     </div>      
-      <% end %>
+      <% end %> <!-- form ends here -->
     </div>
    </div>
  </div>
