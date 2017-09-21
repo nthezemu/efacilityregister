@@ -40,6 +40,21 @@ Rails.application.routes.draw do
 
   get 'services/new'
 
+  get 'services/list'
+
+  get 'services/resource_list'
+  
+  get 'services/service_list'
+
+  get 'services/edit'
+
+  get 'services/resource-edit'
+
+  get 'services/show'
+
+  get 'services/delete'
+
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

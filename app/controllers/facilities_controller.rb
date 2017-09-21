@@ -74,14 +74,7 @@ class FacilitiesController < ApplicationController
       
    end
 
-   def create
-      @utility=Utility.new
-
-        if @facility.save
-        flash[:notice] = "facilicity has been created successfully"
-       end 
-    end
-
+   
 
    def show
     @facility = Facility.find_by_facility_id(params[:facility_id])

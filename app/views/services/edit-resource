@@ -1,0 +1,92 @@
+
+ 
+   
+
+<div class="container" style="background-color: #ffffff;">
+ <div class="row">
+ <br/><br/><br/><br/>
+   <div class="col col-md-offset-2 col-md-10">
+  <div class="col-lg-12">
+  <h3 class="page-header"><i class="fa fa-plus" style="color:#2edb67;"></i>ADD A FACILITY RESOURCE</h3>
+          
+    </div>
+
+
+    <div class="form-horizontal">
+      <%= form_tag :action => 'resources' do %>
+      
+    <div class="row"> <br/>
+       <div class="col col-md-2">
+         <label for = "resource">Resource:</label>
+       </div>
+       <div class="col col-md-6 ">
+         <%= text_field 'resource', 'name', class: 'form-control round-input'%>
+       </div>           
+         
+    </div>
+    <div class="row"> <br/>
+        <div class="col col-md-2">
+       </div>
+      
+       
+    </div>
+    <div class="row"> <br/>
+       <div class="col col-md-2">
+       </div>
+
+    </div>
+    <div class="row"> <br/>
+          <div class="col col-md-2">
+       </div>
+       
+       
+    </div>
+    
+    <div class="row"> <br/>
+      
+      
+    </div>
+
+
+    <div class="row"> <br/>
+        
+        
+    </div>
+   
+  </div>
+    
+
+    <div class="row"> <br/>
+      <div class="col col-md-2">
+         
+       </div>
+       <div class="col col-md-4">
+      <%= submit_tag 'resources', class: 'btn btn-primary' %>
+              
+       </div>
+       <div class="col col-md-1 btn btn-success"><i class="fa fa-backward" style="color:blue">
+      <a href="/facilities/index">&nbsp Back</i></a>
+              
+       </div>
+    </div>  
+    <br/><br/><br/><br/>
+   
+    <br/><br/><br/><br/>
+    <br/><br/><br/><br/>
+   
+   <br/><br/><br/><br/>
+
+
+    <br/><br/><br/><br/>
+   
+    <br/><br/><br/><br/>
+    <br/><br/><br/><br/>
+   
+   <br/><br/><br/><br/>
+
+      <% end %>
+    </div>
+   </div>
+ </div>
+  
+</div>
