@@ -55,7 +55,7 @@
 		<td><%= f['cell_location'] %></td>
 		<td><i class="fa fa-eye"> &nbsp;<%= link_to 'View', {:action => 'show', :facility_id => f['facility_id']} %></i></td>
 		<% if session[:login_status] == 'logged in' %>
-		<td><i class="fa fa-edit" style="color:#2edb67;"> &nbsp;<%= link_to 'Edit', {:action => 'edit', :facility_id => f['facility_id']} %></i></td>
+		<td><i class="fa fa-edit"> &nbsp;<%= link_to 'Edit', {:action => 'edit', :facility_id => f['facility_id']} %></i></td>
 		<td><i class="fa fa-trash-o"> &nbsp;<%= link_to 'Delete', {:action => 'delete', :facility_id => f['facility_id']}, data: {confirm: "Are you sure you want to delete this facility"} %></i></td>
 		</tr>
 
@@ -69,28 +69,15 @@
 	<br/>
 	<br/>
 	<br/>
-	
-	 <div class="panel-body">
-           <div class="row">
-          
-                  <div class="btn-group btn-group-justified">
-                    
-                              <a class="btn btn-success" href="/facilities/search_by_partner">By P.Organization</a>
-                              <a class="btn btn-primary" href="/facilities/searchbydistrict">By District</a>
-                              <a class="btn btn-success" href="/facilities/search_by_zone">By Zone</a>
-                              <a class="btn btn-danger" href="#">Middle</a>
-                               <a class="btn btn-primary" href="#">Right</a>
-                                
-                              </div>
-                 
-                </div>           
-                      
-            </div>		  
-    </div>
     <br/>
+   
+    <% unless @facilities.empty? %>
+  <%= will_paginate @facilities %>
+<% end %>
+    
     <br/>
 	<div class="col col-md-1 btn btn-success">
-      <a href="/facilities/index">back</a>   
+      <a href="/facilities/index" style="color:#fff;">back</a>   
        </div>
 </div>
 </div>
