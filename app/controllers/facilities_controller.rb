@@ -131,6 +131,8 @@ class FacilitiesController < ApplicationController
     
     redirect_to :action => 'list'
    end
+
+   
    def edit
     @facility = Facility.find_by_facility_id(params[:facility_id])
     fac_id = params[:facility_id]

@@ -6,36 +6,35 @@
 
      
   <div class="col-lg-12">
-  <h3 class="page-header"><i class="fa fa-bolt" style="color:#2edb67;"></i>ADD A FACILITY UTILITY</h3>
+  <h3 class="page-header"><i class="fa fa-bolt" style="color:#2edb67;"></i>EDIT FACILITY UTILITY</h3>
           
     </div>
 
 
   <!-- form start -->
 
-    <div class="form-horizontal">
-      <%= form_tag :action => 'utilities' do %>
-      
-    <div class="row"> <br/>
+      <div class="form-horizontal">
+      <%= form_for @utility, :url =>{:action => 'update', :id =>@utility} do |f| %>
+      <div class="row"> <br/>
        <div class="col col-md-2">
-
-         <label for = "name">Name:</label>
+         <label for = "name">Utility Name:</label>
        </div>
        <div class="col col-md-4 ">
-         <%= text_field 'utility', 'name', class: 'form-control round-input'%>
-       </div>           
+        <%= f.text_field 'name', class: 'form-control round-input' %>
+       </div>      
+      </div>
+   
+      <div class="row"> <br/>
+      <div class="col col-md-2">
          
-        </div>
-
-
-        <div class="row"> <br/>
-        <div class="col col-md-2">
-       <label for = "Provider">Provider:</label>
        </div>
-       <div class="col col-md-4 ">
-       <%= text_field 'utility', 'provider', class: 'form-control round-input' %>        
-       </div>
-      
+       <div class="col col-md-4">
+      <%= submit_tag 'update', class: 'btn btn-primary' %>
+              
+      </div>
+      <div class="col col-md-1 btn btn-success"><i class="fa fa-backward" style="color:blue">
+      <a href="/facilities/index">&nbsp; Back</i></a>
+    
        
       </div>
         <div class="row"> <br/>
@@ -63,7 +62,7 @@
          
         </div>
         <div class="col col-md-4">
-           <%= submit_tag 'create', class: 'btn btn-primary' %>
+           <%= submit_tag 'update', class: 'btn btn-primary' %>
               
        </div>
        <div class="col col-md-1 btn btn-success">

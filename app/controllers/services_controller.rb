@@ -1,68 +1,65 @@
 class ServicesController < ApplicationController
 
 
-	def utilities
-      @utility=Utility.new
 
-        if @utility.save
-        flash[:notice] = "utility has been added successfully"
-       end 
-    end
-
-
-	def resources
-      @resource=Resource.new
-
-        if @resource.save
-        flash[:notice] = "resource has been added successfully"
-       end 
-    end
 
 	def new
       @service=Service.new
-
-        if @service.save
+		 if @service.save
         flash[:notice] = "service has been added successfully"
        end 
     end
 
 
     def list
-  	 @utility= Utility.all
-  	 @resource =Resource.all
+  	 @service= Service.all
 	end
 
-
-
- 	def resource_list
-
-  	 @resource =Resource.all
-	end
-
-	def service_list
- 		
-  	 @service =Service.all
-	end
 
 	def edit
-		@utility= Utility.find(params['id'])
+		@service= Service.find(params['id'])
 		
 	end
 
+
+
+	
+
+  	 def delete
+    	@service = Service.find(params[:id])
+    
+    	@service.destroy
+    	flash[:notice] = "service has been deleted successfully"
+    
+   		redirect_to :action => 'list'
+   end
+
+
+
+   def service_param
+		 params.require(:service).permit( :name )
+		
+	end
+
+	def update
+    @service = Service.find(params['id'])
+    if @service.update_attributes(service_param)
+      flash[:notice] = "service has been updated successfully"
+      redirect_to :action => 'show', :id => @service.id
+      #raise @facility.facility_id.inspect
+    else
+      redirect_to :action => 'edit', :id => @service.id
+    end
+     
+   end
+   
+	
 	def show
 		
-	@utility= Utility.find(params['id'])
-
-		
+	@service= Service.find(params['id'])
+	
 	end
 
-   def delete
-    @utility = Utility.find(params[:id])
-    
-    @utility.destroy
-    flash[:notice] = "facility has been deleted successfully"
-    
-    redirect_to :action => 'list'
-   end
+
 
 end

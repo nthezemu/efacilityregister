@@ -1,23 +1,22 @@
 
+ 
+   
+
 <div class="container" style="background-color: #ffffff;">
  <div class="row">
  <br/><br/><br/><br/>
    <div class="col col-md-offset-2 col-md-10">
-
-     
   <div class="col-lg-12">
-  <h3 class="page-header"><i class="fa fa-bolt" style="color:#2edb67;"></i>EDIT FACILITY UTILITY</h3>
+  <h3 class="page-header" style="align:center;"><i class="fa fa-plus" style="color:#2edb67;"></i>EDIT RESOURCE</h3>
           
     </div>
 
 
-  <!-- form start -->
-
-      <div class="form-horizontal">
-      <%= form_for @service, :url =>{:action => 'update', :id =>@service} do |f| %>
-      <div class="row"> <br/>
+    <div class="form-horizontal">
+      <%= form_for @resource, :url =>{:action => 'update', :id =>@resource} do |f| %>
+    <div class="row"> <br/>
        <div class="col col-md-2">
-         <label for = "name">Service Name:</label>
+         <label for = "name">Resource Name:</label>
        </div>
        <div class="col col-md-4 ">
         <%= f.text_field 'name', class: 'form-control round-input' %>
@@ -34,17 +33,10 @@
       </div>
       <div class="col col-md-1 btn btn-success"><i class="fa fa-backward" style="color:blue">
       <a href="/facilities/index">&nbsp; Back</i></a>
-    
-       
-
-         
-        
-    
               
-  
-   </div>    
-
-     <br/><br/><br/><br/>
+       </div>
+    </div>  
+    <br/><br/><br/><br/>
    
     <br/><br/><br/><br/>
     <br/><br/><br/><br/>
@@ -57,7 +49,8 @@
     <br/><br/><br/><br/>
     <br/><br/><br/><br/>
    
-   <br/><br/><br/><br/>  
+   <br/><br/><br/><br/>
+
       <% end %>
     </div>
    </div>
