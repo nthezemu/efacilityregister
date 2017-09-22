@@ -148,6 +148,12 @@
         </div><div class="row"><br/>
           
           <div class="col col-md-1">
+          <%  @facility_utilities.each do |fu|
+          #check if the facility utility is checked
+          if(fu.utility_id == u.id) %>
+             <% utility_checked = 1 %>
+          <% end %>
+        <% end %>
           <% if (utility_checked == 1) %>
 
           <%= check_box_tag 'utilities[]', u.id, {:checked => "checked"} %> 
@@ -236,17 +242,20 @@
       <div class="row">
         <% population = "" %>
         <% area = "" %>
+        <% location_id = "" %>
        <% @facility_locations.each do |fl| %>
         <% @locations.each do |l| %>
          <% if(fl.location_id == l.id) %>
             <% population = fl.population %>
             <% area = l.area %>
+            <% location_id = fl.location_id %>
          <% end %>
          <% end %>
        <% end %>
        
       <div class="col-md-3">
         <h3><strong>Location</strong></h3>
+       <%= hidden_field_tag 'locationid', location_id %>
       </div>
      </div>
      <div class="row">

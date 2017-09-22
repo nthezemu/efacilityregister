@@ -146,20 +146,36 @@ class FacilitiesController < ApplicationController
       @locations = Location.all
 
    end
-   def facility_param
-     params.require(:facility).permit(:facility_id, :name,
-     :description, :cell_location, :closing_date,
-     :opening_date, :parent_facility, 
-     :email_address, :phone_number,
-     :type_code, :status)
-     
+
+   def update_facility_param
+     Facility.get_facility_param(params)
+   end
+   def upate_utility_params
+      FacilityUtility.get_utilities_params(params)
+   end
+   def upate_service_params
+      FacilityService.get_services_params(params)
+   end
+   def upate_location_params
+      FacilityLocation.get_locations_params(params)
+   end
+   def upate_resource_params
+      FacilityResource.get_resources_params(params)
    end
    def update
-    @facility = Facility.find_by_facility_id(facility_param[:facility_id])
-    if @facility.update_attributes(facility_param)
+     @facility = Facility.update_facility_details(update_facility_param[:facility_id])
+
+      FacilityUtility.update_utilities_details(update_facility_param[:facility_id],upate_utility_params)
+
+      FacilityService.update_services_details(update_facility_param[:facility_id],upate_service_params)
+      
+      FacilityLocation.update_locations_details(update_facility_param[:facility_id],upate_location_params)
+
+      FacilityResource.update_resources_details(update_facility_param[:facility_id],upate_resource_params)
+
+    if @facility.update_attributes(update_facility_param)
       flash[:notice] = "facilicity has been updated successfully"
       redirect_to :action => 'show', :facility_id => @facility.facility_id
-      #raise @facility.facility_id.inspect
     else
       redirect_to :action => 'edit', :facility_id => @facility.facility_id
     end
