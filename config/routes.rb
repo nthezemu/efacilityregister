@@ -50,6 +50,7 @@ Rails.application.routes.draw do
 
 
   put 'resources/delete'
+  get 'resources/delete'
 
   get 'resources/create'
 
