@@ -42,7 +42,6 @@ class FacilitiesController < ApplicationController
         
          redirect_to :action => 'show', :facility_id => @facility.facility_id
       else
-         #@subjects = Subject.all 
          render :action => 'create'
       end
       

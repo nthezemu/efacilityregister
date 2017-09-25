@@ -7,7 +7,7 @@
      <h3 class="col-md-offset-4"><strong>Enter Facility Details</strong></h3>
 
     <div class="form-horizontal">
-      <%= form_tag :action => 'create' do %>
+      <%= form_tag :name => "register",:action => 'create', :html => { :onsubmit => "validateForm()" } do %>
       
     <div class="row"> <br/>
        <div class="col col-md-2">
@@ -250,7 +250,7 @@
          
        </div>
        <div class="col col-md-4">
-      <%= submit_tag 'Create', class: 'btn btn-primary' %>
+      <%= submit_tag 'Create', class: 'btn btn-primary',:onclick => "validateForm();" %>
               
        </div>
        <div class="col col-md-1 btn btn-warning">
@@ -264,3 +264,5 @@
  </div>
   
 </div>-
+
+<script src="/assets/validation.js"></script>
