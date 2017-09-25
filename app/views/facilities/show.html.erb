@@ -1,345 +1,208 @@
-<div class="container">
-  <div class="row">
-    
-    <div class="col col-md-offset-0 col-md-12">
-    <br/><br/><br/><br/>
-    <fieldset>
-  <legend>
-    Facility details
-  </legend>
-
-<div class="col col-md-offset-0 col-md-4">
-
-  <fieldset style="border: 1px solid #eee;">
-  <table style="margin: auto;" cellpadding="10" cellspacing="5">
-    <tr>
-      <td colspan="3">
-      </td>
-    </tr>
-
-<tr style="background-color: #aabbcc;"><td colspan="3" >
-    <h5 style="float: left; height:4px;"><strong>Facility details</strong></h5>
-    </td>
-    </tr>
-
-    <tr style="background-color: #ffffff;">
-      <td>
-        <strong>Facility Id:</strong>
-      </td>
-      <td>
-        :
-      </td>
-      <td>
-        <%= @facility.facility_id %>
-      </td>
-    </tr>
-
-    <tr style="background-color: #ffffff;">
-      <td>
-        <strong> Name:</strong>
-      </td>
-      <td>
-        :
-      </td>
-      <td>
-       <%= @facility.name %>
-      </td>
-    </tr>
-
-    <tr style="background-color: #ffffff;">
-      <td>
-        <strong>Description:</strong>
-      </td>
-      <td>
-        :
-      </td>
-      <td>
-       <%= @facility.description %>
-      </td>
-    </tr>
-
-
-    <tr style="background-color: #ffffff;">
-      <td>
-        <strong>Cell Location:</strong>
-      </td>
-      <td>
-        :
-      </td>
-      <td>
-        <%= @facility.cell_location %>
-      </td>
-    </tr>
-    <tr style="background-color: #ffffff;">
-      <td>
-        <strong>Opening date:</strong>
-      </td>
-      <td>
-        :
-      </td>
-      <td>
-        <%= @facility.opening_date %>
-      </td>
-    </tr>
-
-    <tr style="background-color: #ffffff;">
-      <td>
-        <strong>Closing date:</strong>
-      </td>
-      <td>
-        :
-      </td>
-      <td>
-        <%= @facility.closing_date %>
-      </td>
-    </tr>
-    <tr style="background-color: #ffffff;">
-      <td>
-        <strong>Referral facility:</strong>
-      </td>
-      <td>
-        :
-      </td>
-      <td>
-        <%= @facility.parent_facility %>
-      </td>
-    </tr>
-    <tr style="background-color: #ffffff;">
-      <td>
-        <strong>Email address:</strong>
-      </td>
-      <td>
-        :
-      </td>
-      <td>
-        <%= @facility.email_address %>
-      </td>
-    </tr>
-    <tr style="background-color: #ffffff;">
-      <td>
-        <strong>Phone Number:</strong>
-      </td>
-      <td>
-        :
-      </td>
-      <td>
-        <%= @facility.phone_number %>
-      </td>
-    </tr>
-    <tr style="background-color: #ffffff;">
-      <td>
-        <strong>Ownership:</strong>
-      </td>
-      <td>
-        :
-      </td>
-      <td>
-        <%= @facility.type_code %>
-      </td>
-    </tr>
-    <tr style="background-color: #ffffff;">
-      <td>
-        <strong>Status:</strong>
-      </td>
-       <td>
-      :
-      </td>
-      <td>
-        <%= @facility.status %>
-      </td>
-     
-      </tr>
-      <tr><td> <br/></td></tr>
-      </table>
-    
-<table style="margin: auto;" cellpadding="10" cellspacing="5">
-
-<tr style="background-color: #aabbcc;"><td colspan="3" >
-    <h5 style="float: left; height:4px;">Utilities</h5>
-    </td>
-    </tr>
-
-    <% @utility.each do |u| %>
-      <tr style="background-color: #ffffff;">
-      <td><strong><%= u.name %></strong></td>
-      <td>
-        :
-      </td>
-      <td>
-        <strong><%= u.provider %></strong>
-      </td>
-    </tr>
-
-    <% end %>
-     <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-     <tr><td class="col col-md-1 btn btn-info"><%= link_to 'Back', {:action => 'list'} %></td>
-        
-      
-           
-       </div></tr>
+  <!-- container section start -->
+  <section id="container" class="">
+      <!--header start-->
      
 
-  </table>
+
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+      <div class="row">
+        <div class="col-lg-12">
+          <h3 class="page-header"><i class="fa fa-hospital-o" style="color:#2edb67"></i>Facility Details</h3>
+          <ol class="breadcrumb">
+            <li><i class="fa fa-home"></i><a href="index.html">Dashboard</a></li>
+            <li><i class="fa fa-table"></i>Table</li>
+            <li><i class="fa fa-th-list"></i>Facility details</li>
+          </ol>
+        </div>
+      </div>
+              <!-- page start-->
+            
+   <div class="row">
+                  <div class="col-lg-12">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              Details
+                          </header>
+                          
+                          <table class="table table-striped table-advance table-hover">
+                           <tbody>
+                              <tr>
+                                 <th><i class="fa fa-cogs"></i> Full Name</th>
+                                 <th><i class="icon_calendar"></i> Date</th>
+                                 <th><i class="icon_mail_alt"></i> Email</th>
+                                 <th><i class="icon_pin_alt"></i> City</th>
+                                 <th><i class="icon_mobile"></i> Mobile</th>
+                                 <th><i class="icon_cogs"></i> Action</th>
+                              </tr>
+                              <tr>
+                                 <td>Angeline Mcclain</td>
+                                 <td>2004-07-06</td>
+                                 <td>dale@chief.info</td>
+                                 <td>Rosser</td>
+                                 <td>176-026-5992</td>
+                                 <td>
+                                  <div class="btn-group">
+                                      <a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>
+                                      <a class="btn btn-success" href="#"><i class="icon_check_alt2"></i></a>
+                                      <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
+                                  </div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                 <td>Sung Carlson</td>
+                                 <td>2011-01-10</td>
+                                 <td>ione.gisela@high.org</td>
+                                 <td>Robert Lee</td>
+                                 <td>724-639-4784</td>
+                                 <td>
+                                  <div class="btn-group">
+                                      <a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>
+                                      <a class="btn btn-success" href="#"><i class="icon_check_alt2"></i></a>
+                                      <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
+                                  </div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                 <td>Bryon Osborne</td>
+                                 <td>2006-10-29</td>
+                                 <td>sol.raleigh@language.edu</td>
+                                 <td>York</td>
+                                 <td>180-456-0056</td>
+                                 <td>
+                                  <div class="btn-group">
+                                      <a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>
+                                      <a class="btn btn-success" href="#"><i class="icon_check_alt2"></i></a>
+                                      <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
+                                  </div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                 <td>Dalia Marquez</td>
+                                 <td>2011-12-15</td>
+                                 <td>angeline.frieda@thick.com</td>
+                                 <td>Alton</td>
+                                 <td>690-601-1922</td>
+                                 <td>
+                                  <div class="btn-group">
+                                      <a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>
+                                      <a class="btn btn-success" href="#"><i class="icon_check_alt2"></i></a>
+                                      <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
+                                  </div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                 <td>Selina Fitzgerald</td>
+                                 <td>2003-01-06</td>
+                                 <td>moshe.mikel@parcelpart.info</td>
+                                 <td>Waelder</td>
+                                 <td>922-810-0915</td>
+                                 <td>
+                                  <div class="btn-group">
+                                      <a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>
+                                      <a class="btn btn-success" href="#"><i class="icon_check_alt2"></i></a>
+                                      <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
+                                  </div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                 <td>Abraham Avery</td>
+                                 <td>2006-07-14</td>
+                                 <td>harvey.jared@pullpump.org</td>
+                                 <td>Harker Heights</td>
+                                 <td>511-175-7115</td>
+                                 <td>
+                                  <div class="btn-group">
+                                      <a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>
+                                      <a class="btn btn-success" href="#"><i class="icon_check_alt2"></i></a>
+                                      <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
+                                  </div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                 <td>Caren Mcdowell</td>
+                                 <td>2002-03-29</td>
+                                 <td>valeria@hookhope.org</td>
+                                 <td>Blackwell</td>
+                                 <td>970-147-5550</td>
+                                 <td>
+                                  <div class="btn-group">
+                                      <a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>
+                                      <a class="btn btn-success" href="#"><i class="icon_check_alt2"></i></a>
+                                      <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
+                                  </div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                 <td>Owen Bingham</td>
+                                 <td>2013-04-06</td>
+                                 <td>thomas.christopher@firstfish.info</td>
+                                 <td>Rule</td>
+                                 <td>934-118-6046</td>
+                                 <td>
+                                  <div class="btn-group">
+                                      <a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>
+                                      <a class="btn btn-success" href="#"><i class="icon_check_alt2"></i></a>
+                                      <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
+                                  </div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                 <td>Ahmed Dean</td>
+                                 <td>2008-03-19</td>
+                                 <td>lakesha.geri.allene@recordred.com</td>
+                                 <td>Darrouzett</td>
+                                 <td>338-081-8817</td>
+                                 <td>
+                                  <div class="btn-group">
+                                      <a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>
+                                      <a class="btn btn-success" href="#"><i class="icon_check_alt2"></i></a>
+                                      <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
+                                  </div>
+                                  </td>
+                              </tr>
+                              <tr>
+                                 <td>Mario Norris</td>
+                                 <td>2010-02-08</td>
+                                 <td>mildred@hour.info</td>
+                                 <td>Amarillo</td>
+                                 <td>945-547-5302</td>
+                                 <td>
+                                  <div class="btn-group">
+                                      <a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>
+                                      <a class="btn btn-success" href="#"><i class="icon_check_alt2"></i></a>
+                                      <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
+                                  </div>
+                                  </td>
+                              </tr>                              
+                           </tbody>
+                        </table>
+    
 
 
-  </fieldset>
-</div>
+              <!-- page end-->
+          </section>
+      </section>
 
-<div class="col col-md-offset-2s col-md-4">
+       <div class="col col-md-4">
+      <%= submit_tag 'update', class: 'btn btn-primary' %>       
+      </div>
 
-<div class="row">
-<table style="margin: auto;" cellpadding="10" cellspacing="5">
-
-    <tr>
-      <td colspan="3">
-    <p id="notice"><%= notice %></p>
-    </td>
-    </tr>
-    <tr style="background-color: #aabbcc;"><td colspan="3" >
-    <h5 style="float: left; height:4px;">Services</h5>
-    </td>
-    </tr>
-     <% @service.each do |s| %>
-    <tr style="background-color: #ffffff;">
-    <td>
-    <strong>Service name</strong>
-    </td>
-    <td>:</td>
-    <td>
-    <strong><%= s.name %></strong>
-    </td>
-    </tr>
-    <% end -%>
-    </tr>
-    </table><br/>
-    <table style="margin: auto;" cellpadding="10" cellspacing="5">
-    <tr style="background-color: #aabbcc;"><td colspan="3" >
-    <h5 style="float: left; height:4px;">Resources</h5>
-    </td>
-    </tr>
-    <% if @resource.blank? %>
-    <tr style="background-color: #ffffff;">
-    <td colspan="3">
-    <strong><%=  notice %></strong>
-    </td>
-    </tr>
-      <% else %>
-     <% @resource.each do |r| %>
-    <tr style="background-color: #ffffff;">
-    <td>
-    <strong>Resource name</strong>
-    </td>
-    <td>:</td>
-      <td>
-        <strong><%= r.name %></strong>
-      </td>
-    </tr>
-    <% end -%>
-    <% end %>
-    </tr>
-    </table><br/>
-    <table style="margin: auto;" cellpadding="10" cellspacing="5">
-    <tr style="background-color: #aabbcc;"><td colspan="3" >
-    <h5 style="float: left; height:4px;">Location</h5>
-    </td>
-    </tr>
-
-    <% if @location.blank? %>
-    <tr style="background-color: #ffffff;">
-    <td colspan="3">
-    <strong><%=  notice %></strong>
-    </td>
-    </tr>
-      <% else %>
-     <% @location.each do |l| %>
-    <tr style="background-color: #ffffff;">
-    <td>
-    <strong>Zone</strong>
-    </td>
-    <td>:</td>
-      <td>
-        <strong><%= l.zone %></strong>
-      </td>
-      <tr style="background-color: #ffffff;">
-      <td>
-      <strong>District</strong>
-      </td>
-      <td>
-      :
-      </td>
-      <td>
-      <strong><%= l.district %></strong>
-      </td>
-      </tr>
-      <tr style="background-color: #ffffff;">
-      <td>
-      <strong>Area</strong>
-      </td>
-      <td>
-      :
-      </td>
-      <td>
-      <strong><%= l.area %></strong>
-      </td>
-      </tr>
-       <tr style="background-color: #ffffff;">
-      <td>
-      <strong>Population</strong>
-      </td>
-      <td>
-      :
-      </td>
-      <td>
-      <strong><%= l.population %></strong>
-      </td>
-      </tr>
-    </tr>
-    <% end -%>
-    <% end %>
-    </tr>
-
-    </table>
-</div>
-</div>
+      <div class="col col-md-1 btn btn-success"><i class="fa fa-backward" style="color:blue">
+      <a href="/facilities/index">&nbsp; Back </i></a>
+    
+      <!--main content end-->
+  </section>
+  <!-- container section end -->
+    <!-- javascripts -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- nicescroll -->
+    <script src="js/jquery.scrollTo.min.js"></script>
+    <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+    <!--custome script for all page-->
+    <script src="js/scripts.js"></script>
 
 
-
-<div class="col col-md-offset- col-md-4">
-  <form id="form1" >
-  
-     <div id="map1" style="width: 500px; height: 500px"></div>
-     <script type="text/javascript">
-
-     var latitude = <%= @facility.longitude %>
-     var longitude = <%= @facility.latitude %>
-     if( latitude == "" && longitude == ""){
-      var latitude = "-13.6";
-      var longitude = "33.634576";
-     }else{
-     var facility_name = "<%= @facility.name %>"
-        } 
-function myMap() {
-  var myCenter = new google.maps.LatLng(latitude,longitude);
-  var mapCanvas = document.getElementById("map1");
-  var mapOptions = {center: myCenter, zoom: 8};
-  var map2 = new google.maps.Map(mapCanvas, mapOptions);
-  var marker = new google.maps.Marker({position:myCenter});
-  marker.setMap(map2);
-
-  var infowindow = new google.maps.InfoWindow({
-    content: facility_name
-  });
-  infowindow.open(map2,marker);
-}
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-MrJ0WnBYzAA1A2SwzyCX4UTnDi-fjw8&callback=myMap"></script>
-
-  
-</div>
-
-</div>
-
-    </form>
-   </div>
-  </div>
-
+  </body>
