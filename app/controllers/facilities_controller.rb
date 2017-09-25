@@ -107,13 +107,13 @@ class FacilitiesController < ApplicationController
       particular_value = params[:name]
       @specific_name = params[:name]
        @facilities = Facility.find_by_sql("select f.name,f.facility_id,f.description,f.cell_location from facilities f left join facility_services
-       fs on f.facility_id=fs.facility_id left join services s on fs.service_id =s.id where s.name = '#{particular_value}'")
+       fs on f.facility_id=fs.facility_id left join services s on fs.service_id =s.id where s.name = '#{particular_value}'").paginate(:page => params[:page], :per_page => 10)
 
     else
     zonevalue = session[:zone_name]
     facilities1 = session[:facilities_queried]
     if (facilities1.blank?) && (zonevalue.blank?)
-       @facilities = Facility.all
+       @facilities = Facility.all.paginate(:page => params[:page], :per_page => 10)
     else
         @facilities = facilities1
         session.delete(:facilities_queried)

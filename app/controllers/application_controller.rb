@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
   	  end
 
   	  #raise session[:login_status].inspect
+    
+      #This can be written as follows:
+      # session[:login_status] = 'not logged in' unless session[:login_status] == 'logged in'
+      # @allfacilities = Facility.all
 
   	  
   end
