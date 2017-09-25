@@ -16,8 +16,8 @@
 		</div>
 	</div>
      
-    <div class="row">
-    	<div class="col col-md-10">
+    <div class="row facility-list">
+    	<div class="col col-md-12">
     	
 	<p id="notice"><%= notice %></p>
 	<% if @facilities.blank? %>
@@ -67,9 +67,6 @@
 	</table>
 	<br/>
 	<br/>
-	<br/>
-	<br/>
-    <br/>
    
     <% unless @facilities.empty? %>
   <%= will_paginate @facilities %>

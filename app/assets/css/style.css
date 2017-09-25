@@ -273,6 +273,7 @@ table tr td {
     width: 180px;
     height: 100%;
     position: fixed;
+    margin-left: -15px;
     background: #2E2E2E;
 }
 
@@ -4972,4 +4973,9 @@ span.customSelect.changed {
 table th.table-header{
     background-color: #2e2e2e;
     color: #fff;
+}
+
+.facility-list{
+    margin-left: -250px;
+    margin-right: -250px;
 }
