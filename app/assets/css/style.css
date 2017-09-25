@@ -10,12 +10,13 @@ Website: http://geekslabs.com/
 @import url(line-icons.css);
 
 body {
-    color: #797979;
+    color: #000;
     background: #eeeeee;
-    font-family: 'Lato', sans-serif;
+    font-family: "Times New Roman", Georgia, Serif;
+    /* 'Lato', sans-serif; */
     padding: 0px !important;
     margin: 0px !important;
-    font-size:14px !important;    
+    font-size:15px !important;    
 }
 h1,h2,h3,h4,h5{
     font-weight: 300;
@@ -33,7 +34,18 @@ a, a:hover, a:focus {
     outline: 0;
 }
 input:focus, textarea:focus { outline: none; }
-table tr th { color: #688a7e;}
+
+table tr th { 
+    color: #f7f7f7;
+    background-color: #2E2E2E;
+    text-transform: uppercase;
+
+}
+table tr td { 
+    color: #000;
+    
+
+}
 *:focus {outline: none;}
 ::selection {
     background: #688a7e;
@@ -261,6 +273,7 @@ table tr th { color: #688a7e;}
     width: 180px;
     height: 100%;
     position: fixed;
+    margin-left: -15px;
     background: #2E2E2E;
 }
 
@@ -4955,4 +4968,14 @@ span.customSelect.changed {
 }
 .customSelectInner {
     background:url(../img/customSelect-arrow.gif) no-repeat center right;
+}
+
+table th.table-header{
+    background-color: #2e2e2e;
+    color: #fff;
+}
+
+.facility-list{
+    margin-left: -250px;
+    margin-right: -250px;
 }
