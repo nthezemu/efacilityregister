@@ -34,6 +34,54 @@ Rails.application.routes.draw do
 
   get 'facilities/delete'
 
+  get 'services/new'
+
+  get 'services/list'
+
+  patch 'services/edit'
+  get  'services/edit'
+
+  get 'services/show'
+
+  put   'services/delete'
+
+  get   'services/delete'
+  patch 'services/update'
+
+
+  put 'resources/delete'
+  get 'resources/delete'
+
+  get 'resources/create'
+
+  get 'resources/list'
+
+
+  get 'resources/show'
+
+  get 'resources/edit'
+
+  patch 'resource/edit'
+  
+  patch 'resources/update'
+
+
+ put 'utilities/delete'
+
+  get 'utilities/create'
+
+  get 'utilities/list'
+
+
+  get 'utilities/show'
+
+  get 'utilities/edit'
+
+  patch 'utilities/edit'
+  
+  patch 'utilities/update'
+
+  get 'utilities/delete'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

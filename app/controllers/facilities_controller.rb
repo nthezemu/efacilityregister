@@ -13,6 +13,7 @@ class FacilitiesController < ApplicationController
       #@subjects = Subject.all
    end
 
+
    def create
       @facility = Facility.new(
         facility_id: params[:facility][:facility_id], 
@@ -73,6 +74,8 @@ class FacilitiesController < ApplicationController
       
    end
 
+   
+
    def show
     @facility = Facility.find_by_facility_id(params[:facility_id])
     facility_id = params[:facility_id]
@@ -128,6 +131,8 @@ class FacilitiesController < ApplicationController
     
     redirect_to :action => 'list'
    end
+
+   
    def edit
     @facility = Facility.find_by_facility_id(params[:facility_id])
     fac_id = params[:facility_id]
