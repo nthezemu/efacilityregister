@@ -17,7 +17,11 @@
                 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
                     <div class="info-box blue-bg">
                         <i class="fa fa-hospital-o"></i>
-                        <div class="count">4</div>
+                        <div class="count"> 
+                          <% if defined?@central_hospitals %>
+                          <%= @central_hospitals %>
+                          <% end %>
+                        </div>
                         <div class="title">Central Hospitals</div>                      
                     </div><!--/.info-box-->         
                 </div><!--/.col-->
@@ -25,7 +29,11 @@
                 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
                     <div class="info-box brown-bg">
                         <i class="fa fa-plus-circle"></i>
-                        <div class="count">28</div>
+                        <div class="count">
+                          <% if defined?@district_hospitals %>
+                          <%= @district_hospitals %>
+                          <% end %>
+                        </div>
                         <div class="title">District Hospitals</div>                     
                     </div><!--/.info-box-->         
                 </div><!--/.col-->  
@@ -33,7 +41,11 @@
                 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
                     <div class="info-box dark-bg">
                         <i class="fa fa-plus-square"></i>
-                        <div class="count">90</div>
+                        <div class="count">
+                          <% if defined?@hospitals %>
+                          <%= @hospitals %>
+                          <% end %>
+                        </div>
                         <div class="title">Hospitals</div>                      
                     </div><!--/.info-box-->         
                 </div><!--/.col-->
@@ -41,21 +53,33 @@
                 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
                     <div class="info-box green-bg">
                         <i class="fa fa-medkit"></i>
-                        <div class="count">511</div>
+                        <div class="count">
+                          <% if defined?@health_centres %>
+                          <%= @health_centres %>
+                          <% end %>
+                        </div>
                         <div class="title">Health Centres</div>                     
                     </div><!--/.info-box-->         
                 </div><!--/.col-->
                 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
                     <div class="info-box brown-bg">
                         <i class="fa fa-ambulance"></i>
-                        <div class="count">720</div>
-                        <div class="title">Clinics</div>                     
+                        <div class="count">
+                          <% if defined?@dispensaries %>
+                          <%= @dispensaries %>
+                          <% end %>
+                        </div>
+                        <div class="title">Dispensaries</div>                     
                     </div><!--/.info-box-->         
                 </div><!--/.col-->
                 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
                     <div class="info-box dark-bg">
                         <i class="fa fa-cubes"></i>
-                        <div class="count">1679</div>
+                        <div class="count">
+                            <% if defined?@allhealthfacilities %>
+                          <%= @allhealthfacilities %>
+                          <% end %>
+                        </div>
                         <div class="title">Health Facilities</div>                     
                     </div><!--/.info-box-->         
                 </div><!--/.col-->
