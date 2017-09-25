@@ -7,8 +7,7 @@ class Facility < ApplicationRecord
      :type_code, :status)      
  end
  
- def self.update_facility_details(facilityupdate_id)
-   	   self.find_by_facility_id(facilityupdate_id)	
-   end
- 
+ def self.update_facility_details(facility_id)
+   	   self.find_by_facility_id(facility_id)	
+ end
 end

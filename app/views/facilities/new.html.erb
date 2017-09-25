@@ -188,19 +188,19 @@
      </div>
      <div class="row">
         <div class="col col-md-1">Zone:</div>
-        <div class="col col-md-2"><%= select "facility_location", "zonename", [[ "Northern", "1"],["Central East", "2"],["Central West","3"],["South East","4"],["South West","5"]]%></div>
+        <div class="col col-md-2"><%= select "locationid",nil, [[ "Northern", "1"],["Central East", "2"],["Central West","3"],["South East","4"],["South West","5"]]%></div>
         <div class="col col-md-1">District:</div>
          <div class="col col-md-2 ">
         <%= select "districts", "districtname", [[ "Chitipa", "chitipa"],["Karonga", "karonga"],["Nkhata Bay","nkhata bay"],["Mzimba","mzimba"],["Kasungu","kasungu"],["Lilongwe","lilongwe"],["Mchinji","mchinji"],["Dedza","dedza"],["Ntcheu","ntcheu"]]%>
        </div>
        <div class="col col-md-1">Area:</div>
        <div class="col col-md-2 ">
-       <%= text_field 'location', 'area', class: 'form-control round-input' %>
+       <%= text_field_tag 'area', nil, class: 'form-control round-input' %>
               
        </div>
        <div class="col col-md-1">Population:</div>
        <div class="col col-md-2 ">
-       <%= text_field 'facility_location', 'population', class: 'form-control round-input' %>
+       <%= text_field_tag 'population', nil, class: 'form-control round-input' %>
         </div>
       </div>
     
@@ -219,7 +219,7 @@
         <% flag = 0 %>
         <% @resources.each do |r| %>
           <% if (flag == 0 || (numinrow%3)!=0) %>
-          <div class="col col-md-1"><%= check_box_tag 'resource[]', r.id%>
+          <div class="col col-md-1"><%= check_box_tag 'resources[]', r.id%>
           </div>
           <div class="col col-md-1"><%= r.name %>:</div>
           <div class="col col-md-1 ">
@@ -228,7 +228,7 @@
 
           <% else %>
         </div><div class="row"><br/>
-          <div class="col col-md-1"><%= check_box_tag 'resource[]', r.id%>
+          <div class="col col-md-1"><%= check_box_tag 'resources[]', r.id%>
           </div>
           <div class="col col-md-1"><%= r.name %>:</div>
           <div class="col col-md-1 ">
@@ -263,4 +263,4 @@
    </div>
  </div>
   
-</div>
+</div>-

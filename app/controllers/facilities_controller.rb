@@ -9,8 +9,6 @@ class FacilitiesController < ApplicationController
       @utility_name = Utility.find_by_sql("select distinct name from utilities")
       @services = Service.all
       @resources = Resource.all
-      #raise @utilities.inspect
-      #@subjects = Subject.all
    end
 
    def create
@@ -28,43 +26,19 @@ class FacilitiesController < ApplicationController
         longitude: params[:facility][:latitude],
         type_code: params[:facility][:type_code],
         status: params[:facility][:status])
+      facility_id = params[:facility][:facility_id]
 
       if @facility.save
          flash[:notice] = "facilicity has been created successfully"
-         #raise @facility.inspect
-         params[:utilities].each do |u|
-         @facility_utility = FacilityUtility.new(
-         facility_id: params[:facility][:facility_id], 
-         utility_id: u )
-          @facility_utility.save
-         end
-         params[:services].each do |s|
-         @facility_service = FacilityService.new(
-         facility_id: params[:facility][:facility_id], 
-         service_id: s )
-         @facility_service.save
-         end
-         #get the arrays
-         resources = params[:resource]
-         quantities = params[:quantity]
-         #raise resources.zip(quantities).inspect
-         resources.zip(quantities).each do |r,q|
-         #params[:resource].each do |r|
-          #resource = params[:quantity]
-          #raise resource.inspect
-         @facility_resource = FacilityResource.new(
-         facility_id: params[:facility][:facility_id], 
-         resource_id: r,
-         resource_quantity: q
-         )
-         @facility_resource.save
-         end
-         # save the location of the facility
-         @facility_location = FacilityLocation.new(
-         facility_id: params[:facility][:facility_id], 
-         location_id: params[:facility_location][:zonename],
-         population: params[:facility_location][:population])
-         @facility_location.save
+
+         FacilityUtility.create_utilities_details(facility_id,utility_params)
+
+         FacilityService.create_services_details(facility_id,service_params)
+
+         FacilityResource.create_resources_details(facility_id,resource_params)
+
+         FacilityLocation.create_locations_details(facility_id,location_params)
+        
          redirect_to :action => 'show', :facility_id => @facility.facility_id
       else
          #@subjects = Subject.all 
@@ -76,10 +50,8 @@ class FacilitiesController < ApplicationController
    def show
     @facility = Facility.find_by_facility_id(params[:facility_id])
     facility_id = params[:facility_id]
-    #raise facility_id.inspect
     @utility = Utility.find_by_sql("select u.name, u.provider from utilities u left join facility_utilities
        fu on u.id=fu.utility_id left join facilities f on fu.facility_id =f.facility_id where f.facility_id= '#{facility_id}'")
-   #raise @utility.inspect
 
     @service = Service.find_by_sql("select s.name from services s left join facility_services
        fs on s.id=fs.service_id left join facilities f on fs.facility_id =f.facility_id where f.facility_id= '#{facility_id}'")
@@ -147,33 +119,33 @@ class FacilitiesController < ApplicationController
 
    end
 
-   def update_facility_param
+   def facility_param
      Facility.get_facility_param(params)
    end
-   def upate_utility_params
+   def utility_params
       FacilityUtility.get_utilities_params(params)
    end
-   def upate_service_params
+   def service_params
       FacilityService.get_services_params(params)
    end
-   def upate_location_params
+   def location_params
       FacilityLocation.get_locations_params(params)
    end
-   def upate_resource_params
+   def resource_params
       FacilityResource.get_resources_params(params)
    end
    def update
-     @facility = Facility.update_facility_details(update_facility_param[:facility_id])
+     @facility = Facility.update_facility_details(facility_param[:facility_id])
 
-      FacilityUtility.update_utilities_details(update_facility_param[:facility_id],upate_utility_params)
+      FacilityUtility.update_utilities_details(facility_param[:facility_id],utility_params)
 
-      FacilityService.update_services_details(update_facility_param[:facility_id],upate_service_params)
+      FacilityService.update_services_details(facility_param[:facility_id],service_params)
       
-      FacilityLocation.update_locations_details(update_facility_param[:facility_id],upate_location_params)
+      FacilityLocation.update_locations_details(facility_param[:facility_id],location_params)
 
-      FacilityResource.update_resources_details(update_facility_param[:facility_id],upate_resource_params)
+      FacilityResource.update_resources_details(facility_param[:facility_id],resource_params)
 
-    if @facility.update_attributes(update_facility_param)
+    if @facility.update_attributes(facility_param)
       flash[:notice] = "facilicity has been updated successfully"
       redirect_to :action => 'show', :facility_id => @facility.facility_id
     else

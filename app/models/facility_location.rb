@@ -12,5 +12,16 @@ class FacilityLocation < ApplicationRecord
          population: locations[:population])
          @facility_location.save
          
-       end
+   end
+   def self.create_locations_details(facility_id,locations)
+   	 locationid = []
+   	 locationid = locations[:location_id]
+       #raise locationid[0].inspect
+       @facility_location = FacilityLocation.new(
+         facility_id: facility_id, 
+         location_id: locationid[0],
+         population: locations[:population])
+         @facility_location.save
+         
+   end
   end

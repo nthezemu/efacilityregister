@@ -14,4 +14,16 @@ class FacilityService < ApplicationRecord
          
        end
   end
+  def self.create_services_details(facility_id,services)
+  	  if(services.blank?)
+
+  	  else
+  	     services.each do |s|
+           @facility_service = FacilityService.new(
+           facility_id: facility_id, 
+           service_id: s )
+           @facility_service.save
+         end
+     end
+   end
 end
