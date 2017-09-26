@@ -1,65 +1,76 @@
+<!-- page start-->
+   
+      <section id="main-content">
+      <section class="wrapper">
+      <div class="row">
+      <div class="col-lg-12">
+      <h3 class="page-header"><i class="fa fa-search" style="color:#2edb67"></i>Search By Partner Organization</h3>
+      <ol class="breadcrumb">
+      <li><i class="fa fa-home"></i><a href="index.html">Dashboard</a></li>
+      <li><i class="fa fa-table"></i>Table</li>
+      <li><i class="fa fa-th-list"></i>Partner Organization</li>
+      </ol>
+      </div>
+      </div>
+              
 
 
- <div class="container">
-    <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-            <br/><br/><br/>
-            <h3><i class="fa fa-university">Search by Partner Organization</i></h3>
-            <div class="form-horizontal">
+      <div class="row">
+   
+   <div class="col-md-9 col-md-offset-3">
+    
+
+                              <div class="form-horizontal">
                                 <%= form_tag :action => 'search_by_partner_query' do %>
                               
                                <div class="row"> <br/>
-                               <div class="col col-md-3">
-                                 <label for = "partner_name"><h4>Organization :</h4>
-                                 </label>
-                               </div>
-                                         
-                                <div class="col col-md-6 ">
+                               <div class="col col-md-2">
+                        
+                               <button class="btn btn-success" data-label-placement><strong>Organization :</strong></button>
+                                 
+                                 
+                               </div>        
+                                <div class="col col-md-10 "><i class="fa fa-search">
                                 <%= select "partners", "partnername", [[ "USAID", "usaid"],["UNICEF", "unicef"],["UKAID","ukaid"],
-                                ["Concern Universal","concern universal"]]%>
+                                ["Concern Universal concern universal this is concern universal elongated","concern universal this is concern universal elongated"]]%></i>
                                </div>
 
                                  </div>
-                            
-                                 <div class="row"> <br/>
-                                 <div class="col col-md-3">
-                              
-                                 </div>
-                                <div class="col col-md-3">
-
-                                <%= submit_tag 'Search', class: 'btn btn-primary' %>
-                                   
-                                 </div>
-                               <div class="col col-md-2 btn btn-success">
-                              <a href="/facilities/index"><i class="fa fa-arrow-left">Back</i></a>
-                               </div>
-                             </div>      
-                              <% end %>
+ 
+                               <br/><br/>
+                              <div class="col col-md-8 col-sm-offset-1">
+                               <a class=" col col-md-3 btn btn-primary" href="#">
+                               <%= submit_tag 'search', class: 'btn btn-primary' %></a>
                               </div>
-                              <br/>
-                            <div class="row">
-                                <div class="col-md-4">
-                                
+                               </div>
+                               
+                               
 
-                                </div>
-                                <div class="col-md-4">
-                                    
-
-                                </div>
-                                <div class="col-md-4">
-                                
-
-                                </div>
+   
                             </div>
-                            <br/><br/><br/>
-                            
-                             <div class="panel-body">
-                              <button type="button" class="btn btn-primary btn-lg btn-block"><a href="/facilities/search_by_partner">Partner Organization</a></button>
-                              <button type="button" class="btn btn-danger btn-block"><a href="/facilities/searchbydistrict">Search by District</a></button>
-                              <button type="button" class="btn btn-success btn-block"><a href="/facilities/search_by_zone">Search by Zone</a></button>
-                          </div>
-        </div>
-        <div class="col-md-3"></div>
-    </div>
-</div>
+             <% end %>
+      
+    </div>  
+    <br/><br/>
+  
+
+
+    <br/><br/><br/><br/>
+   
+    <br/><br/><br/><br/>
+    <br/><br/><br/><br/>
+   
+   <br/><br/><br/><br/>
+
+
+    <br/><br/><br/><br/>
+   
+    <br/><br/><br/><br/>
+    <br/><br/><br/><br/>
+   
+   <br/><br/><br/><br/>
+
+                       
+
+   </div>
+</section>
