@@ -1,0 +1,6 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "facilities") do |sheet|
+  @facilities.each do |f|
+    sheet.add_row [f.facility_id, f.name, f.description,f.cell_location]
+  end
+end

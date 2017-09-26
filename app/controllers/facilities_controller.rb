@@ -121,6 +121,17 @@ class FacilitiesController < ApplicationController
         session.delete(:zone_name)
     end  
    end
+
+
+      respond_to do |format|
+        format.html
+        format.xlsx
+        format.pdf do
+          pdf = ReportPdf.new(@facilities)
+          send_data pdf.render, filename: 'report.pdf', type: 'application/pdf'
+        end
+        
+      end
    end
 
 
@@ -228,3 +239,77 @@ class FacilitiesController < ApplicationController
 
    end 
 end
+
+
+
+
+
+# class for creating pdf
+class ReportPdf < Prawn::Document
+  def initialize(facilities)
+    super()
+    @facilities = facilities
+    header
+    text_content
+    table_content
+  end
+
+  def header
+    #This inserts an image in the pdf file and sets the size of the image
+    image "#{Rails.root}/app/assets/images/malawiflag.png", width: 150, height: 100, :position => 150
+    text " "
+    text "List of Health facilities in Malawi", size: 15, style: :bold, :position => 150
+  end
+
+  def text_content
+    # The cursor for inserting content starts on the top left of the page. Here we move it down a little to create more space between the text and the image inserted above
+    y_position = cursor - 50
+
+    # The bounding_box takes the x and y coordinates for positioning its content and some options to style it
+    bounding_box([0, y_position], :width => 540, :height => 300) do
+      text "Health Facilities in Malawi", size: 15, style: :bold
+      text "Malawi has Health facilities ranging from Central hospitals to Clinics. Central Hospitals are the main referral facilities for district hospitals. Health centres make refferrals to district hospitals. The following list contains all of the health facilities that have been registered in the system"
+      text " "
+      text "CENTRAL HOSPITALS", size: 15, style: :bold
+      text "These are the main hospitals for refferrals"
+      text " "
+      text "DISTRICT HOSPITALS", size: 15, style: :bold
+      text "These are the main hospitals for districts"
+      text " "
+      text "HEALTH CENTRES", size: 15, style: :bold
+      text "These are health facilities that provide basic services to the community"
+      text " "
+      text "DISPENSARY", size: 15, style: :bold
+      text "These Provide less services than the Health centre and no admissions are made"
+      text " "
+
+      text "Below is the list of all the health facilities in Malawi", size: 15, style: :bold
+
+
+
+
+    end
+
+  end
+
+  def table_content
+    # This makes a call to product_rows and gets back an array of data that will populate the columns and rows of a table
+    # I then included some styling to include a header and make its text bold. I made the row background colors alternate between grey and white
+    # Then I set the table column widths
+    table product_rows do
+      row(0).font_style = :bold
+      self.header = true
+      self.row_colors = ['DDDDDD', 'FFFFFF']
+      self.column_widths = [100, 130, 130,130]
+    end
+  end
+
+  def product_rows
+    [['Facility ID', 'Name', 'Description','Cell Location']] +
+      @facilities.map do |f|
+      [f.facility_id, f.name, f.description,f.cell_location]
+    end
+  end
+end
+
+#end of class for creating pdf

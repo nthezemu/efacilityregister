@@ -36,6 +36,15 @@ gem 'jbuilder', '~> 2.5'
 #include a gem for pagination
 gem 'will_paginate'
 
+#include gem for printing pdf
+gem 'prawn'
+gem 'prawn-table'
+
+#include gem for creating excel file
+gem 'axlsx_rails'
+gem 'rubyzip', '= 1.0.0'
+gem 'axlsx', '= 2.0.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
