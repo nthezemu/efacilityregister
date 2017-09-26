@@ -126,9 +126,14 @@ class FacilitiesController < ApplicationController
       respond_to do |format|
         format.html
         format.xlsx
+
         format.pdf do
           pdf = ReportPdf.new(@facilities)
           send_data pdf.render, filename: 'report.pdf', type: 'application/pdf'
+        end
+        format.json do
+          data = @facilities.to_json
+          send_data data, :type => 'application/json; header=present', :disposition => "attachment; filename=facilities.json"
         end
         
       end
