@@ -7,6 +7,9 @@ class FacilityResource < ApplicationRecord
       end	
   end
   def self.update_resources_details(facility_id,resources)
+      if(resources.blank?)
+        self.where(facility_id: facility_id).delete_all
+      else
        self.where(facility_id: facility_id).delete_all
        resources.each do |rup,qup| 
          @facility_resource = FacilityResource.new(
@@ -15,6 +18,7 @@ class FacilityResource < ApplicationRecord
          resource_quantity: qup )
          @facility_resource.save       
        end
+      end
   end
   def self.create_resources_details(facility_id,resources)
   	 if(resources.blank?)

@@ -1,0 +1,15 @@
+<% if object && object.errors.size > 0%>
+<div id="errorExplanation" style="width:400px; padding: 0; margin: 0 auto 1.5em; border: 1px solid #4baa4a; background-color: #FFFFFF; font-size: 12px;">
+<h2 style="...">
+ <%= pluralize(object.errors.size, "error") %>" Your Record Not saved"</h2>
+ <p style="...">
+ Because There were problems with the following fields:</p>
+ <ul style="...">
+ 	<% object.errors.full_messages.each do |msg| %>
+ 	<li style="...">
+ 		<%= msg %>
+ 	</li>
+ 	<% end %>
+ </ul>
+</div>
+<% end %>
