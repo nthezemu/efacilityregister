@@ -2,7 +2,7 @@ class FacilitiesController < ApplicationController
 
   def index
     #check various types of health facilities
-    facilities = Facility.all
+    @facilities = Facility.all
     @central_hospitals = 0
     @health_centres = 0
     @hospitals = 0
@@ -10,7 +10,7 @@ class FacilitiesController < ApplicationController
     @dispensaries = 0
     @other = 0
 
-    facilities.each do |f|
+    @facilities.each do |f|
       case f.type_code
       when 'hospital'
         @hospitals += 1
