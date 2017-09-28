@@ -65,7 +65,7 @@
                 <ul class="nav top-menu">                    
                     <li>
                         <form class="navbar-form">
-                            <input id="mainsearch" class="form-control" placeholder="Search by facility name" type="text" onkeydown="showMenu('quicksearch')">
+                            <input id="mainsearch" class="form-control" placeholder="Search by facility name" type="text" onkeydown="showMenu('quicksearch')" autocomplete="off">
                         </form>
                         <!-- general search table -->
                          <!-- check if at all there are facilities in the database -->
@@ -183,11 +183,34 @@
                           
                       </a>
                       <ul class="sub">
-                          <li><a class="" href="/facilities/list?name=Surgery">Surgery (230)</a></li>                          
-                          <li><a class="" href="/facilities/list?name=Family Planning">Family Planning (720)</a></li>
-                          <li><a class="" href="/facilities/list?name=Maternity">Maternity (820)</a></li>                          
-                          <li><a class="" href="/facilities/list?name=Dental">Dental (500)</a></li>
-                          <li><a class="" href="/facilities/list">Other services</a></li>
+                          <li><a class="" href="/facilities/list?name=Surgery">Surgery (
+                               <% if defined?@surgery %>
+                               <%= @surgery  %> )
+                               <% end %>
+                                 
+                               </a>
+                          </li>                          
+
+                          <li><a class="" href="/facilities/list?name=Family Planning">Family Planning (
+                              <% if defined?@fp %>
+                               <%= @fp  %> )
+                               <% end %>
+                          </a></li>
+                          <li><a class="" href="/facilities/list?name=Maternity">Maternity (
+                              <% if defined?@maternity %>
+                               <%= @maternity  %> )
+                               <% end %>
+                          </a></li>                          
+                          <li><a class="" href="/facilities/list?name=Dental">Dental (
+                              <% if defined?@dental %>
+                               <%= @dental  %> )
+                               <% end %>
+                          </a></li>
+                          <li><a class="" href="/facilities/list">Other services (
+                                <% if defined?@other %>
+                               <%= @other  %> )
+                               <% end %>
+                          </a></li>
                       </ul>
                   </li>       
                   <li class="sub-menu">
@@ -210,7 +233,9 @@
                           
                       </a>
                       <ul class="sub">
-                          <li><a class="" href="/facilities/list">All facilities</a></li>
+                          <li><a class="" href="/facilities/list.pdf">All facilities (PDF)</a></li>
+                          <li><a class="" href="/facilities/list.xlsx">All facilities (Excel)</a></li>
+                          <li><a class="" href="/facilities/list.json">All facilities (Json)</a></li>
                           <li><a class="" href="buttons.html">selected facilities</a></li>                          
                          </ul>  
                   </li>
