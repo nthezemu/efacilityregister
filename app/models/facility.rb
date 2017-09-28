@@ -1,7 +1,7 @@
 class Facility < ApplicationRecord
 
-   #self.primary_key = 'facility_id'
-   #validates :facility_id,presence: true, :uniqueness => true
+   self.primary_key = 'facility_id'
+   validates :facility_id,presence: true, :uniqueness => true
    validates :name, presence: true
    validates :description, presence: true
    validates :cell_location, presence: true
@@ -11,6 +11,7 @@ class Facility < ApplicationRecord
    validates :phone_number, presence: true, :uniqueness => true
 
  def self.get_facility_param(params)
+ 
    	 params.require(:facility).permit(:facility_id, :name,
      :description, :cell_location, :closing_date,
      :opening_date, :parent_facility, 

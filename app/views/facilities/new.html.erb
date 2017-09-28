@@ -16,7 +16,7 @@
        <div class="col col-md-4 ">
          <%= text_field 'facility', 'facility_id', class: 'form-control round-input' %>
        </div>
-           
+
           <div class="col col-md-2">
          <label for = "name">Facility Name:</label>
        </div>
@@ -89,12 +89,9 @@
 
 
     <div class="row"> <br/>
-        <div class="col col-md-2">
-         <label for = "type_code">Ownership:</label>
-       </div>
-       <div class="col col-md-4 ">
-       <%= text_field 'facility', 'type_code', class: 'form-control round-input' %>
-              
+        <div class="col col-md-2">Facility type:</div>
+         <div class="col col-md-4 ">
+        <%= select "typename", nil, [["Clinic","clinic"],[ "Dispensary", "dispensary"],["Health Centre", "health centre"],["District Hospital","district hospital"],["Central Hospital","central hospital"]]%>
        </div>
         <div class="col col-md-2">
          <label for = "email_address">Email address:</label>
@@ -138,17 +135,16 @@
           
           <div class="col col-md-1"><%= check_box_tag 'utilities[]', u.id %></div>
           <div class="col col-md-3"><%= u.provider %></div>
-
-        <% end %>
-        <% else %>
-          </div><div class="row">
-        <% end %>
+           <% end %>
+          <% end %>
+      <!-- increment the number of items in a row and the flag-->
         <% numinrow += 1 %>
         <% flag = 1 %>
-      <% end %>
-     <% end %>
-     </div>
-     <% end %>
+          <% end %><!-- utilities loop ends here -->
+       </div>
+     <% end %><!-- utility name loop ends here -->
+     
+     <% end %><!-- if blank  ends here -->
 
     
     <% if @services.blank? %>
@@ -220,10 +216,10 @@
         <% flag = 0 %>
         <% @resources.each do |r| %>
           <% if (flag == 0 || (numinrow%3)!=0) %>
-          <div class="col col-md-1"><%= check_box_tag 'resources[]', r.id, :id =>"rid", :onclick =>"loadme()" %>
+          <div class="col col-md-1"><%= check_box_tag 'resources[]', r.id %>
           </div>
           <div class="col col-md-1"><%= r.name %>:</div>
-          <div class="col col-md-1 " id="q" style="visibility: hidden;">
+          <div class="col col-md-1 ">
           <%= text_field_tag 'quantity[]',nil ,class: 'form-control round-input'  %>     
           </div>
 

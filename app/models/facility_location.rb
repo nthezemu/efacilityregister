@@ -6,7 +6,6 @@ class FacilityLocation < ApplicationRecord
   end
   def self.update_locations_details(facility_id,locations)
        self.where(facility_id: facility_id).delete_all
-       #raise locations[:location_id].inspect
        @facility_location = FacilityLocation.new(
          facility_id: facility_id, 
          location_id: locations[:location_id],
@@ -17,7 +16,6 @@ class FacilityLocation < ApplicationRecord
    def self.create_locations_details(facility_id,locations)
    	 locationid = []
    	 locationid = locations[:location_id]
-       #raise locationid[0].inspect
        @facility_location = FacilityLocation.new(
          facility_id: facility_id, 
          location_id: locationid[0],

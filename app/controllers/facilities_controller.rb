@@ -17,6 +17,9 @@ class FacilitiesController < ApplicationController
 
 
    def create
+      type_name = []
+      type_name = params[:typename]
+      type_name_value = type_name[0]
       @facility = Facility.new(
         facility_id: params[:facility][:facility_id], 
         name: params[:facility][:name], 
@@ -29,9 +32,10 @@ class FacilitiesController < ApplicationController
         phone_number: params[:facility][:phone_number],
         latitude: params[:facility][:longitude],
         longitude: params[:facility][:latitude],
-        type_code: params[:facility][:type_code],
+        type_code: type_name_value,
         status: params[:facility][:status])
       facility_id = params[:facility][:facility_id]
+
       
 
       if @facility.save
@@ -110,10 +114,6 @@ class FacilitiesController < ApplicationController
     
     redirect_to :action => 'list'
    end
-   def get_dependencies_for_a_particular_facility
-     
-   end
-
    
    def edit
     
