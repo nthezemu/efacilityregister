@@ -5,6 +5,10 @@ class FacilitiesController < ApplicationController
   
    def new
       @facility = Facility.new
+       get_dependencies
+      
+   end
+   def get_dependencies
       @utilities = Utility.all
       @utility_name = Utility.find_by_sql("select distinct name from utilities")
       @services = Service.all
@@ -13,6 +17,9 @@ class FacilitiesController < ApplicationController
 
 
    def create
+      type_name = []
+      type_name = params[:typename]
+      type_name_value = type_name[0]
       @facility = Facility.new(
         facility_id: params[:facility][:facility_id], 
         name: params[:facility][:name], 
@@ -25,9 +32,11 @@ class FacilitiesController < ApplicationController
         phone_number: params[:facility][:phone_number],
         latitude: params[:facility][:longitude],
         longitude: params[:facility][:latitude],
-        type_code: params[:facility][:type_code],
+        type_code: type_name_value,
         status: params[:facility][:status])
       facility_id = params[:facility][:facility_id]
+
+      
 
       if @facility.save
          flash[:notice] = "facilicity has been created successfully"
@@ -42,8 +51,9 @@ class FacilitiesController < ApplicationController
         
          redirect_to :action => 'show', :facility_id => @facility.facility_id
       else
-         #@subjects = Subject.all 
-         render :action => 'create'
+         get_dependencies
+         render :action => 'new'
+
       end
       
    end
@@ -79,7 +89,8 @@ class FacilitiesController < ApplicationController
       particular_value = params[:name]
       @specific_name = params[:name]
        @facilities = Facility.find_by_sql("select f.name,f.facility_id,f.description,f.cell_location from facilities f left join facility_services
-       fs on f.facility_id=fs.facility_id left join services s on fs.service_id =s.id where s.name = '#{particular_value}'").paginate(:page => params[:page], :per_page => 10)
+       fs on f.facility_id=fs.facility_id left join services s on fs.service_id =s.id where s.name = '#{particular_value}'")
+       #.paginate(:page => params[:page], :per_page => 10)
 
     else
     zonevalue = session[:zone_name]
@@ -103,25 +114,24 @@ class FacilitiesController < ApplicationController
     
     redirect_to :action => 'list'
    end
-
    
    def edit
+    
     @facility = Facility.find_by_facility_id(params[:facility_id])
-    fac_id = params[:facility_id]
+     facility_id = params[:facility_id]
 
-    @utility_name = Utility.find_by_sql("select distinct name from utilities")
-    @facility_utilities = FacilityUtility.find_by_sql("select facility_id,utility_id from facility_utilities where facility_id = '#{fac_id}'")
+     @utility_name = Utility.find_by_sql("select distinct name from utilities")
+     @facility_utilities = FacilityUtility.find_by_sql("select facility_id,utility_id from facility_utilities where facility_id = '#{facility_id}'")
       @utilities = Utility.all
 
-    @facility_services = FacilityService.find_by_sql("select facility_id,service_id from facility_services where facility_id = '#{fac_id}'")
+    @facility_services = FacilityService.find_by_sql("select facility_id,service_id from facility_services where facility_id = '#{facility_id}'")
       @services = Service.all
 
-    @facility_resources = FacilityResource.find_by_sql("select facility_id,resource_id,resource_quantity from facility_resources where facility_id = '#{fac_id}'")
+    @facility_resources = FacilityResource.find_by_sql("select facility_id,resource_id,resource_quantity from facility_resources where facility_id = '#{facility_id}'")
       @resources = Resource.all
 
-    @facility_locations = FacilityLocation.find_by_sql("select facility_id,location_id,population from facility_locations where facility_id = '#{fac_id}'")
+    @facility_locations = FacilityLocation.find_by_sql("select facility_id,location_id,population from facility_locations where facility_id = '#{facility_id}'")
       @locations = Location.all
-
    end
 
    def facility_param
@@ -141,7 +151,9 @@ class FacilitiesController < ApplicationController
    end
    def update
      @facility = Facility.update_facility_details(facility_param[:facility_id])
-
+      
+    if @facility.update_attributes(facility_param)
+      flash[:notice] = "facilicity has been updated successfully"
       FacilityUtility.update_utilities_details(facility_param[:facility_id],utility_params)
 
       FacilityService.update_services_details(facility_param[:facility_id],service_params)
@@ -149,12 +161,25 @@ class FacilitiesController < ApplicationController
       FacilityLocation.update_locations_details(facility_param[:facility_id],location_params)
 
       FacilityResource.update_resources_details(facility_param[:facility_id],resource_params)
-
-    if @facility.update_attributes(facility_param)
-      flash[:notice] = "facilicity has been updated successfully"
       redirect_to :action => 'show', :facility_id => @facility.facility_id
     else
-      redirect_to :action => 'edit', :facility_id => @facility.facility_id
+      #get_dependencies_for_a_particular_facility
+    @facility = Facility.find_by_facility_id(facility_param[:facility_id])
+     facility_id = facility_param[:facility_id]
+
+     @utility_name = Utility.find_by_sql("select distinct name from utilities")
+     @facility_utilities = FacilityUtility.find_by_sql("select facility_id,utility_id from facility_utilities where facility_id = '#{facility_id}'")
+      @utilities = Utility.all
+
+    @facility_services = FacilityService.find_by_sql("select facility_id,service_id from facility_services where facility_id = '#{facility_id}'")
+      @services = Service.all
+
+    @facility_resources = FacilityResource.find_by_sql("select facility_id,resource_id,resource_quantity from facility_resources where facility_id = '#{facility_id}'")
+      @resources = Resource.all
+
+    @facility_locations = FacilityLocation.find_by_sql("select facility_id,location_id,population from facility_locations where facility_id = '#{facility_id}'")
+      @locations = Location.all
+      render :action => 'edit', :facility_id => @facility.facility_id
     end
      
    end
