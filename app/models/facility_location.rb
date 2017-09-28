@@ -1,4 +1,5 @@
 class FacilityLocation < ApplicationRecord
+     validates :population, presence: true, numericality: true
   def self.get_locations_params(params)
   	  
   	  locations = {location_id: params[:locationid], area: params[:area],population: params[:population]}	

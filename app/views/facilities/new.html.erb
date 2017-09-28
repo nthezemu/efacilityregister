@@ -7,15 +7,16 @@
      <h3 class="col-md-offset-4"><strong>Enter Facility Details</strong></h3>
 
     <div class="form-horizontal">
-      <%= form_tag :name => "register",:action => 'create', :html => { :onsubmit => "validateForm()" } do %>
-      
+      <%= form_tag  :action => 'create' do %>
+
     <div class="row"> <br/>
        <div class="col col-md-2">
          <label for = "facility_id">Facility Id:</label>
        </div>
        <div class="col col-md-4 ">
-         <%= text_field 'facility', 'facility_id', class: 'form-control round-input'%>
-       </div>           
+         <%= text_field 'facility', 'facility_id', class: 'form-control round-input' %>
+       </div>
+           
           <div class="col col-md-2">
          <label for = "name">Facility Name:</label>
        </div>
@@ -219,11 +220,11 @@
         <% flag = 0 %>
         <% @resources.each do |r| %>
           <% if (flag == 0 || (numinrow%3)!=0) %>
-          <div class="col col-md-1"><%= check_box_tag 'resources[]', r.id%>
+          <div class="col col-md-1"><%= check_box_tag 'resources[]', r.id, :id =>"rid", :onclick =>"loadme()" %>
           </div>
           <div class="col col-md-1"><%= r.name %>:</div>
-          <div class="col col-md-1 ">
-          <%= text_field_tag 'quantity[]',nil, class: 'form-control round-input'  %>     
+          <div class="col col-md-1 " id="q" style="visibility: hidden;">
+          <%= text_field_tag 'quantity[]',nil ,class: 'form-control round-input'  %>     
           </div>
 
           <% else %>
@@ -250,9 +251,10 @@
          
        </div>
        <div class="col col-md-4">
-      <%= submit_tag 'Create', class: 'btn btn-primary',:onclick => "validateForm();" %>
+      <%= submit_tag 'Create', class: 'btn btn-primary' %>
               
        </div>
+
        <div class="col col-md-1 btn btn-warning">
       <a href="">Cancel</a>
               
@@ -265,4 +267,11 @@
   
 </div>-
 
-<script src="/assets/validation.js"></script>
+<script type="text/javascript">
+  
+  function loadme()
+        {
+          alert("hello i have loaded");
+            
+        }   
+</script>
