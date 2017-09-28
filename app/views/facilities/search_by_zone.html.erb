@@ -4,7 +4,7 @@
       <section class="wrapper">
       <div class="row">
       <div class="col-lg-12">
-      <h3 class="page-header"><i class="fa fa-search" style="color:#2edb67"></i>Search By Facility Zone</h3>
+      <h3 class="page-header"><i class="fa fa-search" style="color:#2edb67"></i><strong>Search By Facility Zone </strong></h3>
       <ol class="breadcrumb">
       <li><i class="fa fa-home"></i><a href="index.html">Dashboard</a></li>
       <li><i class="fa fa-table"></i>Table</li>
@@ -13,20 +13,16 @@
       </div>
       </div>
        <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-              
-                 
-      <div class="row">
+    
    
    
-    <br/><br/>
+       <br/><br/>
   
  
                        <div class="col-lg-4 col-lg-offset-3" style="background: #d2d2d2;">
                       <section class="panel">
                           <header class="panel-heading" style="background:; font-size:17px; color:#000000;">
-                           <i class="fa fa-bank"></i>   PARTNER ORGANIZATION
+                           <i class="fa fa-globe"></i>  FACILITY ZONE
                           </header>
                           <div class="list-group" style="background:#d2d2d2; ">
 
@@ -37,7 +33,7 @@
                                <div class="row" style="background:"> <br/>
                                <div class="col col-md-2" style="font-size:17px;">
                               <label>
-                               <strong>Organization: </strong>
+                               <strong>Facility Zone: </strong>
                                  </label>
                                </div> 
 
@@ -45,8 +41,10 @@
 
                                 <div class="col col-md-4 " style="">
                                 
-                                <%= select "partners", "partnername", [[ "USAID", "usaid"],["UNICEF", "unicef"],["UKAID","ukaid"],
-                                ["this is an NGO in malawi",""]]%>
+                                 <%= select "zones", "zonename", [[ "Northern", "nothern"],["Central East", "central east"],
+                                ["Central West","central west"],
+                                ["Mkondezi zone","mkondezi zone"]]%>
+                               
                                </div>
 
                           
@@ -54,7 +52,9 @@
                                <br/><br/><br/>
                               <div class="col col-md-3 col-sm-offset-4" style="font-size:23px; color: ">
                                
-                               <i class="fa fa-search"><%= submit_tag 'search', class: 'btn btn-primary ' %></i>
+                               <%= submit_tag 'search', class: 'btn btn-primary ' %> <a class="btn btn-danger" href="/facilities/index">
+                              Back</a>
+                             
                              
 
                               <br/><br/><br/><br/>
