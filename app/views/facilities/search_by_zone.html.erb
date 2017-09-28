@@ -16,54 +16,63 @@
         <div class="col-md-3"></div>
         <div class="col-md-6">
               
-                  <div class="form-horizontal">
-                                <%= form_tag :action => 'search_by_zone_query' do %>
+                 
+      <div class="row">
+   
+   
+    <br/><br/>
+  
+ 
+                       <div class="col-lg-4 col-lg-offset-3" style="background: #d2d2d2;">
+                      <section class="panel">
+                          <header class="panel-heading" style="background:; font-size:17px; color:#000000;">
+                           <i class="fa fa-bank"></i>   PARTNER ORGANIZATION
+                          </header>
+                          <div class="list-group" style="background:#d2d2d2; ">
+
+
+                               <div class="form-horizontal" style="">
+                                <%= form_tag :action => 'search_by_partner_query' do %>
                               
-                               <div class="row"> <br/>
-                               <div class="col col-md-3">
-                              <button class="btn btn-success" data-label-placement><i class="fa fa-globe"> Facility Zone:</i></button>
-                               </div>
-                                         
-                                <div class="col col-md-6 ">
-                                <%= select "zones", "zonename", [[ "Northern", "nothern"],["Central East", "central east"],
-                                ["Central West","central west"],
-                                ["Mkondezi zone","mkondezi zone"]]%>
+                               <div class="row" style="background:"> <br/>
+                               <div class="col col-md-2" style="font-size:17px;">
+                              <label>
+                               <strong>Organization: </strong>
+                                 </label>
+                               </div> 
+
+                                <div class="col col-md-2"> </div>
+
+                                <div class="col col-md-4 " style="">
+                                
+                                <%= select "partners", "partnername", [[ "USAID", "usaid"],["UNICEF", "unicef"],["UKAID","ukaid"],
+                                ["this is an NGO in malawi",""]]%>
                                </div>
 
-                                 </div>
-                            
-                                 <div class="row"> <br/>
-                                 <div class="col col-md-3">
+                          
+ 
+                               <br/><br/><br/>
+                              <div class="col col-md-3 col-sm-offset-4" style="font-size:23px; color: ">
+                               
+                               <i class="fa fa-search"><%= submit_tag 'search', class: 'btn btn-primary ' %></i>
+                             
+
+                              <br/><br/><br/><br/>
+                              </div>
+                               </div>
+                               
+                                </div>
+                       <% end %>
+      
+               </div>  
                               
-                                 </div>
-                               
-                                <div class="col col-md-8 col-sm-offset-2">
-                               <a class=" col col-md-2 btn btn-primary" href="#">
-                               <%= submit_tag 'search', class: 'btn btn-primary' %></a>
-                               </div>
-                               
-                             </div>      
-                              <% end %>
-                            </div>
-                            <br/>
-                            <div class="row">
-                                <div class="col-md-4">
-                                
 
-                                </div>
-                                <div class="col-md-4">
-                                    
+         
 
-                                </div>
-                                <div class="col-md-4">
-                                
 
-                                </div>
-                            </div>
-                            <br/><br/><br/>
-                            
-                            
-        </div>
-        <div class="col-md-3"></div>
-    </div>
-</div>
+
+                          </div>
+                      </section>
+                  </div>
+              </div>
+

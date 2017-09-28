@@ -8,26 +8,23 @@
       <section id="main-content">
           <section class="wrapper">
       <div class="row">
-        <div class="col-lg-12">
-         <h3 class="page-header"><i class="fa fa-hospital-o" style="color:#2edb67"></i>Facility Details</h3>
-        <ol class="breadcrumb">
-        <li><i class="fa fa-home"></i><a href="index.html">Dashboard</a></li>
-        <li><i class="fa fa-table"></i>Table</li>
-        <li><i class="fa fa-th-list"></i>Facility details</li>
-        </ol>
-        </div>
+      <div class="col-lg-12">
+      <h3 class="page-header" style="color:#424443;"><i class="fa fa-hospital-o" style="color:#2edb67"></i><strong>Facility Details </strong></h3>
+      <ol class="breadcrumb">
+      <li><i class="fa fa-home"></i><a href="index.html">Dashboard</a></li>
+      <li><i class="fa fa-table"></i>Table</li>
+      <li><i class="fa fa-th-list"></i>Facility details</li>
+      </ol>
+      </div>
       </div>
               <!-- page start-->
             
    <div class="row">
-                 
 
-
-
-  <div class="col col-md-offset-0 col-md-4">
+  <div class="col col-md-3" style="background-color: #fff;">
 
   <fieldset style="">
-  <table style="" cellpadding="10" cellspacing="5">
+  <table style="" cellpadding="10" cellspacing="5" color:#ffffff;>
     <tr>
       <td colspan="3">
       </td>
@@ -36,8 +33,7 @@
   <tr><td colspan="3" >
     
 
-    <h5 style="float: left; height:4px;"><i class="fa fa-hospital-o"> Facility Details</i></h5>
-
+    <h5 style=" float: left; height:4px; font-size:17px;" ><i class="fa fa-hospital-o" style="color:#2edb67"></i> Facility Details</h5>
     </td>
     </tr>
 
@@ -61,7 +57,7 @@
         :
       </td>
       <td>
-       <%= @facility.name %>
+     <strong> <%= @facility.name %></strong>
       </td>
     </tr>
 
@@ -73,7 +69,7 @@
         :
       </td>
       <td>
-       <%= @facility.description %>
+     <strong ><%= @facility.description %></strong> 
       </td>
     </tr>
 
@@ -86,7 +82,7 @@
         :
       </td>
       <td>
-        <%= @facility.cell_location %>
+    <strong><%= @facility.cell_location %></strong>
       </td>
     </tr>
     <tr >
@@ -97,7 +93,7 @@
         :
       </td>
       <td>
-        <%= @facility.opening_date %>
+     <strong><%= @facility.opening_date %></strong>
       </td>
     </tr>
 
@@ -109,7 +105,7 @@
         :
       </td>
       <td>
-        <%= @facility.closing_date %>
+     <strong><%= @facility.closing_date %></strong>
       </td>
     </tr>
     <tr >
@@ -120,7 +116,7 @@
         :
       </td>
       <td>
-        <%= @facility.parent_facility %>
+  <strong><%= @facility.parent_facility %></strong>
       </td>
     </tr>
     <tr >
@@ -131,7 +127,7 @@
         :
       </td>
       <td>
-        <%= @facility.email_address %>
+    <strong> <%= @facility.email_address %></strong>
       </td>
     </tr>
     <tr >
@@ -142,7 +138,7 @@
         :
       </td>
       <td>
-        <%= @facility.phone_number %>
+   <stromg> <%= @facility.phone_number %></stromg>
       </td>
     </tr>
     <tr >
@@ -153,7 +149,7 @@
         :
       </td>
       <td>
-        <%= @facility.type_code %>
+   <strong> <%= @facility.type_code %></strong>
       </td>
     </tr>
     <tr >
@@ -164,47 +160,62 @@
       :
       </td>
       <td>
-        <%= @facility.status %>
+    <strong> <%= @facility.status %></strong> 
       </td>
      
       </tr>
       <tr><td> <br/></td></tr>
       </table>
     
-<table style="margin: auto;" cellpadding="10" cellspacing="5">
- <h5><i class="fa fa-flash"> Utilities </i></h5>
-<tr style=""><td colspan="3" >
-   
-    </td>
+    <table style="" cellpadding="10" cellspacing="5" color:#ffffff;>
+    <tr>
+      <td colspan="3">
+      </td>
     </tr>
 
-    <% @utility.each do |u| %>
-      <tr style="background-color:">
-      <td><strong><%= u.name %></strong></td>
+  <tr><td colspan="3" >
+    
+
+    <h5 style=" float: left; height:4px; font-size:17px;" ><i class="fa fa-hospital-o" style="color:#2edb67"></i> Facility Utilities</h5>
+    </td>
+    </tr>
+<% @utility.each do |u| %>
+    <tr >
+      <td>
+      <strong>Utility:</strong>
+      </td>
       <td>
         :
       </td>
       <td>
-        <strong><%= u.provider %></strong>
+      <%= u.name %>
+      </td>
+      </tr>
+
+      <tr >
+      <td>
+      <strong> Provider:</strong>
+      </td>
+      <td>
+        :
+      </td>
+      <td>
+     <strong> <%= u.provider %></strong>
       </td>
     </tr>
-
-    <% end %>
-     <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-     <tr><td class="col col-md-1 btn btn-info"><%= link_to 'Back', {:action => 'list'} %></td>
-        
-      
-           
-       </div></tr>
+    </tr>
+    <% end -%>
      
+      </tr>
+      </table>
 
-  </table>
 
 
-  </fieldset>
+
+
 </div>
 
-<div class="col col-md-offset-2s col-md-4">
+<div class="col col-md-3" style="background: #ffffff;">
 
 <div class="row">
 <table style="margin: auto;" cellpadding="10" cellspacing="5">
@@ -215,7 +226,7 @@
     </td>
     </tr>
     <tr><td colspan="3" >
-    <h5 style="float: left; height:4px;"><i class="fa fa-globe">Services</i></h5>
+    <h5 style="float: left; height:4px; font-size: 17px;"><i class="fa fa-globe" style="color:#2edb67"></i> Services</h5>
     </td>
     </tr>
      <% @service.each do |s| %>
@@ -233,7 +244,7 @@
     </table><br/>
     <table style="margin: auto;" cellpadding="10" cellspacing="5">
     <tr><td colspan="3" >
-    <h5 style="float: left; height:4px;">Resources</h5>
+    <h5 style="float: left; height:4px; font-size: 17px;"> <i class="fa fa-ambulance" style="color:#2edb67";></i> Resources</h5>
     </td>
     </tr>
     <% if @resource.blank? %>
@@ -259,7 +270,7 @@
     </table><br/>
     <table style="margin: auto;" cellpadding="10" cellspacing="5">
     <tr><td colspan="3" >
-    <h5 style="float: left; height:4px;"><i class=" fa fa-globe">Location</i></h5>
+    <h5 style="float: left; height:4px; font-size:17px;"><i class=" fa fa-globe" style="color:#2edb67; "></i> Location</h5>
     </td>
     </tr>
 
@@ -316,17 +327,36 @@
     <% end -%>
     <% end %>
     </tr>
-
     </table>
+    <br/><br>
+   
+
+
+
+   
+
+  <div class=" col col-md-6 col-md-offset-3 btn-group" data-toggle="buttons">
+              <label class="btn btn-success"><i class="fa fa-backward" href="/facilities/list"></i>
+               <input type="checkbox"> Back
+                  </label>
+        <label class="btn btn-primary ">
+                <input type="checkbox"><i class="fa fa-home"href=""></i> Dashboard
+                  </label>
+                
+                   </div>
+  <br/><br/> <br/><br/>
+  <br/><br/> <br/><br/>
 </div>
 </div>
+<div class="col col-md-1">
+
+</div>
 
 
-
-<div class="col col-md-offset- col-md-4">
+<div class="col col-md-offset- col-md-5" >
   <form id="form1" >
   
-     <div id="map1" style="width: 500px; height: 500px"></div>
+     <div id="map1" style="width: 840px; height: 500px"></div>
      <script type="text/javascript">
 
      var latitude = <%= @facility.longitude %>
@@ -364,12 +394,7 @@ function myMap() {
           </section>
       </section>
 
-       <div class="col col-md-4">
-      <%= submit_tag 'update', class: 'btn btn-primary' %>       
-      </div>
 
-      <div class="col col-md-1 btn btn-success"><i class="fa fa-backward" style="color:blue">
-      <a href="/facilities/index">&nbsp; Back </i></a>
     
       <!--main content end-->
   </section>

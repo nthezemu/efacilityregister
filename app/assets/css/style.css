@@ -16,7 +16,8 @@ body {
     /* 'Lato', sans-serif; */
     padding: 0px !important;
     margin: 0px !important;
-    font-size:15px !important;    
+    font-size:15px !important; 
+
 }
 h1,h2,h3,h4,h5{
     font-weight: 300;
@@ -562,7 +563,7 @@ a.logo {
     font: italic bold 18px/40px Georgia, serif;
     color: #D8D8D8;
     float: left;
-    padding-left: 100px;
+    padding-left: 10px;
     margin-top: 15px;
     text-transform: uppercase;
     min-width: 600px;
