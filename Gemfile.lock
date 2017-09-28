@@ -212,11 +212,8 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   byebug
   capybara (~> 2.13)
-<<<<<<< HEAD
   chartkick
-=======
   client_side_validations
->>>>>>> 081250601f865449efe32c282f7c35abb9dafde5
   coffee-rails (~> 4.2)
   groupdate
   jbuilder (~> 2.5)
